@@ -1,0 +1,4 @@
+aas-core3-0-cpp provides CMake targets:
+
+find_package(aas_core3 CONFIG REQUIRED)
+target_link_libraries(main PRIVATE aas_core3::aas_core3)
