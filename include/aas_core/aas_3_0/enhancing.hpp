@@ -7875,10 +7875,8 @@ std::shared_ptr<types::IExtension> WrapExtension(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -7909,10 +7907,8 @@ std::shared_ptr<types::IExtension> WrapExtension(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -7943,18 +7939,14 @@ std::shared_ptr<types::IExtension> WrapExtension(
     }
 
     that->set_refers_to(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -8013,10 +8005,8 @@ std::shared_ptr<types::IAdministrativeInformation> WrapAdministrativeInformation
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8036,18 +8026,14 @@ std::shared_ptr<types::IAdministrativeInformation> WrapAdministrativeInformation
     );
 
     that->set_creator(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -8095,10 +8081,8 @@ std::shared_ptr<types::IQualifier> WrapQualifier(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8129,10 +8113,8 @@ std::shared_ptr<types::IQualifier> WrapQualifier(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8152,18 +8134,14 @@ std::shared_ptr<types::IQualifier> WrapQualifier(
     );
 
     that->set_value_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -8222,10 +8200,8 @@ std::shared_ptr<types::IAssetAdministrationShell> WrapAssetAdministrationShell(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8256,10 +8232,8 @@ std::shared_ptr<types::IAssetAdministrationShell> WrapAssetAdministrationShell(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8290,10 +8264,8 @@ std::shared_ptr<types::IAssetAdministrationShell> WrapAssetAdministrationShell(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8313,10 +8285,8 @@ std::shared_ptr<types::IAssetAdministrationShell> WrapAssetAdministrationShell(
     );
 
     that->set_administration(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8347,10 +8317,8 @@ std::shared_ptr<types::IAssetAdministrationShell> WrapAssetAdministrationShell(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8370,20 +8338,16 @@ std::shared_ptr<types::IAssetAdministrationShell> WrapAssetAdministrationShell(
     );
 
     that->set_derived_from(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   that->set_asset_information(
-    std::move(
-      Wrap<E>(
-        that->asset_information(),
-        factory
-      )
+    Wrap<E>(
+      that->asset_information(),
+      factory
     )
   );
 
@@ -8413,18 +8377,14 @@ std::shared_ptr<types::IAssetAdministrationShell> WrapAssetAdministrationShell(
     }
 
     that->set_submodels(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -8483,10 +8443,8 @@ std::shared_ptr<types::IAssetInformation> WrapAssetInformation(
     }
 
     that->set_specific_asset_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8506,18 +8464,14 @@ std::shared_ptr<types::IAssetInformation> WrapAssetInformation(
     );
 
     that->set_default_thumbnail(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -8553,9 +8507,7 @@ std::shared_ptr<types::IResource> WrapResource(
   // No properties to be recursively enhanced.
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -8603,10 +8555,8 @@ std::shared_ptr<types::ISpecificAssetId> WrapSpecificAssetId(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8637,10 +8587,8 @@ std::shared_ptr<types::ISpecificAssetId> WrapSpecificAssetId(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8660,18 +8608,14 @@ std::shared_ptr<types::ISpecificAssetId> WrapSpecificAssetId(
     );
 
     that->set_external_subject_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -8730,10 +8674,8 @@ std::shared_ptr<types::ISubmodel> WrapSubmodel(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8764,10 +8706,8 @@ std::shared_ptr<types::ISubmodel> WrapSubmodel(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8798,10 +8738,8 @@ std::shared_ptr<types::ISubmodel> WrapSubmodel(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8821,10 +8759,8 @@ std::shared_ptr<types::ISubmodel> WrapSubmodel(
     );
 
     that->set_administration(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8844,10 +8780,8 @@ std::shared_ptr<types::ISubmodel> WrapSubmodel(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8878,10 +8812,8 @@ std::shared_ptr<types::ISubmodel> WrapSubmodel(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8912,10 +8844,8 @@ std::shared_ptr<types::ISubmodel> WrapSubmodel(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8946,10 +8876,8 @@ std::shared_ptr<types::ISubmodel> WrapSubmodel(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -8980,18 +8908,14 @@ std::shared_ptr<types::ISubmodel> WrapSubmodel(
     }
 
     that->set_submodel_elements(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -9050,10 +8974,8 @@ std::shared_ptr<types::IRelationshipElement> WrapRelationshipElement(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9084,10 +9006,8 @@ std::shared_ptr<types::IRelationshipElement> WrapRelationshipElement(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9118,10 +9038,8 @@ std::shared_ptr<types::IRelationshipElement> WrapRelationshipElement(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9141,10 +9059,8 @@ std::shared_ptr<types::IRelationshipElement> WrapRelationshipElement(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9175,10 +9091,8 @@ std::shared_ptr<types::IRelationshipElement> WrapRelationshipElement(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9209,10 +9123,8 @@ std::shared_ptr<types::IRelationshipElement> WrapRelationshipElement(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9243,36 +9155,28 @@ std::shared_ptr<types::IRelationshipElement> WrapRelationshipElement(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   that->set_first(
-    std::move(
-      Wrap<E>(
-        that->first(),
-        factory
-      )
+    Wrap<E>(
+      that->first(),
+      factory
     )
   );
 
   that->set_second(
-    std::move(
-      Wrap<E>(
-        that->second(),
-        factory
-      )
+    Wrap<E>(
+      that->second(),
+      factory
     )
   );
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -9331,10 +9235,8 @@ std::shared_ptr<types::ISubmodelElementList> WrapSubmodelElementList(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9365,10 +9267,8 @@ std::shared_ptr<types::ISubmodelElementList> WrapSubmodelElementList(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9399,10 +9299,8 @@ std::shared_ptr<types::ISubmodelElementList> WrapSubmodelElementList(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9422,10 +9320,8 @@ std::shared_ptr<types::ISubmodelElementList> WrapSubmodelElementList(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9456,10 +9352,8 @@ std::shared_ptr<types::ISubmodelElementList> WrapSubmodelElementList(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9490,10 +9384,8 @@ std::shared_ptr<types::ISubmodelElementList> WrapSubmodelElementList(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9524,10 +9416,8 @@ std::shared_ptr<types::ISubmodelElementList> WrapSubmodelElementList(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9547,10 +9437,8 @@ std::shared_ptr<types::ISubmodelElementList> WrapSubmodelElementList(
     );
 
     that->set_semantic_id_list_element(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9581,18 +9469,14 @@ std::shared_ptr<types::ISubmodelElementList> WrapSubmodelElementList(
     }
 
     that->set_value(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -9651,10 +9535,8 @@ std::shared_ptr<types::ISubmodelElementCollection> WrapSubmodelElementCollection
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9685,10 +9567,8 @@ std::shared_ptr<types::ISubmodelElementCollection> WrapSubmodelElementCollection
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9719,10 +9599,8 @@ std::shared_ptr<types::ISubmodelElementCollection> WrapSubmodelElementCollection
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9742,10 +9620,8 @@ std::shared_ptr<types::ISubmodelElementCollection> WrapSubmodelElementCollection
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9776,10 +9652,8 @@ std::shared_ptr<types::ISubmodelElementCollection> WrapSubmodelElementCollection
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9810,10 +9684,8 @@ std::shared_ptr<types::ISubmodelElementCollection> WrapSubmodelElementCollection
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9844,10 +9716,8 @@ std::shared_ptr<types::ISubmodelElementCollection> WrapSubmodelElementCollection
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9878,18 +9748,14 @@ std::shared_ptr<types::ISubmodelElementCollection> WrapSubmodelElementCollection
     }
 
     that->set_value(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -9948,10 +9814,8 @@ std::shared_ptr<types::IProperty> WrapProperty(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -9982,10 +9846,8 @@ std::shared_ptr<types::IProperty> WrapProperty(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10016,10 +9878,8 @@ std::shared_ptr<types::IProperty> WrapProperty(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10039,10 +9899,8 @@ std::shared_ptr<types::IProperty> WrapProperty(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10073,10 +9931,8 @@ std::shared_ptr<types::IProperty> WrapProperty(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10107,10 +9963,8 @@ std::shared_ptr<types::IProperty> WrapProperty(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10141,10 +9995,8 @@ std::shared_ptr<types::IProperty> WrapProperty(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10164,18 +10016,14 @@ std::shared_ptr<types::IProperty> WrapProperty(
     );
 
     that->set_value_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -10234,10 +10082,8 @@ std::shared_ptr<types::IMultiLanguageProperty> WrapMultiLanguageProperty(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10268,10 +10114,8 @@ std::shared_ptr<types::IMultiLanguageProperty> WrapMultiLanguageProperty(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10302,10 +10146,8 @@ std::shared_ptr<types::IMultiLanguageProperty> WrapMultiLanguageProperty(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10325,10 +10167,8 @@ std::shared_ptr<types::IMultiLanguageProperty> WrapMultiLanguageProperty(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10359,10 +10199,8 @@ std::shared_ptr<types::IMultiLanguageProperty> WrapMultiLanguageProperty(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10393,10 +10231,8 @@ std::shared_ptr<types::IMultiLanguageProperty> WrapMultiLanguageProperty(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10427,10 +10263,8 @@ std::shared_ptr<types::IMultiLanguageProperty> WrapMultiLanguageProperty(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10461,10 +10295,8 @@ std::shared_ptr<types::IMultiLanguageProperty> WrapMultiLanguageProperty(
     }
 
     that->set_value(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10484,18 +10316,14 @@ std::shared_ptr<types::IMultiLanguageProperty> WrapMultiLanguageProperty(
     );
 
     that->set_value_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -10554,10 +10382,8 @@ std::shared_ptr<types::IRange> WrapRange(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10588,10 +10414,8 @@ std::shared_ptr<types::IRange> WrapRange(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10622,10 +10446,8 @@ std::shared_ptr<types::IRange> WrapRange(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10645,10 +10467,8 @@ std::shared_ptr<types::IRange> WrapRange(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10679,10 +10499,8 @@ std::shared_ptr<types::IRange> WrapRange(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10713,10 +10531,8 @@ std::shared_ptr<types::IRange> WrapRange(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10747,18 +10563,14 @@ std::shared_ptr<types::IRange> WrapRange(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -10817,10 +10629,8 @@ std::shared_ptr<types::IReferenceElement> WrapReferenceElement(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10851,10 +10661,8 @@ std::shared_ptr<types::IReferenceElement> WrapReferenceElement(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10885,10 +10693,8 @@ std::shared_ptr<types::IReferenceElement> WrapReferenceElement(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10908,10 +10714,8 @@ std::shared_ptr<types::IReferenceElement> WrapReferenceElement(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10942,10 +10746,8 @@ std::shared_ptr<types::IReferenceElement> WrapReferenceElement(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -10976,10 +10778,8 @@ std::shared_ptr<types::IReferenceElement> WrapReferenceElement(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11010,10 +10810,8 @@ std::shared_ptr<types::IReferenceElement> WrapReferenceElement(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11033,18 +10831,14 @@ std::shared_ptr<types::IReferenceElement> WrapReferenceElement(
     );
 
     that->set_value(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -11103,10 +10897,8 @@ std::shared_ptr<types::IBlob> WrapBlob(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11137,10 +10929,8 @@ std::shared_ptr<types::IBlob> WrapBlob(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11171,10 +10961,8 @@ std::shared_ptr<types::IBlob> WrapBlob(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11194,10 +10982,8 @@ std::shared_ptr<types::IBlob> WrapBlob(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11228,10 +11014,8 @@ std::shared_ptr<types::IBlob> WrapBlob(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11262,10 +11046,8 @@ std::shared_ptr<types::IBlob> WrapBlob(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11296,18 +11078,14 @@ std::shared_ptr<types::IBlob> WrapBlob(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -11366,10 +11144,8 @@ std::shared_ptr<types::IFile> WrapFile(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11400,10 +11176,8 @@ std::shared_ptr<types::IFile> WrapFile(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11434,10 +11208,8 @@ std::shared_ptr<types::IFile> WrapFile(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11457,10 +11229,8 @@ std::shared_ptr<types::IFile> WrapFile(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11491,10 +11261,8 @@ std::shared_ptr<types::IFile> WrapFile(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11525,10 +11293,8 @@ std::shared_ptr<types::IFile> WrapFile(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11559,18 +11325,14 @@ std::shared_ptr<types::IFile> WrapFile(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -11629,10 +11391,8 @@ std::shared_ptr<types::IAnnotatedRelationshipElement> WrapAnnotatedRelationshipE
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11663,10 +11423,8 @@ std::shared_ptr<types::IAnnotatedRelationshipElement> WrapAnnotatedRelationshipE
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11697,10 +11455,8 @@ std::shared_ptr<types::IAnnotatedRelationshipElement> WrapAnnotatedRelationshipE
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11720,10 +11476,8 @@ std::shared_ptr<types::IAnnotatedRelationshipElement> WrapAnnotatedRelationshipE
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11754,10 +11508,8 @@ std::shared_ptr<types::IAnnotatedRelationshipElement> WrapAnnotatedRelationshipE
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11788,10 +11540,8 @@ std::shared_ptr<types::IAnnotatedRelationshipElement> WrapAnnotatedRelationshipE
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11822,29 +11572,23 @@ std::shared_ptr<types::IAnnotatedRelationshipElement> WrapAnnotatedRelationshipE
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   that->set_first(
-    std::move(
-      Wrap<E>(
-        that->first(),
-        factory
-      )
+    Wrap<E>(
+      that->first(),
+      factory
     )
   );
 
   that->set_second(
-    std::move(
-      Wrap<E>(
-        that->second(),
-        factory
-      )
+    Wrap<E>(
+      that->second(),
+      factory
     )
   );
 
@@ -11874,18 +11618,14 @@ std::shared_ptr<types::IAnnotatedRelationshipElement> WrapAnnotatedRelationshipE
     }
 
     that->set_annotations(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -11944,10 +11684,8 @@ std::shared_ptr<types::IEntity> WrapEntity(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -11978,10 +11716,8 @@ std::shared_ptr<types::IEntity> WrapEntity(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12012,10 +11748,8 @@ std::shared_ptr<types::IEntity> WrapEntity(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12035,10 +11769,8 @@ std::shared_ptr<types::IEntity> WrapEntity(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12069,10 +11801,8 @@ std::shared_ptr<types::IEntity> WrapEntity(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12103,10 +11833,8 @@ std::shared_ptr<types::IEntity> WrapEntity(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12137,10 +11865,8 @@ std::shared_ptr<types::IEntity> WrapEntity(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12171,10 +11897,8 @@ std::shared_ptr<types::IEntity> WrapEntity(
     }
 
     that->set_statements(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12205,18 +11929,14 @@ std::shared_ptr<types::IEntity> WrapEntity(
     }
 
     that->set_specific_asset_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -12250,11 +11970,9 @@ std::shared_ptr<types::IEventPayload> WrapEventPayload(
   // in the caller.
 
   that->set_source(
-    std::move(
-      Wrap<E>(
-        that->source(),
-        factory
-      )
+    Wrap<E>(
+      that->source(),
+      factory
     )
   );
 
@@ -12273,20 +11991,16 @@ std::shared_ptr<types::IEventPayload> WrapEventPayload(
     );
 
     that->set_source_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   that->set_observable_reference(
-    std::move(
-      Wrap<E>(
-        that->observable_reference(),
-        factory
-      )
+    Wrap<E>(
+      that->observable_reference(),
+      factory
     )
   );
 
@@ -12305,10 +12019,8 @@ std::shared_ptr<types::IEventPayload> WrapEventPayload(
     );
 
     that->set_observable_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12328,18 +12040,14 @@ std::shared_ptr<types::IEventPayload> WrapEventPayload(
     );
 
     that->set_subject_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -12398,10 +12106,8 @@ std::shared_ptr<types::IBasicEventElement> WrapBasicEventElement(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12432,10 +12138,8 @@ std::shared_ptr<types::IBasicEventElement> WrapBasicEventElement(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12466,10 +12170,8 @@ std::shared_ptr<types::IBasicEventElement> WrapBasicEventElement(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12489,10 +12191,8 @@ std::shared_ptr<types::IBasicEventElement> WrapBasicEventElement(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12523,10 +12223,8 @@ std::shared_ptr<types::IBasicEventElement> WrapBasicEventElement(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12557,10 +12255,8 @@ std::shared_ptr<types::IBasicEventElement> WrapBasicEventElement(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12591,20 +12287,16 @@ std::shared_ptr<types::IBasicEventElement> WrapBasicEventElement(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   that->set_observed(
-    std::move(
-      Wrap<E>(
-        that->observed(),
-        factory
-      )
+    Wrap<E>(
+      that->observed(),
+      factory
     )
   );
 
@@ -12623,18 +12315,14 @@ std::shared_ptr<types::IBasicEventElement> WrapBasicEventElement(
     );
 
     that->set_message_broker(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -12693,10 +12381,8 @@ std::shared_ptr<types::IOperation> WrapOperation(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12727,10 +12413,8 @@ std::shared_ptr<types::IOperation> WrapOperation(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12761,10 +12445,8 @@ std::shared_ptr<types::IOperation> WrapOperation(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12784,10 +12466,8 @@ std::shared_ptr<types::IOperation> WrapOperation(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12818,10 +12498,8 @@ std::shared_ptr<types::IOperation> WrapOperation(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12852,10 +12530,8 @@ std::shared_ptr<types::IOperation> WrapOperation(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12886,10 +12562,8 @@ std::shared_ptr<types::IOperation> WrapOperation(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12920,10 +12594,8 @@ std::shared_ptr<types::IOperation> WrapOperation(
     }
 
     that->set_input_variables(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12954,10 +12626,8 @@ std::shared_ptr<types::IOperation> WrapOperation(
     }
 
     that->set_output_variables(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -12988,18 +12658,14 @@ std::shared_ptr<types::IOperation> WrapOperation(
     }
 
     that->set_inoutput_variables(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -13033,18 +12699,14 @@ std::shared_ptr<types::IOperationVariable> WrapOperationVariable(
   // in the caller.
 
   that->set_value(
-    std::move(
-      Wrap<E>(
-        that->value(),
-        factory
-      )
+    Wrap<E>(
+      that->value(),
+      factory
     )
   );
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -13103,10 +12765,8 @@ std::shared_ptr<types::ICapability> WrapCapability(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13137,10 +12797,8 @@ std::shared_ptr<types::ICapability> WrapCapability(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13171,10 +12829,8 @@ std::shared_ptr<types::ICapability> WrapCapability(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13194,10 +12850,8 @@ std::shared_ptr<types::ICapability> WrapCapability(
     );
 
     that->set_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13228,10 +12882,8 @@ std::shared_ptr<types::ICapability> WrapCapability(
     }
 
     that->set_supplemental_semantic_ids(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13262,10 +12914,8 @@ std::shared_ptr<types::ICapability> WrapCapability(
     }
 
     that->set_qualifiers(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13296,18 +12946,14 @@ std::shared_ptr<types::ICapability> WrapCapability(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -13366,10 +13012,8 @@ std::shared_ptr<types::IConceptDescription> WrapConceptDescription(
     }
 
     that->set_extensions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13400,10 +13044,8 @@ std::shared_ptr<types::IConceptDescription> WrapConceptDescription(
     }
 
     that->set_display_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13434,10 +13076,8 @@ std::shared_ptr<types::IConceptDescription> WrapConceptDescription(
     }
 
     that->set_description(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13457,10 +13097,8 @@ std::shared_ptr<types::IConceptDescription> WrapConceptDescription(
     );
 
     that->set_administration(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13491,10 +13129,8 @@ std::shared_ptr<types::IConceptDescription> WrapConceptDescription(
     }
 
     that->set_embedded_data_specifications(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13525,18 +13161,14 @@ std::shared_ptr<types::IConceptDescription> WrapConceptDescription(
     }
 
     that->set_is_case_of(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -13584,10 +13216,8 @@ std::shared_ptr<types::IReference> WrapReference(
     );
 
     that->set_referred_semantic_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13623,9 +13253,7 @@ std::shared_ptr<types::IReference> WrapReference(
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -13661,9 +13289,7 @@ std::shared_ptr<types::IKey> WrapKey(
   // No properties to be recursively enhanced.
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -13699,9 +13325,7 @@ std::shared_ptr<types::ILangStringNameType> WrapLangStringNameType(
   // No properties to be recursively enhanced.
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -13737,9 +13361,7 @@ std::shared_ptr<types::ILangStringTextType> WrapLangStringTextType(
   // No properties to be recursively enhanced.
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -13798,10 +13420,8 @@ std::shared_ptr<types::IEnvironment> WrapEnvironment(
     }
 
     that->set_asset_administration_shells(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13832,10 +13452,8 @@ std::shared_ptr<types::IEnvironment> WrapEnvironment(
     }
 
     that->set_submodels(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -13866,18 +13484,14 @@ std::shared_ptr<types::IEnvironment> WrapEnvironment(
     }
 
     that->set_concept_descriptions(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -13911,27 +13525,21 @@ std::shared_ptr<types::IEmbeddedDataSpecification> WrapEmbeddedDataSpecification
   // in the caller.
 
   that->set_data_specification(
-    std::move(
-      Wrap<E>(
-        that->data_specification(),
-        factory
-      )
+    Wrap<E>(
+      that->data_specification(),
+      factory
     )
   );
 
   that->set_data_specification_content(
-    std::move(
-      Wrap<E>(
-        that->data_specification_content(),
-        factory
-      )
+    Wrap<E>(
+      that->data_specification_content(),
+      factory
     )
   );
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -13967,9 +13575,7 @@ std::shared_ptr<types::ILevelType> WrapLevelType(
   // No properties to be recursively enhanced.
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -14003,18 +13609,14 @@ std::shared_ptr<types::IValueReferencePair> WrapValueReferencePair(
   // in the caller.
 
   that->set_value_id(
-    std::move(
-      Wrap<E>(
-        that->value_id(),
-        factory
-      )
+    Wrap<E>(
+      that->value_id(),
+      factory
     )
   );
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -14078,9 +13680,7 @@ std::shared_ptr<types::IValueList> WrapValueList(
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -14116,9 +13716,7 @@ std::shared_ptr<types::ILangStringPreferredNameTypeIec61360> WrapLangStringPrefe
   // No properties to be recursively enhanced.
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -14154,9 +13752,7 @@ std::shared_ptr<types::ILangStringShortNameTypeIec61360> WrapLangStringShortName
   // No properties to be recursively enhanced.
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -14192,9 +13788,7 @@ std::shared_ptr<types::ILangStringDefinitionTypeIec61360> WrapLangStringDefiniti
   // No properties to be recursively enhanced.
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -14283,10 +13877,8 @@ std::shared_ptr<types::IDataSpecificationIec61360> WrapDataSpecificationIec61360
     }
 
     that->set_short_name(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -14306,10 +13898,8 @@ std::shared_ptr<types::IDataSpecificationIec61360> WrapDataSpecificationIec61360
     );
 
     that->set_unit_id(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -14340,10 +13930,8 @@ std::shared_ptr<types::IDataSpecificationIec61360> WrapDataSpecificationIec61360
     }
 
     that->set_definition(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -14363,10 +13951,8 @@ std::shared_ptr<types::IDataSpecificationIec61360> WrapDataSpecificationIec61360
     );
 
     that->set_value_list(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
@@ -14386,18 +13972,14 @@ std::shared_ptr<types::IDataSpecificationIec61360> WrapDataSpecificationIec61360
     );
 
     that->set_level_type(
-      std::move(
-        common::make_optional(
-          std::move(wrapped)
-        )
+      common::make_optional(
+        std::move(wrapped)
       )
     );
   }
 
   std::shared_ptr<E> enh(
-    std::move(
-      factory(that)
-    )
+    factory(that)
   );
   return (enh == nullptr)
     ? that
@@ -17715,7 +17297,7 @@ std::shared_ptr<E> MustUnwrap(
       )
     );
   }
-  return std::move(enhancement);
+  return enhancement;
 }
 
 }  // namespace enhancing

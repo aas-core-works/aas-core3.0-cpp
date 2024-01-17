@@ -1783,7 +1783,7 @@ common::expected<
     pointer++;
   }
 
-  return std::move(bytes);
+  return bytes;
 }
 
 }  // namespace stringification

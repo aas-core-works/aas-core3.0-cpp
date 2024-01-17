@@ -13140,7 +13140,7 @@ DescentOnce::DescentOnce(
 }
 
 Iterator DescentOnce::begin() const {
-  std::unique_ptr<impl::IIterator> it_impl = std::move(
+  std::unique_ptr<impl::IIterator> it_impl(
     NewNonRecursiveIterator(instance_)
   );
 

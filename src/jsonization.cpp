@@ -26453,10 +26453,8 @@ std::pair<
     );
   }
 
-  result["name"] = std::move(
-    SerializeWstring(
-      that.name()
-    )
+  result["name"] = SerializeWstring(
+    that.name()
   );
 
   const common::optional<types::DataTypeDefXsd>& maybe_value_type(
@@ -26472,10 +26470,8 @@ std::pair<
     that.value()
   );
   if (maybe_value.has_value()) {
-    result["value"] = std::move(
-      SerializeWstring(
-        *maybe_value
-      )
+    result["value"] = SerializeWstring(
+      *maybe_value
     );
   }
 
@@ -26614,10 +26610,8 @@ std::pair<
     that.version()
   );
   if (maybe_version.has_value()) {
-    result["version"] = std::move(
-      SerializeWstring(
-        *maybe_version
-      )
+    result["version"] = SerializeWstring(
+      *maybe_version
     );
   }
 
@@ -26625,10 +26619,8 @@ std::pair<
     that.revision()
   );
   if (maybe_revision.has_value()) {
-    result["revision"] = std::move(
-      SerializeWstring(
-        *maybe_revision
-      )
+    result["revision"] = SerializeWstring(
+      *maybe_revision
     );
   }
 
@@ -26670,10 +26662,8 @@ std::pair<
     that.template_id()
   );
   if (maybe_template_id.has_value()) {
-    result["templateId"] = std::move(
-      SerializeWstring(
-        *maybe_template_id
-      )
+    result["templateId"] = SerializeWstring(
+      *maybe_template_id
     );
   }
 
@@ -26795,10 +26785,8 @@ std::pair<
     );
   }
 
-  result["type"] = std::move(
-    SerializeWstring(
-      that.type()
-    )
+  result["type"] = SerializeWstring(
+    that.type()
   );
 
   result["valueType"] = stringification::to_string(
@@ -26809,10 +26797,8 @@ std::pair<
     that.value()
   );
   if (maybe_value.has_value()) {
-    result["value"] = std::move(
-      SerializeWstring(
-        *maybe_value
-      )
+    result["value"] = SerializeWstring(
+      *maybe_value
     );
   }
 
@@ -26929,10 +26915,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -26940,10 +26924,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -27093,10 +27075,8 @@ std::pair<
     );
   }
 
-  result["id"] = std::move(
-    SerializeWstring(
-      that.id()
-    )
+  result["id"] = SerializeWstring(
+    that.id()
   );
 
   const common::optional<
@@ -27301,10 +27281,8 @@ std::pair<
     that.global_asset_id()
   );
   if (maybe_global_asset_id.has_value()) {
-    result["globalAssetId"] = std::move(
-      SerializeWstring(
-        *maybe_global_asset_id
-      )
+    result["globalAssetId"] = SerializeWstring(
+      *maybe_global_asset_id
     );
   }
 
@@ -27368,10 +27346,8 @@ std::pair<
     that.asset_type()
   );
   if (maybe_asset_type.has_value()) {
-    result["assetType"] = std::move(
-      SerializeWstring(
-        *maybe_asset_type
-      )
+    result["assetType"] = SerializeWstring(
+      *maybe_asset_type
     );
   }
 
@@ -27428,20 +27404,16 @@ std::pair<
 
   common::optional<SerializationError> error;
 
-  result["path"] = std::move(
-    SerializeWstring(
-      that.path()
-    )
+  result["path"] = SerializeWstring(
+    that.path()
   );
 
   const common::optional<std::wstring>& maybe_content_type(
     that.content_type()
   );
   if (maybe_content_type.has_value()) {
-    result["contentType"] = std::move(
-      SerializeWstring(
-        *maybe_content_type
-      )
+    result["contentType"] = SerializeWstring(
+      *maybe_content_type
     );
   }
 
@@ -27554,16 +27526,12 @@ std::pair<
     );
   }
 
-  result["name"] = std::move(
-    SerializeWstring(
-      that.name()
-    )
+  result["name"] = SerializeWstring(
+    that.name()
   );
 
-  result["value"] = std::move(
-    SerializeWstring(
-      that.value()
-    )
+  result["value"] = SerializeWstring(
+    that.value()
   );
 
   const common::optional<
@@ -27679,10 +27647,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -27690,10 +27656,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -27843,10 +27807,8 @@ std::pair<
     );
   }
 
-  result["id"] = std::move(
-    SerializeWstring(
-      that.id()
-    )
+  result["id"] = SerializeWstring(
+    that.id()
   );
 
   const common::optional<types::ModellingKind>& maybe_kind(
@@ -28197,10 +28159,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -28208,10 +28168,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -28664,10 +28622,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -28675,10 +28631,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -29187,10 +29141,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -29198,10 +29150,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -29656,10 +29606,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -29667,10 +29615,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -29996,10 +29942,8 @@ std::pair<
     that.value()
   );
   if (maybe_value.has_value()) {
-    result["value"] = std::move(
-      SerializeWstring(
-        *maybe_value
-      )
+    result["value"] = SerializeWstring(
+      *maybe_value
     );
   }
 
@@ -30118,10 +30062,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -30129,10 +30071,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -30621,10 +30561,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -30632,10 +30570,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -30961,10 +30897,8 @@ std::pair<
     that.min()
   );
   if (maybe_min.has_value()) {
-    result["min"] = std::move(
-      SerializeWstring(
-        *maybe_min
-      )
+    result["min"] = SerializeWstring(
+      *maybe_min
     );
   }
 
@@ -30972,10 +30906,8 @@ std::pair<
     that.max()
   );
   if (maybe_max.has_value()) {
-    result["max"] = std::move(
-      SerializeWstring(
-        *maybe_max
-      )
+    result["max"] = SerializeWstring(
+      *maybe_max
     );
   }
 
@@ -31060,10 +30992,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -31071,10 +31001,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -31507,10 +31435,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -31518,10 +31444,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -31850,10 +31774,8 @@ std::pair<
     );
   }
 
-  result["contentType"] = std::move(
-    SerializeWstring(
-      that.content_type()
-    )
+  result["contentType"] = SerializeWstring(
+    that.content_type()
   );
 
   result["modelType"] = "Blob";
@@ -31937,10 +31859,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -31948,10 +31868,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -32273,17 +32191,13 @@ std::pair<
     that.value()
   );
   if (maybe_value.has_value()) {
-    result["value"] = std::move(
-      SerializeWstring(
-        *maybe_value
-      )
+    result["value"] = SerializeWstring(
+      *maybe_value
     );
   }
 
-  result["contentType"] = std::move(
-    SerializeWstring(
-      that.content_type()
-    )
+  result["contentType"] = SerializeWstring(
+    that.content_type()
   );
 
   result["modelType"] = "File";
@@ -32367,10 +32281,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -32378,10 +32290,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -32890,10 +32800,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -32901,10 +32809,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -33286,10 +33192,8 @@ std::pair<
     that.global_asset_id()
   );
   if (maybe_global_asset_id.has_value()) {
-    result["globalAssetId"] = std::move(
-      SerializeWstring(
-        *maybe_global_asset_id
-      )
+    result["globalAssetId"] = SerializeWstring(
+      *maybe_global_asset_id
     );
   }
 
@@ -33496,10 +33400,8 @@ std::pair<
     that.topic()
   );
   if (maybe_topic.has_value()) {
-    result["topic"] = std::move(
-      SerializeWstring(
-        *maybe_topic
-      )
+    result["topic"] = SerializeWstring(
+      *maybe_topic
     );
   }
 
@@ -33537,10 +33439,8 @@ std::pair<
     );
   }
 
-  result["timeStamp"] = std::move(
-    SerializeWstring(
-      that.time_stamp()
-    )
+  result["timeStamp"] = SerializeWstring(
+    that.time_stamp()
   );
 
   const common::optional<
@@ -33633,10 +33533,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -33644,10 +33542,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -34004,10 +33900,8 @@ std::pair<
     that.message_topic()
   );
   if (maybe_message_topic.has_value()) {
-    result["messageTopic"] = std::move(
-      SerializeWstring(
-        *maybe_message_topic
-      )
+    result["messageTopic"] = SerializeWstring(
+      *maybe_message_topic
     );
   }
 
@@ -34049,10 +33943,8 @@ std::pair<
     that.last_update()
   );
   if (maybe_last_update.has_value()) {
-    result["lastUpdate"] = std::move(
-      SerializeWstring(
-        *maybe_last_update
-      )
+    result["lastUpdate"] = SerializeWstring(
+      *maybe_last_update
     );
   }
 
@@ -34060,10 +33952,8 @@ std::pair<
     that.min_interval()
   );
   if (maybe_min_interval.has_value()) {
-    result["minInterval"] = std::move(
-      SerializeWstring(
-        *maybe_min_interval
-      )
+    result["minInterval"] = SerializeWstring(
+      *maybe_min_interval
     );
   }
 
@@ -34071,10 +33961,8 @@ std::pair<
     that.max_interval()
   );
   if (maybe_max_interval.has_value()) {
-    result["maxInterval"] = std::move(
-      SerializeWstring(
-        *maybe_max_interval
-      )
+    result["maxInterval"] = SerializeWstring(
+      *maybe_max_interval
     );
   }
 
@@ -34159,10 +34047,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -34170,10 +34056,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -34786,10 +34670,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -34797,10 +34679,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -35199,10 +35079,8 @@ std::pair<
     that.category()
   );
   if (maybe_category.has_value()) {
-    result["category"] = std::move(
-      SerializeWstring(
-        *maybe_category
-      )
+    result["category"] = SerializeWstring(
+      *maybe_category
     );
   }
 
@@ -35210,10 +35088,8 @@ std::pair<
     that.id_short()
   );
   if (maybe_id_short.has_value()) {
-    result["idShort"] = std::move(
-      SerializeWstring(
-        *maybe_id_short
-      )
+    result["idShort"] = SerializeWstring(
+      *maybe_id_short
     );
   }
 
@@ -35363,10 +35239,8 @@ std::pair<
     );
   }
 
-  result["id"] = std::move(
-    SerializeWstring(
-      that.id()
-    )
+  result["id"] = SerializeWstring(
+    that.id()
   );
 
   const common::optional<
@@ -35610,10 +35484,8 @@ std::pair<
     that.type()
   );
 
-  result["value"] = std::move(
-    SerializeWstring(
-      that.value()
-    )
+  result["value"] = SerializeWstring(
+    that.value()
   );
 
   return std::make_pair<
@@ -35635,16 +35507,12 @@ std::pair<
 
   common::optional<SerializationError> error;
 
-  result["language"] = std::move(
-    SerializeWstring(
-      that.language()
-    )
+  result["language"] = SerializeWstring(
+    that.language()
   );
 
-  result["text"] = std::move(
-    SerializeWstring(
-      that.text()
-    )
+  result["text"] = SerializeWstring(
+    that.text()
   );
 
   return std::make_pair<
@@ -35666,16 +35534,12 @@ std::pair<
 
   common::optional<SerializationError> error;
 
-  result["language"] = std::move(
-    SerializeWstring(
-      that.language()
-    )
+  result["language"] = SerializeWstring(
+    that.language()
   );
 
-  result["text"] = std::move(
-    SerializeWstring(
-      that.text()
-    )
+  result["text"] = SerializeWstring(
+    that.text()
   );
 
   return std::make_pair<
@@ -35982,10 +35846,8 @@ std::pair<
 
   common::optional<SerializationError> error;
 
-  result["value"] = std::move(
-    SerializeWstring(
-      that.value()
-    )
+  result["value"] = SerializeWstring(
+    that.value()
   );
 
   common::optional<nlohmann::json> json_value_id;
@@ -36100,16 +35962,12 @@ std::pair<
 
   common::optional<SerializationError> error;
 
-  result["language"] = std::move(
-    SerializeWstring(
-      that.language()
-    )
+  result["language"] = SerializeWstring(
+    that.language()
   );
 
-  result["text"] = std::move(
-    SerializeWstring(
-      that.text()
-    )
+  result["text"] = SerializeWstring(
+    that.text()
   );
 
   return std::make_pair<
@@ -36131,16 +35989,12 @@ std::pair<
 
   common::optional<SerializationError> error;
 
-  result["language"] = std::move(
-    SerializeWstring(
-      that.language()
-    )
+  result["language"] = SerializeWstring(
+    that.language()
   );
 
-  result["text"] = std::move(
-    SerializeWstring(
-      that.text()
-    )
+  result["text"] = SerializeWstring(
+    that.text()
   );
 
   return std::make_pair<
@@ -36162,16 +36016,12 @@ std::pair<
 
   common::optional<SerializationError> error;
 
-  result["language"] = std::move(
-    SerializeWstring(
-      that.language()
-    )
+  result["language"] = SerializeWstring(
+    that.language()
   );
 
-  result["text"] = std::move(
-    SerializeWstring(
-      that.text()
-    )
+  result["text"] = SerializeWstring(
+    that.text()
   );
 
   return std::make_pair<
@@ -36300,10 +36150,8 @@ std::pair<
     that.unit()
   );
   if (maybe_unit.has_value()) {
-    result["unit"] = std::move(
-      SerializeWstring(
-        *maybe_unit
-      )
+    result["unit"] = SerializeWstring(
+      *maybe_unit
     );
   }
 
@@ -36345,10 +36193,8 @@ std::pair<
     that.source_of_definition()
   );
   if (maybe_source_of_definition.has_value()) {
-    result["sourceOfDefinition"] = std::move(
-      SerializeWstring(
-        *maybe_source_of_definition
-      )
+    result["sourceOfDefinition"] = SerializeWstring(
+      *maybe_source_of_definition
     );
   }
 
@@ -36356,10 +36202,8 @@ std::pair<
     that.symbol()
   );
   if (maybe_symbol.has_value()) {
-    result["symbol"] = std::move(
-      SerializeWstring(
-        *maybe_symbol
-      )
+    result["symbol"] = SerializeWstring(
+      *maybe_symbol
     );
   }
 
@@ -36432,10 +36276,8 @@ std::pair<
     that.value_format()
   );
   if (maybe_value_format.has_value()) {
-    result["valueFormat"] = std::move(
-      SerializeWstring(
-        *maybe_value_format
-      )
+    result["valueFormat"] = SerializeWstring(
+      *maybe_value_format
     );
   }
 
@@ -36477,10 +36319,8 @@ std::pair<
     that.value()
   );
   if (maybe_value.has_value()) {
-    result["value"] = std::move(
-      SerializeWstring(
-        *maybe_value
-      )
+    result["value"] = SerializeWstring(
+      *maybe_value
     );
   }
 
