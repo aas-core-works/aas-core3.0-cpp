@@ -769,7 +769,7 @@ TEST_CASE("Test enhancement with a parent") {
     for (
       const std::shared_ptr<
         aas::types::IClass
-      > child
+      >& child
       : aas::iteration::DescentOnce(instance)
       ) {
       std::shared_ptr<ParentEnhancement> enhancement(
@@ -881,7 +881,7 @@ TEST_CASE("Test selective enhancement of IReferable's") {
   std::stringstream ss;
 
   for (
-    const std::shared_ptr<aas::types::IClass> something
+    const std::shared_ptr<aas::types::IClass>& something
     : aas::iteration::Descent(environment)
     ) {
     if (aas::types::IsReferable(*something)) {

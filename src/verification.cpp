@@ -3569,7 +3569,7 @@ bool DataSpecificationIec61360sHaveDefinitionAtLeastInEnglish(
       >& definition = *maybe_definition;
 
       bool no_definition_in_english = true;
-      for (const auto lang_string : definition) {
+      for (const auto& lang_string : definition) {
         if (IsBcp47ForEnglish(lang_string->language())) {
           no_definition_in_english = false;
           break;
@@ -26292,9 +26292,7 @@ void RecursiveVerificator::Execute() {
         index_ = -1;
         done_ = false;
 
-        verificator_ = std::move(
-          NewNonRecursiveVerificator(*instance_)
-        );
+        verificator_ = NewNonRecursiveVerificator(*instance_);
         verificator_->Start();
       }
 
@@ -26428,7 +26426,7 @@ NonRecursiveVerification::NonRecursiveVerification(
 
 Iterator NonRecursiveVerification::begin() const {
   std::unique_ptr<impl::IVerificator> verificator(
-    std::move(NewNonRecursiveVerificator(instance_))
+    NewNonRecursiveVerificator(instance_)
   );
 
   verificator->Start();
