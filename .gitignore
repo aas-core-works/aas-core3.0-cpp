@@ -1,3 +1,11 @@
+dependencies-for-local-development-on-windows/
+build/
+dist/
+cmake-build-debug/
+cmake-build-release/
+local-built-doc/
+vcpkg_installed/
+
 # Prerequisites
 *.d
 
