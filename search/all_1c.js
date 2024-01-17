@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['⟷_20child_20associations_0',['No Parent ⟷ Child Associations',['../md_doc_2design-decisions.html#autotoc_md5',1,'']]]
+  ['your_20custom_20enhancements_0',['Enhance instances of the model with your custom enhancements.',['../group__enhancing.html',1,'']]],
+  ['your_20own_20abstraction_20on_20top_1',['Build Your Own Abstraction on Top',['../md_doc_2design-decisions.html#autotoc_md18',1,'']]]
 ];
