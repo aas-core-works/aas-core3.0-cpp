@@ -76,46 +76,46 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#Installation">Installation</a><ul><li class="level2"><a href="#autotoc_md22">Dependencies</a></li>
-<li class="level2"><a href="#autotoc_md23">Compilation from Source</a></li>
+<ul><li class="level1"><a href="#Installation">Installation</a><ul><li class="level2"><a href="#autotoc_md23">Dependencies</a></li>
+<li class="level2"><a href="#autotoc_md24">Compilation from Source</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#create-get-set">AAS Model</a><ul><li class="level2"><a href="#autotoc_md24">From the meta-model to C++</a></li>
-<li class="level2"><a href="#autotoc_md25">&lt;tt&gt;IClass&lt;/tt&gt;</a></li>
-<li class="level2"><a href="#autotoc_md26">&lt;tt&gt;model_type&lt;/tt&gt; as faster RTTI</a></li>
-<li class="level2"><a href="#autotoc_md27">Getters and Setters</a></li>
-<li class="level2"><a href="#autotoc_md28">Getters with a Default Value</a></li>
-<li class="level2"><a href="#autotoc_md29">Wide Strings and UTF-8</a></li>
-<li class="level2"><a href="#autotoc_md30">Example: Create an Environment with a Submodel</a></li>
+<li class="level1"><a href="#create-get-set">AAS Model</a><ul><li class="level2"><a href="#autotoc_md25">From the meta-model to C++</a></li>
+<li class="level2"><a href="#autotoc_md26">&lt;tt&gt;IClass&lt;/tt&gt;</a></li>
+<li class="level2"><a href="#autotoc_md27">&lt;tt&gt;model_type&lt;/tt&gt; as faster RTTI</a></li>
+<li class="level2"><a href="#autotoc_md28">Getters and Setters</a></li>
+<li class="level2"><a href="#autotoc_md29">Getters with a Default Value</a></li>
+<li class="level2"><a href="#autotoc_md30">Wide Strings and UTF-8</a></li>
+<li class="level2"><a href="#autotoc_md31">Example: Create an Environment with a Submodel</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md31">Enumerators from and to Strings</a></li>
-<li class="level1"><a href="#iterate">Iterate</a><ul><li class="level2"><a href="#autotoc_md32">&lt;tt&gt;Descent&lt;/tt&gt; and &lt;tt&gt;DescentOnce&lt;/tt&gt;</a></li>
-<li class="level2"><a href="#autotoc_md33">Filtering with &lt;tt&gt;Descent&lt;/tt&gt; and &lt;tt&gt;DescentOnce&lt;/tt&gt;</a></li>
-<li class="level2"><a href="#autotoc_md34">Visitors</a></li>
+<li class="level1"><a href="#autotoc_md32">Enumerators from and to Strings</a></li>
+<li class="level1"><a href="#iterate">Iterate</a><ul><li class="level2"><a href="#autotoc_md33">&lt;tt&gt;Descent&lt;/tt&gt; and &lt;tt&gt;DescentOnce&lt;/tt&gt;</a></li>
+<li class="level2"><a href="#autotoc_md34">Filtering with &lt;tt&gt;Descent&lt;/tt&gt; and &lt;tt&gt;DescentOnce&lt;/tt&gt;</a></li>
+<li class="level2"><a href="#autotoc_md35">Visitors</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#verify">Verify</a><ul><li class="level2"><a href="#autotoc_md35">Reflection?</a></li>
+<li class="level1"><a href="#verify">Verify</a><ul><li class="level2"><a href="#autotoc_md36">Reflection?</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#jsonization">JSON De/serialization</a><ul><li class="level2"><a href="#autotoc_md36">Serialize</a></li>
-<li class="level2"><a href="#autotoc_md37">De-serialize</a></li>
+<li class="level1"><a href="#jsonization">JSON De/serialization</a><ul><li class="level2"><a href="#autotoc_md37">Serialize</a></li>
+<li class="level2"><a href="#autotoc_md38">De-serialize</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#xmlization">XML De/serialization</a><ul><li class="level2"><a href="#autotoc_md38">Serialization</a></li>
-<li class="level2"><a href="#autotoc_md39">De-serialization</a></li>
+<li class="level1"><a href="#xmlization">XML De/serialization</a><ul><li class="level2"><a href="#autotoc_md39">Serialization</a></li>
+<li class="level2"><a href="#autotoc_md40">De-serialization</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#enhancing">Enhancing</a><ul><li class="level2"><a href="#autotoc_md40">Hasthable?</a></li>
-<li class="level2"><a href="#autotoc_md41">Wrapping</a></li>
-<li class="level2"><a href="#autotoc_md42">Example: Parent-Child Enhancement</a></li>
-<li class="level2"><a href="#autotoc_md43">Example: Selective Enhancement</a></li>
+<li class="level1"><a href="#enhancing">Enhancing</a><ul><li class="level2"><a href="#autotoc_md41">Hasthable?</a></li>
+<li class="level2"><a href="#autotoc_md42">Wrapping</a></li>
+<li class="level2"><a href="#autotoc_md43">Example: Parent-Child Enhancement</a></li>
+<li class="level2"><a href="#autotoc_md44">Example: Selective Enhancement</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md44">No Re-wraps Allowed</a></li>
+<li class="level1"><a href="#autotoc_md45">No Re-wraps Allowed</a></li>
 </ul>
 </div>
-<div class="textblock"><p><a class="anchor" id="autotoc_md21"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md22"></a></p>
 <p>Here's a quick intro to get you started with the SDK. See how you can:</p>
 <ul>
 <li><a class="el" href="#Installation">Install the SDK</a> so that you can use it in your projects,</li>
@@ -131,7 +131,7 @@ $(function() {
 Installation</h1>
 <p>Saying that installing C++ dependencies is opaque and confusing would be an understatement. There are many compilers, many packagers (vcpkg, conan, <em>etc.</em>) and many build systems (CMake, Make, Bazel <em>etc.</em>). We admit that we are by no means experts in C++ compilation. We give our best to modestly document how to install our SDK and include it in other projects.</p>
 <p>At this point, we kindly invite the experts in this area to help us out with packaging and adaptation for different build systems.</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 Dependencies</h2>
 <p>We want to keep the dependencies minimal, and optimally the SDK should have none except the standard library. Unfortunately, and unlike some other mainstream languages, the C++ standard library provides no JSON and XML parsing out-of-the-box.</p>
 <p>What is more, the union types in form of <a href="https://en.cppreference.com/w/cpp/utility/expected">std::expected</a> and nullables as [std::optional] were introduced much later in the language, in C++23 and C++17, respectively. We wanted the SDK to stand the test of time, and already use those novel features. We also acknowledge that older settings depending on C++11 must be supported for successful adoption.</p>
@@ -142,7 +142,7 @@ Dependencies</h2>
 <li><a href="https://github.com/TartanLlama/expected">tl::expected</a> which is a fill-in for <a href="https://en.cppreference.com/w/cpp/utility/expected">std::expected</a> also for older compilers.</li>
 </ul>
 <p>You need to install these dependencies such that CMake can find them using <a href="https://cmake.org/cmake/help/latest/command/find_package.html">find_package</a>.</p>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
 Compilation from Source</h2>
 <p>To compile your project with our SDK as source code dependency, make sure to first install the dependencies mentioned above.</p>
 <p>Then clone the repository, and point to it when you call cmake by:</p>
@@ -154,7 +154,7 @@ Compilation from Source</h2>
 <div class="line">target_link_libraries(some_cool_program aas_core3)</div>
 </div><!-- fragment --><h1><a class="anchor" id="create-get-set"></a>
 AAS Model</h1>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 From the meta-model to C++</h2>
 <p>We map the meta-model to C++ like follows:</p>
 <ul>
@@ -167,10 +167,10 @@ From the meta-model to C++</h2>
 <li><b>Optional values</b>. If you are compiling with C++17 and above, we represent optional values with <code>std::optional</code>. Otherwise, we rely on <a href="https://github.com/TartanLlama/optional">tl::optional</a>. We re-export the one of the two which we use with <code>using</code> directive as <code>aas_core::aas_3_0::common::optional</code>.</li>
 <li><b>Aggregations</b>. We model the aggregations of the meta-model as <a href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a>'s in the C++.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md26"></a>
 <code>IClass</code></h2>
 <p>We introduce the most general class, <a class="el" href="classaas__core_1_1aas__3__0_1_1types_1_1IClass.html">aas_core::aas_3_0::types::IClass</a>, to group all the functionality of the model instances. This class does not exist in the original AAS meta-model.</p>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 <code>model_type</code> as faster RTTI</h2>
 <p>The AAS meta-model is given as a deep class hierarchy, with ample multiple inheritance. Therefore, we have to use <a href="https://en.wikipedia.org/wiki/Virtual_inheritance">virtual inheritance</a> in C++ as well.</p>
 <p>This makes the dynamic type determination based on [C++ Runtime Type Information (RTTI)] quite slow, see <a href="https://stackoverflow.com/questions/579887/how-expensive-is-rtti">this StackOverflow question about RTTI efficiency</a>. In addition, as C++ does not support type switches. If you have to dynamically act upon the runtime type, you have to write a long sequence of <code>if (...) else if (...) else if (...)</code>'s.</p>
@@ -179,22 +179,22 @@ From the meta-model to C++</h2>
 <p class="enddd">In any case, fast upcasting from a concrete class to a more abstract one is still possible with [std::static_pointer_cast]. </p>
 </dd></dl>
 <p>The SDK also gives you functions <code>IsXxx</code> to check for a single model type in order to avoid RTTI. See, for example, <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1types.html#a94601a71f5fb8787d032981713226725">aas_core::aas_3_0::types::IsSubmodel</a>.</p>
-<h2><a class="anchor" id="autotoc_md27"></a>
+<h2><a class="anchor" id="autotoc_md28"></a>
 Getters and Setters</h2>
 <p>Each attribute of a class is represented with a getter, a mutable getter and a setter. The getter returns a constant value of the attribute, usually a constant reference or a primitive value (<em>e.g.,</em> for booleans). The mutable getter returns a mutable reference.</p>
 <dl class="section note"><dt>Note</dt><dd>Since we use <a href="https://en.cppreference.com/w/cpp/memory/shared_ptr">std::shared_ptr</a>, the "const-ness" of the getters does not propagate to the referenced object. This might be unfortunate in many cases where you want to convey the immutability through "const-ness", but C++ is alas not versatile enough.</dd></dl>
 <p>The namespace <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1types.html">aas_core::aas_3_0::types</a> contains all the classes of the meta-model. You can simply use their constructors to create an AAS model. Usually you start bottom-up, all the way up to the <a class="el" href="classaas__core_1_1aas__3__0_1_1types_1_1IEnvironment.html">aas_core::aas_3_0::types::IEnvironment</a>.</p>
 <dl class="section note"><dt>Note</dt><dd>You will often have to cast when initializing or passing around aggregations, as C++ containers, including <a href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a>, are invariant. See: <a href="https://softwareengineering.stackexchange.com/questions/399277/why-doesnt-c-support-covariance-in-stl-containers-like-c-or-java">https://softwareengineering.stackexchange.com/questions/399277/why-doesnt-c-support-covariance-in-stl-containers-like-c-or-java</a> </dd></dl>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md29"></a>
 Getters with a Default Value</h2>
 <p>For optional properties which come with a default value, we provide special getters, <code>{property name}OrDefault</code>. If the property has not been set, this getter will give you the default value. Otherwise, if the model sets the property, the value of the property will be returned.</p>
 <p>For example, see <a class="el" href="classaas__core_1_1aas__3__0_1_1types_1_1IHasKind.html#af064b0c29ce90bdefa3cd97b90185617">aas_core::aas_3_0::types::ISubmodel::KindOrDefault</a>.</p>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<h2><a class="anchor" id="autotoc_md30"></a>
 Wide Strings and UTF-8</h2>
 <p>Being an old language which predates unicode, C++ is a bit messy when it comes to dealing with unicode strings. At the moment, there is no standard way how to represent, encode and decode unicode strings to and from different formats.</p>
 <p>We decided to use <a href="https://cplusplus.com/reference/string/wstring/">std::wstring</a>, which seemed as a solution to fit the widest range of the use cases. However, wide strings do not fit <em>all</em> the use cases. For example, whenever you output something to a console or a text file, it is usually encoded in UTF-8. You serialize then a wide string and encode it as UTF-8 [std::string], and <em>vice versa</em>.</p>
 <p>The SDK provides two functions, <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1common.html#aed69030b0292e53a46b6172bf02a8cd0">aas_core::aas_3_0::common::WstringToUtf8</a> and <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1common.html#a06d3f86dc439752ada85db69ac2dfaf6">aas_core::aas_3_0::common::Utf8ToWstring</a>, to convert between UTF-8 and wide strings. Both functions rely on basic functions provided by your operating system. If you are on Windows, they simply wrap <a href="https://learn.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-multibytetowidechar">MultiByteToWideChar</a> and <a href="https://learn.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-widechartomultibyte">WideCharToMulitByte</a>. In Linux, they will use <a href="https://en.cppreference.com/w/cpp/locale/codecvt">std::codecvt</a>.</p>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="autotoc_md31"></a>
 Example: Create an Environment with a Submodel</h2>
 <p>Here is a very rudimentary example where we show how to create an environment which contains a submodel.</p>
 <p>The submodel will contain two elements, a property and a blob.</p>
@@ -282,7 +282,7 @@ Example: Create an Environment with a Submodel</h2>
 <div class="line">}</div>
 <div class="ttc" id="anamespaceaas__core_1_1aas__3__0_html"><div class="ttname"><a href="namespaceaas__core_1_1aas__3__0.html">aas_core::aas_3_0</a></div><div class="ttdef"><b>Definition</b> common.hpp:47</div></div>
 <div class="ttc" id="atypes_8hpp_html"><div class="ttname"><a href="types_8hpp.html">types.hpp</a></div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md31"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md32"></a>
 Enumerators from and to Strings</h1>
 <p>Enumerators are basically integer numbers in C++. This is efficient when you manipulate them, but makes the enumerator cumbersome to work with when you need to use them in user interfaces, embed them in documents <em>etc.</em> The SDK provides two modules, <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1stringification.html">aas_core::aas_3_0::stringification</a> and <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1wstringification.html">aas_core::aas_3_0::wstringification</a>, to convert enumerators to and from strings and wide strings, respectively.</p>
 <p>All enumerators are converted using the overloaded functions <a class="el" href="group__stringification.html#ga8d32c46b842c080d1a1366c9ea96f36a">aas_core::aas_3_0::stringification::to_string</a> and <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1wstringification.html#a009dfedc0f5a6090c742b779e788ab5f">aas_core::aas_3_0::wstringification::to_wstring</a>, respectively.</p>
@@ -292,7 +292,7 @@ Enumerators from and to Strings</h1>
 Iterate</h1>
 <p>The SDK provides various ways how you can loop through the elements of the model. The following sections will look into each one of the approaches.</p>
 <p>The iteration code resides in <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1iteration.html">aas_core::aas_3_0::iteration</a>.</p>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 <code>Descent</code> and <code>DescentOnce</code></h2>
 <p>The SDK provides two iterables, <a class="el" href="classaas__core_1_1aas__3__0_1_1iteration_1_1Descent.html">aas_core::aas_3_0::iteration::Descent</a> and <a class="el" href="classaas__core_1_1aas__3__0_1_1iteration_1_1DescentOnce.html">aas_core::aas_3_0::iteration::DescentOnce</a>. You give them an instance of the model, and they provide <code>begin()</code> and <code>end()</code> functions. This is particularly practical when you directly pass them into <a href="https://en.cppreference.com/w/cpp/language/range-for">range-based for loops</a>.</p>
 <p>As their names suggest, <code>Descent</code> iterates recursively over all the instances referenced by the original instance. In contrast, <code>DescentOnce</code> iterates only over the instanced referenced by the original instance, and does not proceed recursively.</p>
@@ -375,7 +375,7 @@ Iterate</h1>
 <div class="line">}</div>
 <div class="ttc" id="aiteration_8hpp_html"><div class="ttname"><a href="iteration_8hpp.html">iteration.hpp</a></div></div>
 <div class="ttc" id="astringification_8hpp_html"><div class="ttname"><a href="stringification_8hpp.html">stringification.hpp</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md33"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md34"></a>
 Filtering with <code>Descent</code> and <code>DescentOnce</code></h2>
 <p>Filtering with <code>Descent</code> and <code>DescentOnce</code> is fairly easy, as we can write the filtering code within a for loop.</p>
 <p>Here is a short snippet, adapted from the previous example, where we filter for all properties which have <code>int</code> as their value type:</p>
@@ -470,7 +470,7 @@ Filtering with <code>Descent</code> and <code>DescentOnce</code></h2>
 <div class="line">  </div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md34"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md35"></a>
 Visitors</h2>
 <p>For loops are practical for short iterations. When you need to apply an action for each different model type, your loop body will probably become unbearably long. Such iterations are much better solved by using the <a href="https://en.wikipedia.org/wiki/Visitor_pattern">visitor pattern</a>. You specify for each model type a separate method in the visitor, and the visitor automatically dispatches the calls based on the type.</p>
 <p>**<code>IVisitor</code>**. The SDK provides an abstract, purely virtual, interface <a class="el" href="classaas__core_1_1aas__3__0_1_1visitation_1_1IVisitor.html">aas_core::aas_3_0::visitation::IVisitor</a>. If you want to steer how the children references from an instance are handled, then implement this interface.</p>
@@ -646,7 +646,7 @@ Verify</h1>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="averification_8hpp_html"><div class="ttname"><a href="verification_8hpp.html">verification.hpp</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md35"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md36"></a>
 Reflection?</h2>
 <p>The path to the erroneous value is kept in <a class="el" href="structaas__core_1_1aas__3__0_1_1iteration_1_1Path.html">aas_core::aas_3_0::iteration::Path</a>, based on the enumeration <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1iteration.html#a4450afc8210e908e028877b2ffee84bd">aas_core::aas_3_0::iteration::Property</a>.</p>
 <p>We did not implement the reflection at the moment since we did not have a use case for it. If you need reflection, please contact the developers. It should be a small step going from paths to de-referencing to getters and setters.</p>
@@ -654,7 +654,7 @@ Reflection?</h2>
 JSON De/serialization</h1>
 <p>Our SDK handles the de/serialization of the AAS models from and to JSON format through the <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1jsonization.html">aas_core::aas_3_0::jsonization</a>.</p>
 <p>Since C++ does not support JSON de/serialization in the standard library, we use <a href="https://github.com/nlohmann/json">nlohmann/json</a> as the underlying representation of JSON values. We thus do not directly de/serialize from and to strings, but rely on <a href="https://github.com/nlohmann/json">nlohmann/json</a> for intermediate handling.</p>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="autotoc_md37"></a>
 Serialize</h2>
 <p>The model instances are converted to <a href="https://github.com/nlohmann/json">nlohmann/json</a> using <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1jsonization.html#a2fc83d22ea3a1b372e4363f030488cff">aas_core::aas_3_0::jsonization::Serialize</a>.</p>
 <p>Here is an example code:</p>
@@ -718,7 +718,7 @@ Serialize</h2>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="ajsonization_8hpp_html"><div class="ttname"><a href="jsonization_8hpp.html">jsonization.hpp</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md37"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md38"></a>
 De-serialize</h2>
 <p>To translate <a href="https://github.com/nlohmann/json">nlohmann/json</a> value to a model instance, the SDK offers <code>XxxFrom</code> de-serialization functions. For example, to de-serialize an environment, call <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1jsonization.html#a1a4cc22de1c83a5a984c1049017f0e94">aas_core::aas_3_0::jsonization::EnvironmentFrom</a>.</p>
 <p>The de-serialization functions return a <code>aas_core::aas_3_0::common::expected</code>, a union type holding either the de-serialized instance or an error.</p>
@@ -814,7 +814,7 @@ De-serialize</h2>
 </div><!-- fragment --><h1><a class="anchor" id="xmlization"></a>
 XML De/serialization</h1>
 <p>The code that de/serializes AAS models from and to XML documents lives in <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1xmlization.html">aas_core::aas_3_0::xmlization</a>.</p>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="autotoc_md39"></a>
 Serialization</h2>
 <p>You serialize a model using the overloaded functions <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1xmlization.html#a2f6ec6929c9292a159ba8d699c4c8756">aas_core::aas_3_0::xmlization::Serialize</a>.</p>
 <p>Apart from the object, you pass it the writing options (<a class="el" href="structaas__core_1_1aas__3__0_1_1xmlization_1_1WritingOptions.html">aas_core::aas_3_0::xmlization::WritingOptions</a>) and the stream to write to. The default options should cover the majority of the use cases in the field. The stream is assumed to be encoded in UTF-8, <em>i.e.,</em> we write the text encoded in UTF-8.</p>
@@ -881,7 +881,7 @@ Serialization</h2>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="axmlization_8hpp_html"><div class="ttname"><a href="xmlization_8hpp.html">xmlization.hpp</a></div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md39"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md40"></a>
 De-serialization</h2>
 <p>De-serialization goes in the opposite direction, with overloaded functions <code>XxxFrom</code>. For example, <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1xmlization.html#aaeee37b8253aae19009eb282d4db6bbd">aas_core::aas_3_0::xmlization::EnvironmentFrom</a>.</p>
 <p>The model instances are de-serialized from a text stream encoded in UTF-8. There is an argument to steer the reading, <a class="el" href="structaas__core_1_1aas__3__0_1_1xmlization_1_1ReadingOptions.html">aas_core::aas_3_0::xmlization::ReadingOptions</a>. The defaults are picked such that they cover the majority of the cases.</p>
@@ -988,11 +988,11 @@ Enhancing</h1>
 <p>Take, for example, parent-child relationship. The current library ignores it, and there is no easy way for you to find out to which <a class="el" href="classaas__core_1_1aas__3__0_1_1types_1_1ISubmodel.html">aas_core::aas_3_0::types::ISubmodel</a> a particular <a class="el" href="classaas__core_1_1aas__3__0_1_1types_1_1ISubmodelElement.html">aas_core::aas_3_0::types::ISubmodelElement</a> belongs to.</p>
 <p>We did want to keep the types as simple as possible — the parent-child relationships can get tricky very soon if you have multiple environments with shared submodels <em>etc.</em> Instead of overcomplicating the code and making it barely traceable, we decided to keep it simple and frugal in features.</p>
 <p>However, that is little solace if you are developing an GUI editor where you know for sure that there will be only one environment, and where parent-child relationships are crucial for so many tasks. What is more, parent-child relationships are not the only data that need to be intertwined — you probably want history, localized caches <em>etc.</em></p>
-<h2><a class="anchor" id="autotoc_md40"></a>
+<h2><a class="anchor" id="autotoc_md41"></a>
 Hasthable?</h2>
 <p>There are different ways how application-specific data can be synced with the model. One popular technique is to use <a href="https://learn.microsoft.com/en-US/dotnet/api/system.collections.hashtable">Hashtable</a>'s and simply map model instances to your custom nuggets of data. This works well if the data is read-only, and you can spare the cycles for the lookups (which is often acceptable as they run on average in time complexity <code>O(1)</code> anyhow).</p>
 <p>Otherwise, if you need to modify the data, maintaining the consistency between the <a href="https://learn.microsoft.com/en-US/dotnet/api/system.collections.hashtable">Hashtable</a> and your nuggets of information becomes difficult. For example, if you forget to remove the entries from the <a href="https://learn.microsoft.com/en-US/dotnet/api/system.collections.hashtable">Hashtable</a> when you remove the instances from the model, you might clog your garbage collector.</p>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Wrapping</h2>
 <p>Hence, if you modify the data, you need to keep it close to the model instance. In dynamic languages, such as Python and JavaScript, you can simply add your custom fields to the object. This does not work in such a static language like C++.</p>
 <p>One solution, usually called <a href="https://en.wikipedia.org/wiki/Decorator_pattern">Decorator pattern</a>, is to <em>wrap</em> or <em>decorate</em> the instances with your application-specific data. The decorated objects should satisfy both the interface of the original model and provide a way to retrieve your custom nuggets of information.</p>
@@ -1003,7 +1003,7 @@ Wrapping</h2>
 <dl class="section note"><dt>Note</dt><dd>Make sure that you replace the previous reference to your <em>unwrapped</em> instance with the wrapped one. Otherwise, you will get null-pointer exceptions and/or segmentation faults at unwrapping. In particular, be careful if other parts of the program already referenced the unwrapped instance, and fix such references. </dd></dl>
 <p>You retrieve the enhancement with <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1enhancing.html#ad1e8aea9f12814c7c38c5abe1a7f0de3">aas_core::aas_3_0::enhancing::Unwrap</a> from a model instance. If the given instance has not been wrapped, <code>nullptr</code> is returned.</p>
 <p>We also provide a shortcut function, <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1enhancing.html#a3871d76172ea59422111cc5ab5f895ff">aas_core::aas_3_0::enhancing::MustUnwrap</a>, which always return a pointer to the enhancement, but throws an exception if the instance has not been previously wrapped.</p>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Example: Parent-Child Enhancement</h2>
 <p>Let us now consider the aforementioned example. We want to keep track of parent-child relationships in a model.</p>
 <p>The following code snippets first constructs an environment for illustration. Then we specify the enhancement such that each instance is initialized with the parent set to <code>nullptr</code>. Finally, we modify the enhancements such that they reflect the actual parent-child relationships.</p>
@@ -1115,7 +1115,7 @@ Example: Parent-Child Enhancement</h2>
 <div class="line">}</div>
 <div class="ttc" id="aenhancing_8hpp_html"><div class="ttname"><a href="enhancing_8hpp.html">enhancing.hpp</a></div></div>
 </div><!-- fragment --><p>Note that this approach is indeed more maintainable than the one with <a href="https://learn.microsoft.com/en-US/dotnet/api/system.collections.hashtable">Hashtable</a>, but you still need to take extra care. If you create new submodels and insert them into the environment, you have to make sure that you wrap them appropriately. If you move a submodel from one environment to another, you have to update the parent link manually <em>etc.</em></p>
-<h2><a class="anchor" id="autotoc_md43"></a>
+<h2><a class="anchor" id="autotoc_md44"></a>
 Example: Selective Enhancement</h2>
 <p>We demonstrate now how you can selectively enhance only some instances in the <a class="el" href="classaas__core_1_1aas__3__0_1_1types_1_1IEnvironment.html">aas_core::aas_3_0::types::IEnvironment</a>.</p>
 <p>For example, let us assign a unique identifier to all instances which are referable, <em>i.e.</em>, implement <a class="el" href="classaas__core_1_1aas__3__0_1_1types_1_1IReferable.html">aas_core::aas_3_0::types::IReferable</a>. All the other instances are not enhanced.</p>
@@ -1226,7 +1226,7 @@ Example: Selective Enhancement</h2>
 <div class="line">  </div>
 <div class="line">  return 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md44"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md45"></a>
 No Re-wraps Allowed</h1>
 <p>We disallow re-wraps of already wrapped instances to avoid costly iterations over the object trees, and throw an exception. Additionally, we want to prevent bugs in many settings where the enhancement factory assigns unique identifiers to instances or performs non-idempotent operations. </p>
 </div></div><!-- contents -->

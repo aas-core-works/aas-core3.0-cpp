@@ -8,6 +8,7 @@ var searchData=
   ['blob_5',['Blob',['../classaas__core_1_1aas__3__0_1_1types_1_1Blob.html',1,'aas_core::aas_3_0::types::Blob'],['../classaas__core_1_1aas__3__0_1_1types_1_1Blob.html#af79353b464cb6a861489808c1ba54263',1,'aas_core::aas_3_0::types::Blob::Blob()']]],
   ['blobfrom_6',['BlobFrom',['../namespaceaas__core_1_1aas__3__0_1_1jsonization.html#a097983fe293ab57cd9b79e05a3515c23',1,'aas_core::aas_3_0::jsonization::BlobFrom()'],['../namespaceaas__core_1_1aas__3__0_1_1xmlization.html#adaf666a7d18eff93e2c679c915e118cf',1,'aas_core::aas_3_0::xmlization::BlobFrom()']]],
   ['buffer_5fsize_7',['buffer_size',['../structaas__core_1_1aas__3__0_1_1xmlization_1_1ReadingOptions.html#acfc0bbf0e26e1972e5bf2af387c25864',1,'aas_core::aas_3_0::xmlization::ReadingOptions']]],
-  ['build_20your_20own_20abstraction_20on_20top_8',['Build Your Own Abstraction on Top',['../md_doc_2design-decisions.html#autotoc_md18',1,'']]],
-  ['bumps_9',['Version Bumps',['../md_doc_2contributing.html#autotoc_md8',1,'']]]
+  ['build_20your_20own_20abstraction_20on_20top_8',['Build Your Own Abstraction on Top',['../md_doc_2design-decisions.html#autotoc_md19',1,'']]],
+  ['building_20tests_9',['Building Tests',['../md_doc_2contributing.html#autotoc_md6',1,'']]],
+  ['bumps_10',['Version Bumps',['../md_doc_2contributing.html#autotoc_md9',1,'']]]
 ];
