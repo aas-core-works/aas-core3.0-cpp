@@ -129,16 +129,16 @@ $(function() {
 </ul>
 <h1><a class="anchor" id="Installation"></a>
 Installation</h1>
-<p>Saying that installing C++ dependencies is opaque and confusing would be an understatement. There are many compilers, many packagers (vcpkg, conan, <em>etc.</em>) and many build systems (CMake, Make, Bazel <em>etc.</em>). We admit that we are by no means experts in C++ compilation. We give our best to modestly document how to install our SDK and include it in other projects.</p>
+<p>Saying that installing C++ [nlohmann/json]: <a href="https://github.com/nlohmann/jsonencies">https://github.com/nlohmann/jsonencies</a> is opaque and confusing would be an understatement. There are many compilers, many packagers (vcpkg, conan, <em>etc.</em>) and many build systems (CMake, Make, Bazel <em>etc.</em>). We admit that we are by no means experts in C++ compilation. We give our best to modestly document how to install our SDK and include it in other projects.</p>
 <p>At this point, we kindly invite the experts in this area to help us out with packaging and adaptation for different build systems.</p>
 <h2><a class="anchor" id="autotoc_md23"></a>
 Dependencies</h2>
 <p>We want to keep the dependencies minimal, and optimally the SDK should have none except the standard library. Unfortunately, and unlike some other mainstream languages, the C++ standard library provides no JSON and XML parsing out-of-the-box.</p>
-<p>What is more, the union types in form of <a href="https://en.cppreference.com/w/cpp/utility/expected">std::expected</a> and nullables as [std::optional] were introduced much later in the language, in C++23 and C++17, respectively. We wanted the SDK to stand the test of time, and already use those novel features. We also acknowledge that older settings depending on C++11 must be supported for successful adoption.</p>
+<p>What is more, the union types in form of <a href="https://en.cppreference.com/w/cpp/utility/expected">std::expected</a> and nullables as <a href="https://en.cppreference.com/w/cpp/utility/optional">std::optional</a> were introduced much later in the language, in C++23 and C++17, respectively. We wanted the SDK to stand the test of time, and already use those novel features. We also acknowledge that older settings depending on C++11 must be supported for successful adoption.</p>
 <p>Therefore, we rely on four external libraries:</p><ul>
 <li><a href="https://github.com/nlohmann/json">nlohmann/json</a> which we use for JSON parsing,</li>
-<li><a href="https://libexpat.github.io/">expat</a> which we use for XML parsing,</li>
-<li><a href="https://github.com/TartanLlama/optional">tl::optional</a> which we use as a fill-in for [std::optional] on older compilers, and</li>
+<li><a href="https://libexpat.github.io/">Expat</a> which we use for XML parsing,</li>
+<li><a href="https://github.com/TartanLlama/optional">tl::optional</a> which we use as a fill-in for <a href="https://en.cppreference.com/w/cpp/utility/optional">std::optional</a> on older compilers, and</li>
 <li><a href="https://github.com/TartanLlama/expected">tl::expected</a> which is a fill-in for <a href="https://en.cppreference.com/w/cpp/utility/expected">std::expected</a> also for older compilers.</li>
 </ul>
 <p>You need to install these dependencies such that CMake can find them using <a href="https://cmake.org/cmake/help/latest/command/find_package.html">find_package</a>.</p>
