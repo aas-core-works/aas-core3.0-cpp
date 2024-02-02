@@ -15,7 +15,7 @@ Here's a quick intro to get you started with the SDK. See how you can:
 
 ## Installation {#Installation}
 
-Saying that installing C++ dependencies is opaque and confusing would be an understatement.
+Saying that installing C++ [nlohmann/json]: https://github.com/nlohmann/jsonencies is opaque and confusing would be an understatement.
 There are many compilers, many packagers (vcpkg, conan, *etc.*) and many build systems (CMake, Make, Bazel *etc.*).
 We admit that we are by no means experts in C++ compilation.
 We give our best to modestly document how to install our SDK and include it in other projects.
@@ -31,11 +31,19 @@ What is more, the union types in form of [std::expected] and nullables as [std::
 We wanted the SDK to stand the test of time, and already use those novel features.
 We also acknowledge that older settings depending on C++11 must be supported for successful adoption.
 
+[std::expected]: https://en.cppreference.com/w/cpp/utility/expected
+[std::optional]: https://en.cppreference.com/w/cpp/utility/optional
+
 Therefore, we rely on four external libraries:
 * [nlohmann/json] which we use for JSON parsing,
-* [expat] which we use for XML parsing,
+* [Expat] which we use for XML parsing,
 * [tl::optional] which we use as a fill-in for [std::optional] on older compilers, and
 * [tl::expected] which is a fill-in for [std::expected] also for older compilers.
+
+[nlohmann/json]: https://github.com/nlohmann/json
+[Expat]: https://libexpat.github.io/
+[tl::optional]: https://github.com/TartanLlama/optional
+[tl::expected]: https://github.com/TartanLlama/expected
 
 You need to install these dependencies such that CMake can find them using [find_package].
 
@@ -94,7 +102,6 @@ This class does not exist in the original AAS meta-model.
 [std::wstring]: https://cplusplus.com/reference/string/wstring/
 [std::regex]: https://cplusplus.com/reference/regex/
 [std::shared_ptr]: https://en.cppreference.com/w/cpp/memory/shared_ptr
-[tl::optional]: https://github.com/TartanLlama/optional
 [std::vector]: https://en.cppreference.com/w/cpp/container/vector
 
 ### `model_type` as faster RTTI
@@ -692,8 +699,6 @@ Our SDK handles the de/serialization of the AAS models from and to JSON format t
 Since C++ does not support JSON de/serialization in the standard library, we use [nlohmann/json] as the underlying representation of JSON values.
 We thus do not directly de/serialize from and to strings, but rely on [nlohmann/json] for intermediate handling.
 
-[nlohmann/json]: https://github.com/nlohmann/json
-
 ### Serialize
 
 The model instances are converted to [nlohmann/json] using @ref aas_core::aas_3_0::jsonization::Serialize.
@@ -774,10 +779,6 @@ As a matter of fact, we did not implement `aas_core::aas_3_0::common::expected` 
 If your compiler supports C++23, [std::expected] will be used underneath.
 Otherwise, a fill-in in form of [tl::expected] is used.
 @endparblock
-
-
-[std::expected]: https://en.cppreference.com/w/cpp/utility/expected
-[tl::expected]: https://github.com/TartanLlama/expected
 
 Here is an example:
 
@@ -958,8 +959,6 @@ There is an argument to steer the reading, @ref aas_core::aas_3_0::xmlization::R
 The defaults are picked such that they cover the majority of the cases.
 
 C++ does not provide any XML parsing in the standard library, so we use [Expat], but the user does not interact with it directly.
-
-[Expat]: https://libexpat.github.io/
 
 Similar to JSON, the result of the parsing is returned as `aas_core::aas_3_0::common::expected`.
 This is a union type between a model instance and the de-serialization error.
