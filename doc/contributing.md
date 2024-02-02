@@ -23,6 +23,23 @@ However, this needs to be decided on a case-by-case basis.
 
 [aas-core-codegen]: https://github.com/aas-core-works/aas-core-codegen
 
+### Building Tests
+
+We introduce the CMake option `BUILD_TESTS`, so that the developer can decide whether the tests are built or not.
+Normal builds where the SDK is used as a dependency usually do not need to run tests, so `BUILD_TESTS` is set to `OFF` by default.
+
+If you want to build the tests, you have to specify the option when you invoke CMake.
+For example, assuming you want to build the project in `build/` directory, and you are in the root of the repository:
+
+```
+cmake \
+    -Bbuild/ \
+    -S. \
+    -DBUILD_TESTS=ON \
+    # ... and probably some more CMake lists options
+    $ dealing with the dependencies etc.
+```
+
 ## Pull Requests
 
 **Feature branches**.
