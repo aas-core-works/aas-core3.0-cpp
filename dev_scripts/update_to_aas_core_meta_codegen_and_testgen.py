@@ -127,7 +127,7 @@ def _copy_code_from_aas_core_codegen(
     """Copy the generated code from aas-core-codegen's test data."""
     source_dir = (
         aas_core_codegen_repo
-        / "test_data/golang/test_main/aas_core_meta.v3/expected_output"
+        / "test_data/cpp/test_main/aas_core_meta.v3/expected_output"
     )
 
     for pth in source_dir.glob("**/*.cpp"):
@@ -337,17 +337,14 @@ def _build_and_run_tests_and_rerecord(our_repo: pathlib.Path) -> None:
                 "-DBUILD_TESTS=ON",
                 "-DCMAKE_BUILD_TYPE=Debug",
                 "-S.",
-                f"-B{build_dir}"
+                f"-B{build_dir}",
             ],
-            env=env, cwd=our_repo
+            env=env,
+            cwd=our_repo,
         )
 
         subprocess.check_call(
-            [
-                "cmake",
-                "--build", str(build_dir),
-                "-j", "8"
-            ], env=env, cwd=our_repo
+            ["cmake", "--build", str(build_dir), "-j", "8"], env=env, cwd=our_repo
         )
 
         subprocess.check_call(["ctest", "-C", "DEBUG"], env=env, cwd=build_dir)
