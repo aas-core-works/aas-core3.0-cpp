@@ -1,5 +1,6 @@
+.idea/
 dependencies-for-local-development-on-windows/
-build/
+build*/
 dist/
 cmake-build-debug/
 cmake-build-release/
