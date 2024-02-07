@@ -147,7 +147,10 @@ if (${BUILD_TESTS})
 
     add_executable(test_examples test/test_examples.cpp)
     target_link_libraries(test_examples aas_core3_static)
-    add_test(NAME test_examples COMMAND test_examples)
+    add_test(
+        NAME test_examples
+        COMMAND $<TARGET_FILE:test_examples>
+    )
 endif()
 
 # Set the version
