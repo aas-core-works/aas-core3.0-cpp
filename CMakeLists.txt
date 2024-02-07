@@ -151,6 +151,13 @@ if (${BUILD_TESTS})
         NAME test_examples
         COMMAND $<TARGET_FILE:test_examples>
     )
+
+    add_executable(test_base64 test/test_base64.cpp)
+    target_link_libraries(test_base64 aas_core3_static)
+    add_test(
+            NAME test_base64
+            COMMAND $<TARGET_FILE:test_base64>
+    )
 endif()
 
 # Set the version
