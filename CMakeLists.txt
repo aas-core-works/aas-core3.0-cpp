@@ -20,9 +20,18 @@ endif ()
 
 set(PROJECT_VERSION ${AAS_CORE3_VERSION})
 
+OPTION(BUILD_TESTS "Build tests for aas-core-cpp" FALSE)
+
+if (${BUILD_TESTS})
+    # NOTE (mristin):
+    # We need to use C++17 for the <filesystem> in tests.
+    set(CMAKE_CXX_STANDARD 17)
+else()
+    set(CMAKE_CXX_STANDARD 11)
+endif()
+
 # NOTE (mristin):
 # See: https://crascit.com/2015/03/28/enabling-cxx11-in-cmake/
-set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -140,10 +149,23 @@ target_link_libraries(aas_core3
 OPTION(BUILD_TESTS "Build tests for aas-core-cpp" FALSE)
 
 if (${BUILD_TESTS})
+    # NOTE (mristin):
+    # We need to use C++17 for the <filesystem>.
+    set(CMAKE_CXX_STANDARD 17)
+
     include(CTest)
     enable_testing()
 
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/test-external)
+
+    add_library(common_in_test test/common.hpp test/common.cpp)
+    target_link_libraries(common_in_test aas_core3_static)
+
+    add_library(common_jsonization_in_test
+            test/common_jsonization.cpp
+            test/common_jsonization.cpp
+    )
+    target_link_libraries(common_jsonization_in_test aas_core3_static)
 
     add_executable(test_examples test/test_examples.cpp)
     target_link_libraries(test_examples aas_core3_static)
@@ -157,6 +179,21 @@ if (${BUILD_TESTS})
     add_test(
             NAME test_base64
             COMMAND $<TARGET_FILE:test_base64>
+    )
+
+    add_executable(
+            test_jsonization_of_concrete_classes
+            test/test_jsonization_of_concrete_classes.generated.cpp
+    )
+    target_link_libraries(
+            test_jsonization_of_concrete_classes
+            aas_core3_static
+            common_in_test
+            common_jsonization_in_test
+    )
+    add_test(
+            NAME test_jsonization_of_concrete_classes
+            COMMAND $<TARGET_FILE:test_jsonization_of_concrete_classes>
     )
 endif()
 
