@@ -174,13 +174,41 @@ if (${BUILD_TESTS})
         COMMAND $<TARGET_FILE:test_examples>
     )
 
-    add_executable(test_base64 test/test_base64.cpp)
-    target_link_libraries(test_base64 aas_core3_static)
+    # region Stringification
+    add_executable(
+            test_stringification_base64
+            test/test_stringification_base64.cpp
+    )
+    target_link_libraries(test_stringification_base64 aas_core3_static)
     add_test(
-            NAME test_base64
-            COMMAND $<TARGET_FILE:test_base64>
+            NAME test_stringification_base64
+            COMMAND $<TARGET_FILE:test_stringification_base64>
     )
 
+    add_executable(
+            test_stringification_of_enums
+            test/test_stringification_of_enums.generated.cpp
+    )
+    target_link_libraries(test_stringification_of_enums aas_core3_static)
+    add_test(
+            NAME test_stringification_of_enums
+            COMMAND $<TARGET_FILE:test_stringification_of_enums>
+    )
+    # endregion Stringification
+
+    # region Wstringification
+    add_executable(
+            test_wstringification_of_enums
+            test/test_wstringification_of_enums.generated.cpp
+    )
+    target_link_libraries(test_wstringification_of_enums aas_core3_static)
+    add_test(
+            NAME test_wstringification_of_enums
+            COMMAND $<TARGET_FILE:test_wstringification_of_enums>
+    )
+    # endregion Wstringification
+
+    # region Jsonization
     add_executable(
             test_jsonization_of_concrete_classes
             test/test_jsonization_of_concrete_classes.generated.cpp
@@ -195,6 +223,7 @@ if (${BUILD_TESTS})
             NAME test_jsonization_of_concrete_classes
             COMMAND $<TARGET_FILE:test_jsonization_of_concrete_classes>
     )
+    # endregion
 endif()
 
 # Set the version
