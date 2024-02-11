@@ -39,7 +39,7 @@ def main() -> int:
     blocks = [
         warning,
         Stripped(
-            f'''\
+            """\
 #include "./common.hpp"
 #include "./common_jsonization.hpp"
 
@@ -48,7 +48,7 @@ def main() -> int:
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
 
-namespace aas = aas_core::aas_3_0;'''
+namespace aas = aas_core::aas_3_0;"""
         ),
         Stripped(
             f"""\
@@ -184,7 +184,8 @@ void AssertDeserializationFailure(
         )
 
         contained_in_dir_name = (
-            "SelfContained" if container_cls is cls
+            "SelfContained"
+            if container_cls is cls
             else f"ContainedIn{container_model_type}"
         )
 

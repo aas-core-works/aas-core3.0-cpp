@@ -24,7 +24,7 @@ import test_codegen.test_data_io
 
 
 def _generate_test_round_trip_for_model_type(
-        symbol_table: intermediate.SymbolTable
+    symbol_table: intermediate.SymbolTable,
 ) -> Stripped:
     """
     Generate the test case for valid de/stringification of model type enum.
@@ -37,7 +37,7 @@ def _generate_test_round_trip_for_model_type(
     stmts = []  # type: List[Stripped]
 
     must_from_string = cpp_naming.function_name(
-        Identifier(f"must_model_type_from_string")
+        Identifier("must_model_type_from_string")
     )
 
     for cls in symbol_table.concrete_classes:
@@ -79,7 +79,7 @@ TEST_CASE("Test {enum_name} round-trip") {{
 
 
 def _generate_test_failure_for_model_type(
-        symbol_table: intermediate.SymbolTable
+    symbol_table: intermediate.SymbolTable,
 ) -> Stripped:
     """
     Generate the test case for invalid de-stringification of model type enum.
@@ -89,12 +89,10 @@ def _generate_test_failure_for_model_type(
     """
     enum_name = cpp_naming.enum_name(Identifier("Model_type"))
 
-    from_string = cpp_naming.function_name(
-        Identifier(f"model_type_from_string")
-    )
+    from_string = cpp_naming.function_name(Identifier("model_type_from_string"))
 
     must_from_string = cpp_naming.function_name(
-        Identifier(f"must_model_type_from_string")
+        Identifier("must_model_type_from_string")
     )
 
     return Stripped(
@@ -167,9 +165,7 @@ def _generate_test_failure_for(enum: intermediate.Enumeration) -> Stripped:
     """Generate the de-stringification of an invalid literal."""
     enum_name = cpp_naming.enum_name(enum.name)
 
-    from_string = cpp_naming.function_name(
-        Identifier(f"{enum.name}_from_string")
-    )
+    from_string = cpp_naming.function_name(Identifier(f"{enum.name}_from_string"))
 
     must_from_string = cpp_naming.function_name(
         Identifier(f"must_{enum.name}_from_string")
@@ -209,16 +205,16 @@ def main() -> int:
     blocks = [
         warning,
         Stripped(
-            f'''\
+            """\
 #include "aas_core/aas_3_0/stringification.hpp"
 
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
 
-namespace aas = aas_core::aas_3_0;'''
+namespace aas = aas_core::aas_3_0;"""
         ),
         _generate_test_round_trip_for_model_type(symbol_table=symbol_table),
-        _generate_test_failure_for_model_type(symbol_table=symbol_table)
+        _generate_test_failure_for_model_type(symbol_table=symbol_table),
     ]  # type: List[Stripped]
 
     for enum in symbol_table.enumerations:
