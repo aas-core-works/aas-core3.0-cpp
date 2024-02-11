@@ -110,56 +110,6 @@ std::filesystem::path DetermineTestDataDir() {
   return fs::path(std::string_view(buffer, len - 1));
 }
 
-nlohmann::json MustReadJson(const fs::path& path) {
-  std::ifstream ifs(path);
-
-  nlohmann::json result;
-  try {
-    result = nlohmann::json::parse(ifs);
-  } catch (nlohmann::json::parse_error& exception) {
-    throw std::runtime_error(
-      aas::common::Concat(
-        "Failed to read JSON from ",
-        path.string(),
-        ": ",
-        exception.what()
-      )
-    );
-  }
-
-  if (ifs.bad()) {
-    throw std::runtime_error(
-      aas::common::Concat(
-        "Failed to read JSON from ",
-        path.string(),
-        "; the bad bit of the file stream is set"
-      )
-    );
-  }
-
-  if (ifs.fail()) {
-    throw std::runtime_error(
-      aas::common::Concat(
-        "Failed to read JSON from ",
-        path.string(),
-        "; the fail bit of the file stream is set"
-      )
-    );
-  }
-
-  if (!ifs.eof()) {
-    throw std::runtime_error(
-      aas::common::Concat(
-        "Failed to read JSON from ",
-        path.string(),
-        "; the EOF bit is not set meaning that we did not parse all the content"
-      )
-    );
-  }
-
-  return result;
-}
-
 /**
  * Write `text` to the given `path` encoded as UTF-8.
  */

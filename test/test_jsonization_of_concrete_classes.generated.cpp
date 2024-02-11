@@ -22,7 +22,7 @@ void AssertRoundTrip(
     >(const nlohmann::json&, bool)
   > deserialization_function
 ) {
-  const nlohmann::json json = test::common::MustReadJson(path);
+  const nlohmann::json json = test::common::jsonization::MustReadJson(path);
 
   aas::common::expected<
     std::shared_ptr<ClassT>,
@@ -79,7 +79,7 @@ void AssertDeserializationFailure(
     >(const nlohmann::json&, bool)
   > deserialization_function
 ) {
-  const nlohmann::json json = test::common::MustReadJson(path);
+  const nlohmann::json json = test::common::jsonization::MustReadJson(path);
 
   aas::common::expected<
     std::shared_ptr<ClassT>,

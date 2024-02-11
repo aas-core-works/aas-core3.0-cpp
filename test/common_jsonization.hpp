@@ -17,6 +17,11 @@ namespace jsonization {
 extern const std::vector<std::string> kCausesForDeserializationFailure;
 
 /**
+ * Read the content of the `path` and parse it as JSON.
+ */
+nlohmann::json MustReadJson(const std::filesystem::path& path);
+
+/**
  * Compare two JSON values.
  *
  * Return the JSON patch, if there is any difference.

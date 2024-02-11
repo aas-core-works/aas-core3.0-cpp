@@ -158,14 +158,31 @@ if (${BUILD_TESTS})
 
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/test-external)
 
+    # region Common in test
     add_library(common_in_test test/common.hpp test/common.cpp)
     target_link_libraries(common_in_test aas_core3_static)
 
     add_library(common_jsonization_in_test
             test/common_jsonization.cpp
-            test/common_jsonization.cpp
+            test/common_jsonization.hpp
     )
     target_link_libraries(common_jsonization_in_test aas_core3_static)
+
+    add_library(common_xmlization_in_test
+            test/common_xmlization.cpp
+            test/common_xmlization.hpp
+            )
+    target_link_libraries(common_xmlization_in_test aas_core3_static)
+
+    add_library(common_examples_in_test
+            test/common_examples.generated.hpp
+            test/common_examples.generated.cpp
+            )
+    target_link_libraries(common_examples_in_test
+            common_in_test
+            common_xmlization_in_test
+    )
+    # endregion Common in test
 
     add_executable(test_examples test/test_examples.cpp)
     target_link_libraries(test_examples aas_core3_static)
@@ -222,6 +239,21 @@ if (${BUILD_TESTS})
     add_test(
             NAME test_jsonization_of_concrete_classes
             COMMAND $<TARGET_FILE:test_jsonization_of_concrete_classes>
+    )
+
+    add_executable(
+            test_jsonization_dispatch
+            test/test_jsonization_dispatch.generated.cpp
+    )
+    target_link_libraries(
+            test_jsonization_dispatch
+            aas_core3_static
+            common_examples_in_test
+            common_jsonization_in_test
+    )
+    add_test(
+            NAME test_jsonization_dispatch
+            COMMAND $<TARGET_FILE:test_jsonization_dispatch>
     )
     # endregion
 endif()
