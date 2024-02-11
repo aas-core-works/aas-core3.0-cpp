@@ -36,7 +36,7 @@ def main() -> int:
     blocks = [
         warning,
         Stripped(
-            f'''\
+            """\
 #include "./common.hpp"
 #include "./common_jsonization.hpp"
 #include "./common_examples.generated.hpp"
@@ -46,8 +46,8 @@ def main() -> int:
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
 
-namespace aas = aas_core::aas_3_0;'''
-        )
+namespace aas = aas_core::aas_3_0;"""
+        ),
     ]  # type: List[Stripped]
 
     for cls in symbol_table.classes:
@@ -67,13 +67,9 @@ namespace aas = aas_core::aas_3_0;'''
         interface_name = cpp_naming.interface_name(cls.name)
         concrete_interface_name = cpp_naming.interface_name(concrete_cls.name)
 
-        load_min = cpp_naming.function_name(
-            Identifier(f"load_min_{concrete_cls.name}")
-        )
+        load_min = cpp_naming.function_name(Identifier(f"load_min_{concrete_cls.name}"))
 
-        from_json = cpp_naming.function_name(
-            Identifier(f"{cls.name}_from")
-        )
+        from_json = cpp_naming.function_name(Identifier(f"{cls.name}_from"))
 
         blocks.append(
             Stripped(

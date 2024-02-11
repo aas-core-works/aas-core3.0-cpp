@@ -8,7 +8,7 @@ from typing import List
 
 import aas_core_codegen.naming
 from aas_core_codegen import intermediate
-from aas_core_codegen.common import Stripped, Identifier, indent_but_first_line
+from aas_core_codegen.common import Stripped, Identifier
 from aas_core_codegen.cpp import (
     common as cpp_common,
     naming as cpp_naming,
@@ -18,7 +18,6 @@ from aas_core_codegen.cpp.common import (
     INDENT2 as II,
     INDENT3 as III,
     INDENT4 as IIII,
-    INDENT5 as IIIII
 )
 from icontract import ensure
 
@@ -27,7 +26,7 @@ import test_codegen.test_data_io
 
 
 def _generate_load_min_max_definitions(
-        cls: intermediate.ConcreteClass
+    cls: intermediate.ConcreteClass,
 ) -> List[Stripped]:
     """Generate the def. of loading minimal and maximal example, respectively."""
     interface_name = cpp_naming.interface_name(cls.name)
@@ -55,7 +54,7 @@ std::shared_ptr<
 std::shared_ptr<
 {I}aas_core::aas_3_0::types::{interface_name}
 > {load_max}();"""
-        )
+        ),
     ]
 
 
@@ -66,10 +65,7 @@ std::shared_ptr<
     "Trailing newline mandatory for valid end-of-files"
 )
 # fmt: on
-def _generate_header(
-        symbol_table: intermediate.SymbolTable,
-        warning: str
-) -> str:
+def _generate_header(symbol_table: intermediate.SymbolTable, warning: str) -> str:
     """Generate the header for loading minimal and maximal examples."""
     blocks = [
         warning,
@@ -78,21 +74,21 @@ def _generate_header(
         # with missing `modelType` JSON properties for some classes such as
         # `Abstract_lang_string`.
         Stripped(
-            f"""\
+            """\
 /**
 * Load minimal and maximal examples from an XML file.
 */"""
         ),
         Stripped(
-            f"""\
+            """\
 #ifndef AAS_CORE3_TEST_COMMON_EXAMPLES_GENERATED_HPP_
 #define AAS_CORE3_TEST_COMMON_EXAMPLES_GENERATED_HPP_
 
 #include <aas_core/aas_3_0/types.hpp>
 
-namespace test {{
-namespace common {{
-namespace examples {{"""
+namespace test {
+namespace common {
+namespace examples {"""
         ),
     ]
 
@@ -102,14 +98,14 @@ namespace examples {{"""
     blocks.extend(
         [
             Stripped(
-                f"""\
-}}  // namespace examples
-}}  // namespace common
-}}  // namespace test
+                """\
+}  // namespace examples
+}  // namespace common
+}  // namespace test
 
 #endif // AAS_CORE3_TEST_COMMON_EXAMPLES_GENERATED_HPP_"""
             ),
-            warning
+            warning,
         ]
     )
 
@@ -125,9 +121,7 @@ namespace examples {{"""
     return writer.getvalue()
 
 
-def _generate_static_type_name(
-        cls: intermediate.ConcreteClass
-) -> Stripped:
+def _generate_static_type_name(cls: intermediate.ConcreteClass) -> Stripped:
     """Generate the specialization of a templated struct to retrieve the type name."""
     interface_name = cpp_naming.interface_name(cls.name)
 
@@ -146,8 +140,7 @@ const char* StaticTypeName<
 
 
 def _generate_load_min_max_implementations(
-        cls: intermediate.ConcreteClass,
-        container_cls: intermediate.ConcreteClass
+    cls: intermediate.ConcreteClass, container_cls: intermediate.ConcreteClass
 ) -> List[Stripped]:
     """Generate the impl. of loading minimal and maximal example, respectively."""
     interface_name = cpp_naming.interface_name(cls.name)
@@ -161,12 +154,11 @@ def _generate_load_min_max_implementations(
     # NOTE (mristin):
     # So far, we do not really have a convention how to generate the contained-in
     # directory name, so we assume that we use camel case with a model type.
-    container_model_type = aas_core_codegen.naming.json_model_type(
-        container_cls.name
-    )
+    container_model_type = aas_core_codegen.naming.json_model_type(container_cls.name)
 
     contained_in_dir_name = (
-        "SelfContained" if container_cls is cls
+        "SelfContained"
+        if container_cls is cls
         else f"ContainedIn{container_model_type}"
     )
 
@@ -268,7 +260,7 @@ std::shared_ptr<
 {II}path
 {I});
 }}"""
-        )
+        ),
     ]
 
 
@@ -280,15 +272,13 @@ std::shared_ptr<
 )
 # fmt: on
 def _generate_implementation(
-        symbol_table: intermediate.SymbolTable,
-        warning: str,
-        test_data_dir: pathlib.Path
+    symbol_table: intermediate.SymbolTable, warning: str, test_data_dir: pathlib.Path
 ) -> str:
     """Generate the header for loading minimal and maximal examples."""
     blocks = [
         warning,
         Stripped(
-            f"""\
+            """\
 #include "./common_examples.hpp"
 #include "./common.hpp"
 #include "./common_xmlization.hpp"
@@ -300,12 +290,12 @@ def _generate_implementation(
 
 namespace aas = aas_core::aas_3_0;
 
-namespace test {{
-namespace common {{
-namespace examples {{"""
+namespace test {
+namespace common {
+namespace examples {"""
         ),
         Stripped(
-            f"""\
+            """\
 template<typename T>
 struct StaticTypeName;"""
         ),
@@ -371,21 +361,18 @@ std::optional<
         # fmt: on
 
         blocks.extend(
-            _generate_load_min_max_implementations(
-                cls=cls,
-                container_cls=container_cls
-            )
+            _generate_load_min_max_implementations(cls=cls, container_cls=container_cls)
         )
 
     blocks.extend(
         [
             Stripped(
-                f"""\
-}}  // namespace examples
-}}  // namespace common
-}}  // namespace test"""
+                """\
+}  // namespace examples
+}  // namespace common
+}  // namespace test"""
             ),
-            warning
+            warning,
         ]
     )
 
@@ -400,6 +387,7 @@ std::optional<
 
     return writer.getvalue()
 
+
 def main() -> int:
     """Execute the main routine."""
     symbol_table = test_codegen.common.load_symbol_table()
@@ -411,10 +399,7 @@ def main() -> int:
         this_path.relative_to(repo_root)
     )
 
-    header = _generate_header(
-        symbol_table=symbol_table,
-        warning=warning
-    )
+    header = _generate_header(symbol_table=symbol_table, warning=warning)
 
     (repo_root / "test/common_examples.generated.hpp").write_text(
         header, encoding="utf-8"
@@ -423,7 +408,7 @@ def main() -> int:
     implementation = _generate_implementation(
         symbol_table=symbol_table,
         warning=warning,
-        test_data_dir=repo_root / "test_data"
+        test_data_dir=repo_root / "test_data",
     )
     (repo_root / "test/common_examples.generated.cpp").write_text(
         implementation, encoding="utf-8"
