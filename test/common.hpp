@@ -32,11 +32,6 @@ bool DetermineRecordMode();
 std::filesystem::path DetermineTestDataDir();
 
 /**
- * Read the content of the `path` and parse it as JSON.
- */
-nlohmann::json MustReadJson(const std::filesystem::path& path);
-
-/**
  * Represent `that` instance as a human-readable line of an iteration trace.
  */
 std::wstring TraceMark(
