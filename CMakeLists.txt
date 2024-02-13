@@ -255,6 +255,21 @@ if (${BUILD_TESTS})
             NAME test_jsonization_dispatch
             COMMAND $<TARGET_FILE:test_jsonization_dispatch>
     )
+
+    add_executable(
+            test_jsonization_of_concrete_classes_outside_container
+            test/test_jsonization_of_concrete_classes_outside_container.generated.cpp
+    )
+    target_link_libraries(
+            test_jsonization_of_concrete_classes_outside_container
+            aas_core3_static
+            common_examples_in_test
+            common_jsonization_in_test
+    )
+    add_test(
+            NAME test_jsonization_of_concrete_classes_outside_container
+            COMMAND $<TARGET_FILE:test_jsonization_of_concrete_classes_outside_container>
+    )
     # endregion
 endif()
 
