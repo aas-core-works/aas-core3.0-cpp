@@ -1,0 +1,1 @@
+environment/assetAdministrationShells/*[0]/assetAdministrationShell/assetInformation: Expected a start element opening a property of IAssetInformation, but got a start element which does not correspond to any of its properties: <unexpectedAdditionalProperty>

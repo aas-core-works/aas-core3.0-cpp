@@ -1,0 +1,1 @@
+environment/assetAdministrationShells/*[0]/assetAdministrationShell/embeddedDataSpecifications/*[0]/embeddedDataSpecification/dataSpecificationContent/dataSpecificationIec61360/shortName/*[0]/langStringShortNameTypeIec61360/text: Expected a stop element </text> closing the property of ILangStringShortNameTypeIec61360, but got a start node <reference>

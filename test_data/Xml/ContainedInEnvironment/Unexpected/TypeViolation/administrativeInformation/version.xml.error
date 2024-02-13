@@ -1,0 +1,1 @@
+environment/assetAdministrationShells/*[0]/assetAdministrationShell/administration/version: Expected a stop element </version> closing the property of IAdministrativeInformation, but got a start node <reference>

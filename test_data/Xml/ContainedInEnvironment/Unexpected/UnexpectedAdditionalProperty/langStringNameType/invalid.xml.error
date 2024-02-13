@@ -1,0 +1,1 @@
+environment/assetAdministrationShells/*[0]/assetAdministrationShell/displayName/*[0]/langStringNameType: Expected a start element opening a property of ILangStringNameType, but got a start element which does not correspond to any of its properties: <unexpectedAdditionalProperty>

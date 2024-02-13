@@ -1,0 +1,1 @@
+environment/assetAdministrationShells/*[0]/assetAdministrationShell/embeddedDataSpecifications/*[0]/embeddedDataSpecification: Expected a start element opening a property of IEmbeddedDataSpecification, but got a start element which does not correspond to any of its properties: <unexpectedAdditionalProperty>

@@ -1,0 +1,1 @@
+environment/assetAdministrationShells/*[0]/assetAdministrationShell/displayName/*[0]/langStringNameType/language: Expected a stop element </language> closing the property of ILangStringNameType, but got a start node <reference>

@@ -373,33 +373,6 @@ std::deque<std::filesystem::path> FindFilesBySuffixRecursively(
   return result;
 }
 
-template<typename T>
-std::string JoinStrings(const T& container, const std::string& delimiter) {
-  static_assert(std::is_same<typename T::value_type, std::string>::value);
-
-  size_t size = 0;
-  for (const std::string& part : container
-    ) {
-    size += part.size();
-  }
-  size += delimiter.size() * (container.size() - 1);
-
-  std::string result;
-  result.reserve(size);
-
-  const auto it = container.begin();
-  for (size_t i = 0; i < container.size() - 1; ++i
-    ) {
-    result.append(*it);
-    result.append(delimiter);
-    ++it;
-  }
-
-  result.append(*it);
-
-  return result;
-}
-
 void AssertContentEqualsExpectedOrRecord(
   const std::string& content,
   const std::filesystem::path& path
@@ -432,6 +405,8 @@ void AssertContentEqualsExpectedOrRecord(
     REQUIRE(content == expected);
   }
 }
+
+
 
 }  // namespace common
 }  // namespace test

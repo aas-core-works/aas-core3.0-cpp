@@ -1,0 +1,1 @@
+environment/submodels/*[0]/submodel/submodelElements/*[0]/entity/category: Expected a stop element </category> closing the property of IEntity, but got a start node <reference>

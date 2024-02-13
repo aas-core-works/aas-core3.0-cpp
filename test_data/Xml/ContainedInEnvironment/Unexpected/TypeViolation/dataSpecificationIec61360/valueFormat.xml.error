@@ -1,0 +1,1 @@
+environment/assetAdministrationShells/*[0]/assetAdministrationShell/embeddedDataSpecifications/*[0]/embeddedDataSpecification/dataSpecificationContent/dataSpecificationIec61360/valueFormat: Expected a stop element </valueFormat> closing the property of IDataSpecificationIec61360, but got a start node <reference>

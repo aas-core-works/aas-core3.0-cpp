@@ -1,0 +1,1 @@
+environment/submodels/*[0]/submodel/submodelElements/*[0]/referenceElement/idShort: Expected a stop element </idShort> closing the property of IReferenceElement, but got a start node <reference>

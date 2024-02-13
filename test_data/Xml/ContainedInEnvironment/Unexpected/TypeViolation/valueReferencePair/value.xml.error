@@ -1,0 +1,1 @@
+environment/assetAdministrationShells/*[0]/assetAdministrationShell/embeddedDataSpecifications/*[0]/embeddedDataSpecification/dataSpecificationContent/dataSpecificationIec61360/valueList/valueReferencePairs/*[0]/valueReferencePair/value: Expected a stop element </value> closing the property of IValueReferencePair, but got a start node <reference>

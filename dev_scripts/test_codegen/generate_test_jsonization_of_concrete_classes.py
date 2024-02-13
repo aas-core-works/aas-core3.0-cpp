@@ -206,8 +206,7 @@ TEST_CASE("Test the round-trip of an expected {cls_name}") {{
 {II})
 {I});
 
-{I}for (const std::filesystem::path& path : paths
-{II}) {{
+{I}for (const std::filesystem::path& path : paths) {{
 {II}AssertRoundTrip<
 {III}aas::types::{container_interface_name}
 {II}>(path, aas::jsonization::{deserialization_function});
@@ -223,7 +222,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected {cls_name}") {{
 {I}for (
 {II}const std::string& cause
 {II}: test::common::jsonization::kCausesForDeserializationFailure
-{II}) {{
+{I}) {{
 {II}const std::deque<std::filesystem::path> paths(
 {III}test::common::FindFilesBySuffixRecursively(
 {IIII}test::common::DetermineTestDataDir()
@@ -236,8 +235,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected {cls_name}") {{
 {III})
 {II});
 
-{II}for (const std::filesystem::path& path : paths
-{III}) {{
+{II}for (const std::filesystem::path& path : paths) {{
 {III}AssertDeserializationFailure<
 {IIII}aas::types::{container_interface_name}
 {III}>(path, aas::jsonization::{deserialization_function});
