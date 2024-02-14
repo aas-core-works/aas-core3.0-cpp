@@ -1,0 +1,1 @@
+environment/assetAdministrationShells/*[0]/assetAdministrationShell/embeddedDataSpecifications/*[0]/embeddedDataSpecification/dataSpecificationContent/dataSpecificationIec61360/preferredName/*[0]/langStringPreferredNameTypeIec61360/language: Expected a stop element </language> closing the property of ILangStringPreferredNameTypeIec61360, but got a start node <reference>

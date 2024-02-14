@@ -1,0 +1,1 @@
+environment/submodels/*[0]/submodel/submodelElements/*[0]/annotatedRelationshipElement/category: Expected a stop element </category> closing the property of IAnnotatedRelationshipElement, but got a start node <reference>

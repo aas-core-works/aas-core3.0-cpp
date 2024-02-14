@@ -1,0 +1,1 @@
+environment/assetAdministrationShells/*[0]/assetAdministrationShell/extensions/*[0]/extension/value: Expected a stop element </value> closing the property of IExtension, but got a start node <reference>

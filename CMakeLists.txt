@@ -271,6 +271,23 @@ if (${BUILD_TESTS})
             COMMAND $<TARGET_FILE:test_jsonization_of_concrete_classes_outside_container>
     )
     # endregion
+    
+    # region Xmlization
+    add_executable(
+            test_xmlization_of_concrete_classes
+            test/test_xmlization_of_concrete_classes.generated.cpp
+    )
+    target_link_libraries(
+            test_xmlization_of_concrete_classes
+            aas_core3_static
+            common_in_test
+            common_xmlization_in_test
+    )
+    add_test(
+            NAME test_xmlization_of_concrete_classes
+            COMMAND $<TARGET_FILE:test_xmlization_of_concrete_classes>
+    )
+    # endregion
 endif()
 
 # Set the version

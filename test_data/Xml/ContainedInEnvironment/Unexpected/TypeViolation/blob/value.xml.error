@@ -1,0 +1,1 @@
+environment/submodels/*[0]/submodel/submodelElements/*[0]/blob/value: Expected to parse an xs:base64Binary from text, but the value was invalid: Expected a valid character from base64-encoded string, but got at index 0: 10 (code: 10)

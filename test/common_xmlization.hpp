@@ -25,6 +25,14 @@ std::shared_ptr<
   const std::filesystem::path& path
 );
 
+/**
+ * Canonicalize the `xml` by stripping away any XML text between the stop and start
+ * nodes.
+ */
+std::string CanonicalizeXml(
+  const std::string& xml
+);
+
 }  // namespace xmlization
 }  // namespace common
 }  // namespace test

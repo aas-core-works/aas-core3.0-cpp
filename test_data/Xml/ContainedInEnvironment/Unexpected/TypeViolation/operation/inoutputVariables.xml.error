@@ -1,0 +1,1 @@
+environment/submodels/*[0]/submodel/submodelElements/*[0]/operation/inoutputVariables/*[0]: Expected a start element opening an instance of IOperationVariable, but got an XML text

@@ -1,0 +1,1 @@
+environment/submodels/*[0]/submodel/submodelElements/*[0]/multiLanguageProperty/idShort: Expected a stop element </idShort> closing the property of IMultiLanguageProperty, but got a start node <reference>

@@ -1,0 +1,1 @@
+environment/assetAdministrationShells/*[0]/assetAdministrationShell/assetInformation/specificAssetIds/*[0]/specificAssetId/name: Expected a stop element </name> closing the property of ISpecificAssetId, but got a start node <reference>

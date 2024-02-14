@@ -1,0 +1,1 @@
+environment/submodels/*[0]/submodel/submodelElements/*[0]/basicEventElement/state: Expected to parse a literal of StateOfEvent, but got: totally utterly invalid

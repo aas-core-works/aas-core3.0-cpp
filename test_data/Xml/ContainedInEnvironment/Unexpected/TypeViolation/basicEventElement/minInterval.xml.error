@@ -1,0 +1,1 @@
+environment/submodels/*[0]/submodel/submodelElements/*[0]/basicEventElement/minInterval: Expected a stop element </minInterval> closing the property of IBasicEventElement, but got a start node <reference>

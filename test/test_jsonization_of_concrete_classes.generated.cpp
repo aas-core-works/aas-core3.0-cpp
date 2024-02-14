@@ -128,8 +128,7 @@ TEST_CASE("Test the round-trip of an expected Extension") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -140,7 +139,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Extension") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -153,8 +152,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Extension") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -174,8 +172,7 @@ TEST_CASE("Test the round-trip of an expected AdministrativeInformation") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -186,7 +183,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected AdministrativeInfo
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -199,8 +196,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected AdministrativeInfo
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -220,8 +216,7 @@ TEST_CASE("Test the round-trip of an expected Qualifier") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -232,7 +227,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Qualifier") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -245,8 +240,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Qualifier") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -266,8 +260,7 @@ TEST_CASE("Test the round-trip of an expected AssetAdministrationShell") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -278,7 +271,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected AssetAdministratio
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -291,8 +284,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected AssetAdministratio
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -312,8 +304,7 @@ TEST_CASE("Test the round-trip of an expected AssetInformation") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -324,7 +315,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected AssetInformation")
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -337,8 +328,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected AssetInformation")
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -358,8 +348,7 @@ TEST_CASE("Test the round-trip of an expected Resource") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -370,7 +359,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Resource") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -383,8 +372,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Resource") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -404,8 +392,7 @@ TEST_CASE("Test the round-trip of an expected SpecificAssetId") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -416,7 +403,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected SpecificAssetId") 
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -429,8 +416,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected SpecificAssetId") 
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -450,8 +436,7 @@ TEST_CASE("Test the round-trip of an expected Submodel") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -462,7 +447,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Submodel") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -475,8 +460,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Submodel") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -496,8 +480,7 @@ TEST_CASE("Test the round-trip of an expected RelationshipElement") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -508,7 +491,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected RelationshipElemen
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -521,8 +504,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected RelationshipElemen
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -542,8 +524,7 @@ TEST_CASE("Test the round-trip of an expected SubmodelElementList") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -554,7 +535,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected SubmodelElementLis
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -567,8 +548,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected SubmodelElementLis
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -588,8 +568,7 @@ TEST_CASE("Test the round-trip of an expected SubmodelElementCollection") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -600,7 +579,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected SubmodelElementCol
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -613,8 +592,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected SubmodelElementCol
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -634,8 +612,7 @@ TEST_CASE("Test the round-trip of an expected Property") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -646,7 +623,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Property") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -659,8 +636,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Property") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -680,8 +656,7 @@ TEST_CASE("Test the round-trip of an expected MultiLanguageProperty") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -692,7 +667,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected MultiLanguagePrope
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -705,8 +680,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected MultiLanguagePrope
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -726,8 +700,7 @@ TEST_CASE("Test the round-trip of an expected Range") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -738,7 +711,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Range") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -751,8 +724,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Range") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -772,8 +744,7 @@ TEST_CASE("Test the round-trip of an expected ReferenceElement") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -784,7 +755,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected ReferenceElement")
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -797,8 +768,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected ReferenceElement")
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -818,8 +788,7 @@ TEST_CASE("Test the round-trip of an expected Blob") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -830,7 +799,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Blob") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -843,8 +812,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Blob") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -864,8 +832,7 @@ TEST_CASE("Test the round-trip of an expected File") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -876,7 +843,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected File") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -889,8 +856,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected File") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -910,8 +876,7 @@ TEST_CASE("Test the round-trip of an expected AnnotatedRelationshipElement") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -922,7 +887,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected AnnotatedRelations
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -935,8 +900,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected AnnotatedRelations
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -956,8 +920,7 @@ TEST_CASE("Test the round-trip of an expected Entity") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -968,7 +931,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Entity") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -981,8 +944,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Entity") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1002,8 +964,7 @@ TEST_CASE("Test the round-trip of an expected EventPayload") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEventPayload
     >(path, aas::jsonization::EventPayloadFrom);
@@ -1014,7 +975,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected EventPayload") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1027,8 +988,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected EventPayload") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEventPayload
       >(path, aas::jsonization::EventPayloadFrom);
@@ -1048,8 +1008,7 @@ TEST_CASE("Test the round-trip of an expected BasicEventElement") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1060,7 +1019,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected BasicEventElement"
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1073,8 +1032,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected BasicEventElement"
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1094,8 +1052,7 @@ TEST_CASE("Test the round-trip of an expected Operation") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1106,7 +1063,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Operation") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1119,8 +1076,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Operation") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1140,8 +1096,7 @@ TEST_CASE("Test the round-trip of an expected OperationVariable") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1152,7 +1107,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected OperationVariable"
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1165,8 +1120,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected OperationVariable"
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1186,8 +1140,7 @@ TEST_CASE("Test the round-trip of an expected Capability") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1198,7 +1151,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Capability") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1211,8 +1164,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Capability") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1232,8 +1184,7 @@ TEST_CASE("Test the round-trip of an expected ConceptDescription") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1244,7 +1195,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected ConceptDescription
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1257,8 +1208,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected ConceptDescription
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1278,8 +1228,7 @@ TEST_CASE("Test the round-trip of an expected Reference") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1290,7 +1239,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Reference") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1303,8 +1252,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Reference") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1324,8 +1272,7 @@ TEST_CASE("Test the round-trip of an expected Key") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1336,7 +1283,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Key") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1349,8 +1296,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Key") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1370,8 +1316,7 @@ TEST_CASE("Test the round-trip of an expected LangStringNameType") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1382,7 +1327,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected LangStringNameType
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1395,8 +1340,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected LangStringNameType
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1416,8 +1360,7 @@ TEST_CASE("Test the round-trip of an expected LangStringTextType") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1428,7 +1371,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected LangStringTextType
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1441,8 +1384,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected LangStringTextType
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1462,8 +1404,7 @@ TEST_CASE("Test the round-trip of an expected Environment") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1474,7 +1415,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Environment") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1487,8 +1428,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected Environment") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1508,8 +1448,7 @@ TEST_CASE("Test the round-trip of an expected EmbeddedDataSpecification") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1520,7 +1459,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected EmbeddedDataSpecif
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1533,8 +1472,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected EmbeddedDataSpecif
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1554,8 +1492,7 @@ TEST_CASE("Test the round-trip of an expected LevelType") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1566,7 +1503,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected LevelType") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1579,8 +1516,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected LevelType") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1600,8 +1536,7 @@ TEST_CASE("Test the round-trip of an expected ValueReferencePair") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1612,7 +1547,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected ValueReferencePair
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1625,8 +1560,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected ValueReferencePair
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1646,8 +1580,7 @@ TEST_CASE("Test the round-trip of an expected ValueList") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1658,7 +1591,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected ValueList") {
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1671,8 +1604,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected ValueList") {
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1692,8 +1624,7 @@ TEST_CASE("Test the round-trip of an expected LangStringPreferredNameTypeIec6136
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1704,7 +1635,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected LangStringPreferre
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1717,8 +1648,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected LangStringPreferre
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1738,8 +1668,7 @@ TEST_CASE("Test the round-trip of an expected LangStringShortNameTypeIec61360") 
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1750,7 +1679,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected LangStringShortNam
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1763,8 +1692,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected LangStringShortNam
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1784,8 +1712,7 @@ TEST_CASE("Test the round-trip of an expected LangStringDefinitionTypeIec61360")
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1796,7 +1723,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected LangStringDefiniti
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1809,8 +1736,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected LangStringDefiniti
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);
@@ -1830,8 +1756,7 @@ TEST_CASE("Test the round-trip of an expected DataSpecificationIec61360") {
     )
   );
 
-  for (const std::filesystem::path& path : paths
-    ) {
+  for (const std::filesystem::path& path : paths) {
     AssertRoundTrip<
       aas::types::IEnvironment
     >(path, aas::jsonization::EnvironmentFrom);
@@ -1842,7 +1767,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected DataSpecificationI
   for (
     const std::string& cause
     : test::common::jsonization::kCausesForDeserializationFailure
-    ) {
+  ) {
     const std::deque<std::filesystem::path> paths(
       test::common::FindFilesBySuffixRecursively(
         test::common::DetermineTestDataDir()
@@ -1855,8 +1780,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected DataSpecificationI
       )
     );
 
-    for (const std::filesystem::path& path : paths
-      ) {
+    for (const std::filesystem::path& path : paths) {
       AssertDeserializationFailure<
         aas::types::IEnvironment
       >(path, aas::jsonization::EnvironmentFrom);

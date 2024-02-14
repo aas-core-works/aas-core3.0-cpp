@@ -1,0 +1,2 @@
+environment/assetAdministrationShells/*[0]/assetAdministrationShell/embeddedDataSpecifications/*[0]/embeddedDataSpecification/dataSpecificationContent/dataSpecificationIec61360/levelType/min: Expected to parse an xs:boolean from text, but got an invalid value: 
+									
