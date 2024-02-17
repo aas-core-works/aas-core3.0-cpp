@@ -107,7 +107,8 @@ void AssertRoundTrip(
         Stripped(
             f"""\
 void AssertDeserializationFailure(
-{I}const std::filesystem::path &path
+{I}const std::filesystem::path& path,
+{I}const std::filesystem::path& error_path
 ) {{
 {I}std::ifstream ifs(path, std::ios::binary);
 
@@ -129,11 +130,6 @@ void AssertDeserializationFailure(
 {II}REQUIRE(!deserialized.has_value());
 {I}}}
 
-{I}const std::filesystem::path error_path(
-{II}path.parent_path()
-{III}/ (path.filename().string() + ".error")
-{I});
-
 {I}test::common::AssertContentEqualsExpectedOrRecord(
 {II}aas::common::Concat(
 {III}aas::common::WstringToUtf8(
@@ -148,6 +144,21 @@ void AssertDeserializationFailure(
 {I});
 }}"""
         ),
+        Stripped(
+            f"""\
+const std::filesystem::path kXmlDir(
+{I}test::common::DetermineTestDataDir()
+{I}/ "Xml"
+);"""
+        ),
+        Stripped(
+            f"""\
+const std::filesystem::path kErrorDir(
+{I}test::common::DetermineTestDataDir()
+{I}/ "XmlizationError"
+);"""
+        ),
+
     ]  # type: List[Stripped]
 
     environment_cls = symbol_table.must_find_concrete_class(Identifier("Environment"))
@@ -185,8 +196,7 @@ void AssertDeserializationFailure(
 TEST_CASE("Test the round-trip of an expected {cls_name}") {{
 {I}const std::deque<std::filesystem::path> paths(
 {II}test::common::FindFilesBySuffixRecursively(
-{III}test::common::DetermineTestDataDir()
-{IIII}/ "Xml"
+{III}kXmlDir
 {IIII}/ {cpp_common.string_literal(contained_in_dir_name)}
 {IIII}/ "Expected"
 {IIII}/ {cpp_common.string_literal(xml_class_name)},
@@ -211,8 +221,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected {cls_name}") {{
 {I}) {{
 {II}const std::deque<std::filesystem::path> paths(
 {III}test::common::FindFilesBySuffixRecursively(
-{IIII}test::common::DetermineTestDataDir()
-{IIIII}/ "Xml"
+{IIII}kXmlDir
 {IIIII}/ {cpp_common.string_literal(contained_in_dir_name)}
 {IIIII}/ "Unexpected"
 {IIIII}/ cause
@@ -222,7 +231,22 @@ TEST_CASE("Test the de-serialization failure on an unexpected {cls_name}") {{
 {II});
 
 {II}for (const std::filesystem::path &path : paths) {{
-{III}AssertDeserializationFailure(path);
+{III}const std::filesystem::path parent(
+{IIII}(
+{IIIII}kErrorDir
+{IIIII}/ std::filesystem::relative(path, kXmlDir)
+{IIII}).parent_path()
+{III});
+
+{III}const std::filesystem::path error_path(
+{IIII}parent
+{IIII}/ (path.filename().string() + ".error")
+{III});
+
+{III}AssertDeserializationFailure(
+{IIII}path,
+{IIII}error_path
+{III});
 {II}}}
 {I}}}
 }}"""

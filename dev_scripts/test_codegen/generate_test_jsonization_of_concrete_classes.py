@@ -119,7 +119,8 @@ void AssertDeserializationFailure(
 {III}std::shared_ptr<ClassT>,
 {III}aas::jsonization::DeserializationError
 {II}>(const nlohmann::json&, bool)
-{I}> deserialization_function
+{I}> deserialization_function,
+{I}const std::filesystem::path& error_path
 ) {{
 {I}const nlohmann::json json = test::common::jsonization::MustReadJson(path);
 
@@ -139,11 +140,6 @@ void AssertDeserializationFailure(
 {II}REQUIRE(!deserialized.has_value());
 {I}}}
 
-{I}const std::filesystem::path error_path(
-{II}path.parent_path()
-{III}/ (path.filename().string() + ".error")
-{I});
-
 {I}test::common::AssertContentEqualsExpectedOrRecord(
 {II}aas::common::Concat(
 {III}aas::common::WstringToUtf8(
@@ -157,6 +153,20 @@ void AssertDeserializationFailure(
 {II}error_path
 {I});
 }}"""
+        ),
+        Stripped(
+            f"""\
+const std::filesystem::path kJsonDir(
+{I}test::common::DetermineTestDataDir()
+{I}/ "Json"
+);"""
+        ),
+        Stripped(
+            f"""\
+const std::filesystem::path kErrorDir(
+{I}test::common::DetermineTestDataDir()
+{I}/ "JsonizationError"
+);"""
         ),
     ]  # type: List[Stripped]
 
@@ -197,8 +207,7 @@ void AssertDeserializationFailure(
 TEST_CASE("Test the round-trip of an expected {cls_name}") {{
 {I}const std::deque<std::filesystem::path> paths(
 {II}test::common::FindFilesBySuffixRecursively(
-{III}test::common::DetermineTestDataDir()
-{IIII}/ "Json"
+{III}kJsonDir
 {IIII}/ {cpp_common.string_literal(contained_in_dir_name)}
 {IIII}/ "Expected"
 {IIII}/ {cpp_common.string_literal(model_type)},
@@ -225,8 +234,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected {cls_name}") {{
 {I}) {{
 {II}const std::deque<std::filesystem::path> paths(
 {III}test::common::FindFilesBySuffixRecursively(
-{IIII}test::common::DetermineTestDataDir()
-{IIIII}/ "Json"
+{IIII}kJsonDir
 {IIIII}/ {cpp_common.string_literal(contained_in_dir_name)}
 {IIIII}/ "Unexpected"
 {IIIII}/ cause
@@ -236,9 +244,25 @@ TEST_CASE("Test the de-serialization failure on an unexpected {cls_name}") {{
 {II});
 
 {II}for (const std::filesystem::path& path : paths) {{
+{III}const std::filesystem::path parent(
+{IIII}(
+{IIIII}kErrorDir
+{IIIII}/ std::filesystem::relative(path, kJsonDir)
+{IIII}).parent_path()
+{III});
+
+{III}const std::filesystem::path error_path(
+{IIII}parent
+{IIII}/ (path.filename().string() + ".error")
+{III});
+
 {III}AssertDeserializationFailure<
 {IIII}aas::types::{container_interface_name}
-{III}>(path, aas::jsonization::{deserialization_function});
+{III}>(
+{IIII}path,
+{IIII}aas::jsonization::{deserialization_function},
+{IIII}error_path
+{III});
 {II}}}
 {I}}}
 }}"""
