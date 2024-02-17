@@ -322,7 +322,7 @@ if (${BUILD_TESTS})
     # region Verification
     add_executable(
             test_verification
-            test/test_verification.cpp
+            test/test_verification.generated.cpp
     )
     target_link_libraries(
             test_verification
