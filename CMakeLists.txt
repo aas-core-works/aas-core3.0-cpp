@@ -287,6 +287,36 @@ if (${BUILD_TESTS})
             NAME test_xmlization_of_concrete_classes
             COMMAND $<TARGET_FILE:test_xmlization_of_concrete_classes>
     )
+
+    add_executable(
+            test_xmlization_dispatch
+            test/test_xmlization_dispatch.generated.cpp
+    )
+    target_link_libraries(
+            test_xmlization_dispatch
+            aas_core3_static
+            common_in_test
+            common_examples_in_test
+    )
+    add_test(
+            NAME test_xmlization_dispatch
+            COMMAND $<TARGET_FILE:test_xmlization_dispatch>
+    )
+
+    add_executable(
+            test_xmlization_of_concrete_classes_outside_container
+            test/test_xmlization_of_concrete_classes_outside_container.generated.cpp
+    )
+    target_link_libraries(
+            test_xmlization_of_concrete_classes_outside_container
+            aas_core3_static
+            common_in_test
+            common_examples_in_test
+    )
+    add_test(
+            NAME test_xmlization_of_concrete_classes_outside_container
+            COMMAND $<TARGET_FILE:test_xmlization_of_concrete_classes_outside_container>
+    )
     # endregion
 endif()
 
