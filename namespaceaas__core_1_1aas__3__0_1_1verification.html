@@ -123,9 +123,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a861f80ecee62bdb1d56bb13c0db04d37" id="r_a861f80ecee62bdb1d56bb13c0db04d37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a861f80ecee62bdb1d56bb13c0db04d37">MatchesXsDateTimeUtc</a> (const std::wstring &amp;text)</td></tr>
 <tr class="memdesc:a861f80ecee62bdb1d56bb13c0db04d37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that <code>text</code> conforms to the pattern of an <code>xs:dateTime</code>.  <br /></td></tr>
 <tr class="separator:a861f80ecee62bdb1d56bb13c0db04d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addb7b5fca2e6353bd3fac54588f87823" id="r_addb7b5fca2e6353bd3fac54588f87823"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addb7b5fca2e6353bd3fac54588f87823">IsLeapYear</a> (long long year)</td></tr>
-<tr class="memdesc:addb7b5fca2e6353bd3fac54588f87823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether the given <code>year</code> is a leap year.  <br /></td></tr>
-<tr class="separator:addb7b5fca2e6353bd3fac54588f87823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adad5a5149076c250f3eed101b69c04a9" id="r_adad5a5149076c250f3eed101b69c04a9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adad5a5149076c250f3eed101b69c04a9">IsXsDateTimeUtc</a> (const std::wstring &amp;text)</td></tr>
 <tr class="memdesc:adad5a5149076c250f3eed101b69c04a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that <code>text</code> is a <code>xs:dateTime</code> with time zone set to UTC.  <br /></td></tr>
 <tr class="separator:adad5a5149076c250f3eed101b69c04a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -244,6 +241,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a897505cee5ae960a193f469c5202a13b" id="r_a897505cee5ae960a193f469c5202a13b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a897505cee5ae960a193f469c5202a13b">ValueConsistentWithXsdType</a> (const std::wstring &amp;value, <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1types.html#a153f15615ba91baeb38ee1bec09c89ce">types::DataTypeDefXsd</a> value_type)</td></tr>
 <tr class="memdesc:a897505cee5ae960a193f469c5202a13b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that the <code>value</code> conforms to its <code>value_type</code>.  <br /></td></tr>
 <tr class="separator:a897505cee5ae960a193f469c5202a13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3046347324f477c91ea0a7c3720f6925" id="r_a3046347324f477c91ea0a7c3720f6925"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3046347324f477c91ea0a7c3720f6925">IsXsDate</a> (const std::wstring &amp;text)</td></tr>
+<tr class="memdesc:a3046347324f477c91ea0a7c3720f6925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that <code>value</code> is a valid <code>xs:date</code>.  <br /></td></tr>
+<tr class="separator:a3046347324f477c91ea0a7c3720f6925"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9700a043a07b8f318fbae5d962f80be3" id="r_a9700a043a07b8f318fbae5d962f80be3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9700a043a07b8f318fbae5d962f80be3">IsXsDouble</a> (const std::wstring &amp;value)</td></tr>
 <tr class="memdesc:a9700a043a07b8f318fbae5d962f80be3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that <code>value</code> is a valid <code>xs:double</code>.  <br /></td></tr>
 <tr class="separator:a9700a043a07b8f318fbae5d962f80be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -580,33 +580,6 @@ template&lt;typename ReferableT , typename std::enable_if&lt; std::is_base_of&lt
 
 </div>
 </div>
-<a id="addb7b5fca2e6353bd3fac54588f87823" name="addb7b5fca2e6353bd3fac54588f87823"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addb7b5fca2e6353bd3fac54588f87823">&#9670;&#160;</a></span>IsLeapYear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool aas_core::aas_3_0::verification::IsLeapYear </td>
-          <td>(</td>
-          <td class="paramtype">long long</td>          <td class="paramname"><span class="paramname"><em>year</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check whether the given <code>year</code> is a leap year. </p>
-<p>Year 1 BCE is a leap year.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">year</td><td>to be checked </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true if <code>year</code> is a leap year </dd></dl>
-
-</div>
-</div>
 <a id="a9c5d71adfc2ec61b8d040d4d74bb89ba" name="a9c5d71adfc2ec61b8d040d4d74bb89ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9c5d71adfc2ec61b8d040d4d74bb89ba">&#9670;&#160;</a></span>IsModelReferenceTo()</h2>
 
@@ -672,6 +645,33 @@ template&lt;typename ReferableT , typename std::enable_if&lt; std::is_base_of&lt
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if <code>value</code> is a valid <code>xs:byte</code> </dd></dl>
+
+</div>
+</div>
+<a id="a3046347324f477c91ea0a7c3720f6925" name="a3046347324f477c91ea0a7c3720f6925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3046347324f477c91ea0a7c3720f6925">&#9670;&#160;</a></span>IsXsDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool aas_core::aas_3_0::verification::IsXsDate </td>
+          <td>(</td>
+          <td class="paramtype">const std::wstring &amp;</td>          <td class="paramname"><span class="paramname"><em>text</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check that <code>value</code> is a valid <code>xs:date</code>. </p>
+<p>Year 1 BCE is the last leap BCE year. See: <a href="https://www.w3.org/TR/xmlschema-2/#dateTime">https://www.w3.org/TR/xmlschema-2/#dateTime</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>to be checked </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if <code>value</code> is a valid <code>xs:date</code> </dd></dl>
 
 </div>
 </div>
