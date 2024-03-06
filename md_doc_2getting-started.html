@@ -199,8 +199,7 @@ Example: Create an Environment with a Submodel</h2>
 <p>Here is a very rudimentary example where we show how to create an environment which contains a submodel.</p>
 <p>The submodel will contain two elements, a property and a blob.</p>
 <p>(We will alias the namespace <a class="el" href="namespaceaas__core_1_1aas__3__0.html">aas_core::aas_3_0</a> as <code>aas</code> for readability. You might or might not want to write your code like that; the aliasing is not necessary.)</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>aas = <a class="code hl_namespace" href="namespaceaas__core_1_1aas__3__0.html">aas_core::aas_3_0</a>;</div>
 <div class="line"> </div>
@@ -297,8 +296,7 @@ Iterate</h1>
 <p>The SDK provides two iterables, <a class="el" href="classaas__core_1_1aas__3__0_1_1iteration_1_1Descent.html">aas_core::aas_3_0::iteration::Descent</a> and <a class="el" href="classaas__core_1_1aas__3__0_1_1iteration_1_1DescentOnce.html">aas_core::aas_3_0::iteration::DescentOnce</a>. You give them an instance of the model, and they provide <code>begin()</code> and <code>end()</code> functions. This is particularly practical when you directly pass them into <a href="https://en.cppreference.com/w/cpp/language/range-for">range-based for loops</a>.</p>
 <p>As their names suggest, <code>Descent</code> iterates recursively over all the instances referenced by the original instance. In contrast, <code>DescentOnce</code> iterates only over the instanced referenced by the original instance, and does not proceed recursively.</p>
 <p>Here is a short example how you can iterate over all the instances of a model, and output their model types:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="iteration_8hpp.html">aas_core/aas_3_0/iteration.hpp</a>&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="iteration_8hpp.html">aas_core/aas_3_0/iteration.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="stringification_8hpp.html">aas_core/aas_3_0/stringification.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -379,8 +377,7 @@ Iterate</h1>
 Filtering with <code>Descent</code> and <code>DescentOnce</code></h2>
 <p>Filtering with <code>Descent</code> and <code>DescentOnce</code> is fairly easy, as we can write the filtering code within a for loop.</p>
 <p>Here is a short snippet, adapted from the previous example, where we filter for all properties which have <code>int</code> as their value type:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="iteration_8hpp.html">aas_core/aas_3_0/iteration.hpp</a>&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="iteration_8hpp.html">aas_core/aas_3_0/iteration.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="stringification_8hpp.html">aas_core/aas_3_0/stringification.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -477,8 +474,7 @@ Visitors</h2>
 <p>**<code>AbstractVisitor</code>**. Most of the time, you want to process each instance of a model in isolation, so you do not want to call the visitting methods on the children references. The abstract visitor <a class="el" href="classaas__core_1_1aas__3__0_1_1visitation_1_1AbstractVisitor.html">aas_core::aas_3_0::visitation::AbstractVisitor</a> will take care of the children references. You merely have to specify the operation for each model type.</p>
 <p>**<code>PassThroughVisitor</code>**. If you want to process only some of the model types, use the class <a class="el" href="classaas__core_1_1aas__3__0_1_1visitation_1_1PassThroughVisitor.html">aas_core::aas_3_0::visitation::PassThroughVisitor</a>. This class will iterate recursively over all the referenced instances, and simply perform no action for instances of model types for which you did not override the corresponding visiting method.</p>
 <p>Here is an example with a <a class="el" href="classaas__core_1_1aas__3__0_1_1visitation_1_1PassThroughVisitor.html">aas_core::aas_3_0::visitation::PassThroughVisitor</a>, which has been adapted from the previous filtering example:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="visitation_8hpp.html">aas_core/aas_3_0/visitation.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -585,8 +581,7 @@ Verify</h1>
 <p class="enddd">Note that some of the other SDKs suffer from the same issue (TypeScript), while others do not (Python, C# and Golang), which avoid the issue by using <code>BigInt</code>'s. </p>
 </dd></dl>
 <p>Here is an example which verifies an environment against the meta-model constraints:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="verification_8hpp.html">aas_core/aas_3_0/verification.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -658,8 +653,7 @@ JSON De/serialization</h1>
 Serialize</h2>
 <p>The model instances are converted to <a href="https://github.com/nlohmann/json">nlohmann/json</a> using <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1jsonization.html#a2fc83d22ea3a1b372e4363f030488cff">aas_core::aas_3_0::jsonization::Serialize</a>.</p>
 <p>Here is an example code:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="jsonization_8hpp.html">aas_core/aas_3_0/jsonization.hpp</a>&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="jsonization_8hpp.html">aas_core/aas_3_0/jsonization.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
@@ -724,8 +718,7 @@ De-serialize</h2>
 <p>The de-serialization functions return a <code>aas_core::aas_3_0::common::expected</code>, a union type holding either the de-serialized instance or an error.</p>
 <p><a class="anchor" id="note-expected"></a> </p><dl class="section note"><dt>Note</dt><dd>As a matter of fact, we did not implement <code>aas_core::aas_3_0::common::expected</code> ourselves. If your compiler supports C++23, <a href="https://en.cppreference.com/w/cpp/utility/expected">std::expected</a> will be used underneath. Otherwise, a fill-in in form of <a href="https://github.com/TartanLlama/expected">tl::expected</a> is used. </dd></dl>
 <p>Here is an example:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="jsonization_8hpp.html">aas_core/aas_3_0/jsonization.hpp</a>&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="jsonization_8hpp.html">aas_core/aas_3_0/jsonization.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
@@ -764,8 +757,7 @@ De-serialize</h2>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}  </div>
 </div><!-- fragment --><p>Here is another example of how to report the errors:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="jsonization_8hpp.html">aas_core/aas_3_0/jsonization.hpp</a>&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="jsonization_8hpp.html">aas_core/aas_3_0/jsonization.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
@@ -819,8 +811,7 @@ Serialization</h2>
 <p>You serialize a model using the overloaded functions <a class="el" href="namespaceaas__core_1_1aas__3__0_1_1xmlization.html#a2f6ec6929c9292a159ba8d699c4c8756">aas_core::aas_3_0::xmlization::Serialize</a>.</p>
 <p>Apart from the object, you pass it the writing options (<a class="el" href="structaas__core_1_1aas__3__0_1_1xmlization_1_1WritingOptions.html">aas_core::aas_3_0::xmlization::WritingOptions</a>) and the stream to write to. The default options should cover the majority of the use cases in the field. The stream is assumed to be encoded in UTF-8, <em>i.e.,</em> we write the text encoded in UTF-8.</p>
 <p>Here is an example:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="xmlization_8hpp.html">aas_core/aas_3_0/xmlization.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>aas = <a class="code hl_namespace" href="namespaceaas__core_1_1aas__3__0.html">aas_core::aas_3_0</a>;</div>
@@ -888,8 +879,7 @@ De-serialization</h2>
 <p>C++ does not provide any XML parsing in the standard library, so we use <a href="https://libexpat.github.io/">Expat</a>, but the user does not interact with it directly.</p>
 <p>Similar to JSON, the result of the parsing is returned as <code>aas_core::aas_3_0::common::expected</code>. This is a union type between a model instance and the de-serialization error. Please see <a class="el" href="#note-expected">the previous note in JSON de-serialization</a> related to how this union type is actually implemented</p>
 <p>Here is an example how to de-serialize successfully a model instance from a text string:</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="xmlization_8hpp.html">aas_core/aas_3_0/xmlization.hpp</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="xmlization_8hpp.html">aas_core/aas_3_0/xmlization.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>aas = <a class="code hl_namespace" href="namespaceaas__core_1_1aas__3__0.html">aas_core::aas_3_0</a>;</div>
 <div class="line"> </div>
@@ -1007,8 +997,7 @@ Wrapping</h2>
 Example: Parent-Child Enhancement</h2>
 <p>Let us now consider the aforementioned example. We want to keep track of parent-child relationships in a model.</p>
 <p>The following code snippets first constructs an environment for illustration. Then we specify the enhancement such that each instance is initialized with the parent set to <code>nullptr</code>. Finally, we modify the enhancements such that they reflect the actual parent-child relationships.</p>
-<div class="fragment"><div class="line"> ++</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="enhancing_8hpp.html">aas_core/aas_3_0/enhancing.hpp</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="enhancing_8hpp.html">aas_core/aas_3_0/enhancing.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="types_8hpp.html">aas_core/aas_3_0/types.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>aas = <a class="code hl_namespace" href="namespaceaas__core_1_1aas__3__0.html">aas_core::aas_3_0</a>;</div>
