@@ -49,8 +49,6 @@ namespace aas = aas_core::aas_3_0;"""
         ),
     ]  # type: List[Stripped]
 
-    environment_cls = symbol_table.must_find_concrete_class(Identifier("Environment"))
-
     for cls in symbol_table.classes:
         if len(cls.concrete_descendants) == 0:
             continue
@@ -148,10 +146,7 @@ TEST_CASE("Test the round-trip of an expected {interface_name}") {{
 
     writer.write("\n")
 
-    target_pth = (
-        repo_root
-        / "test/test_xmlization_dispatch.generated.cpp"
-    )
+    target_pth = repo_root / "test/test_xmlization_dispatch.generated.cpp"
     target_pth.write_text(writer.getvalue(), encoding="utf-8")
 
     return 0

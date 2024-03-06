@@ -156,17 +156,25 @@ void AssertDeserializationFailure(
         ),
         Stripped(
             f"""\
-const std::filesystem::path kJsonDir(
-{I}test::common::DetermineTestDataDir()
-{I}/ "Json"
-);"""
+const std::filesystem::path& DetermineJsonDir() {{
+{I}static aas::common::optional<std::filesystem::path> result;
+{I}if (!result.has_value()) {{
+{II}result = test::common::DetermineTestDataDir() / "Json";
+{I}}}
+
+{I}return *result;
+}}"""
         ),
         Stripped(
             f"""\
-const std::filesystem::path kErrorDir(
-{I}test::common::DetermineTestDataDir()
-{I}/ "JsonizationError"
-);"""
+const std::filesystem::path& DetermineErrorDir() {{
+{I}static aas::common::optional<std::filesystem::path> result;
+{I}if (!result.has_value()) {{
+{II}result = test::common::DetermineTestDataDir() / "JsonizationError";
+{I}}}
+
+{I}return *result;
+}}"""
         ),
     ]  # type: List[Stripped]
 
@@ -207,7 +215,7 @@ const std::filesystem::path kErrorDir(
 TEST_CASE("Test the round-trip of an expected {cls_name}") {{
 {I}const std::deque<std::filesystem::path> paths(
 {II}test::common::FindFilesBySuffixRecursively(
-{III}kJsonDir
+{III}DetermineJsonDir()
 {IIII}/ {cpp_common.string_literal(contained_in_dir_name)}
 {IIII}/ "Expected"
 {IIII}/ {cpp_common.string_literal(model_type)},
@@ -234,7 +242,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected {cls_name}") {{
 {I}) {{
 {II}const std::deque<std::filesystem::path> paths(
 {III}test::common::FindFilesBySuffixRecursively(
-{IIII}kJsonDir
+{IIII}DetermineJsonDir()
 {IIIII}/ {cpp_common.string_literal(contained_in_dir_name)}
 {IIIII}/ "Unexpected"
 {IIIII}/ cause
@@ -246,8 +254,8 @@ TEST_CASE("Test the de-serialization failure on an unexpected {cls_name}") {{
 {II}for (const std::filesystem::path& path : paths) {{
 {III}const std::filesystem::path parent(
 {IIII}(
-{IIIII}kErrorDir
-{IIIII}/ std::filesystem::relative(path, kJsonDir)
+{IIIII}DetermineErrorDir()
+{IIIII}/ std::filesystem::relative(path, DetermineJsonDir())
 {IIII}).parent_path()
 {III});
 
