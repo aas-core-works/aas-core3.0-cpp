@@ -532,7 +532,7 @@ std::string CanonicalizeXml(
   XML_Status status = XML_Parse(
     parser,
     xml.data(),
-    xml.size(),
+    static_cast<int>(xml.size()),
     true
   );
 

@@ -329,28 +329,37 @@ def _build_and_run_tests_and_rerecord(our_repo: pathlib.Path) -> None:
 
     build_dir = our_repo / f"build-for-update-{uuid.uuid4()}"
     build_dir.mkdir()
+    cmd = [
+        "cmake",
+        "-DBUILD_TESTS=ON",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-S.",
+        f"-B{build_dir}",
+    ]
+    cmd_joined = " ".join(cmd)
+    print(f"Executing: {cmd_joined}")
+    subprocess.check_call(
+        cmd,
+        env=env,
+        cwd=our_repo,
+    )
 
-    try:
-        subprocess.check_call(
-            [
-                "cmake",
-                "-DBUILD_TESTS=ON",
-                "-DCMAKE_BUILD_TYPE=Debug",
-                "-S.",
-                f"-B{build_dir}",
-            ],
-            env=env,
-            cwd=our_repo,
-        )
+    cmd = ["cmake", "--build", str(build_dir), "-j", "8"]
+    cmd_joined = " ".join(cmd)
+    print(f"Executing: {cmd_joined}")
+    subprocess.check_call(cmd, env=env, cwd=our_repo)
 
-        subprocess.check_call(
-            ["cmake", "--build", str(build_dir), "-j", "8"], env=env, cwd=our_repo
-        )
+    cmd = ["ctest", "-C", "DEBUG"]
+    cmd_joined = " ".join(cmd)
+    print(f"Executing: {cmd_joined}")
+    subprocess.check_call(cmd, env=env, cwd=build_dir)
 
-        subprocess.check_call(["ctest", "-C", "DEBUG"], env=env, cwd=build_dir)
-    finally:
-        if build_dir.exists():
-            shutil.rmtree(build_dir)
+    # NOTE (mristin):
+    # We delete the build directory only if everything succeeded. Otherwise,
+    # we leave it lingering so that we can investigate the issue.
+
+    if build_dir.exists():
+        shutil.rmtree(build_dir)
 
 
 def _create_branch_commit_and_push(
