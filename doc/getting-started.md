@@ -184,7 +184,7 @@ The submodel will contain two elements, a property and a blob.
 
 (We will alias the namespace @ref aas_core::aas_3_0 as `aas` for readability. You might or might not want to write your  code like that; the aliasing is not necessary.)
 
-```c++
+```cpp
 #include <aas_core/aas_3_0/types.hpp>
 
 namespace aas = aas_core::aas_3_0;
@@ -301,7 +301,7 @@ In contrast, `DescentOnce` iterates only over the instanced referenced by the or
 
 Here is a short example how you can iterate over all the instances of a model, and output their model types:
 
-```C++
+```cpp
 #include <aas_core/aas_3_0/iteration.hpp>
 #include <aas_core/aas_3_0/stringification.hpp>
 #include <aas_core/aas_3_0/types.hpp>
@@ -385,7 +385,7 @@ Filtering with `Descent` and `DescentOnce` is fairly easy, as we can write the f
 
 Here is a short snippet, adapted from the previous example, where we filter for all properties which have `int` as their value type:
 
-```C++
+```cpp
 #include <aas_core/aas_3_0/iteration.hpp>
 #include <aas_core/aas_3_0/stringification.hpp>
 #include <aas_core/aas_3_0/types.hpp>
@@ -499,7 +499,7 @@ This class will iterate recursively over all the referenced instances, and simpl
 
 Here is an example with a @ref aas_core::aas_3_0::visitation::PassThroughVisitor, which has been adapted from the previous filtering example:
 
-```C++
+```cpp
 #include <aas_core/aas_3_0/types.hpp>
 #include <aas_core/aas_3_0/visitation.hpp>
 
@@ -622,7 +622,7 @@ Note that some of the other SDKs suffer from the same issue (TypeScript), while 
 
 Here is an example which verifies an environment against the meta-model constraints:
 
-```C++
+```cpp
 #include <aas_core/aas_3_0/types.hpp>
 #include <aas_core/aas_3_0/verification.hpp>
 
@@ -705,7 +705,7 @@ The model instances are converted to [nlohmann/json] using @ref aas_core::aas_3_
 
 Here is an example code:
 
-```C++
+```cpp
 #include <aas_core/aas_3_0/jsonization.hpp>
 #include <aas_core/aas_3_0/types.hpp>
 
@@ -782,7 +782,7 @@ Otherwise, a fill-in in form of [tl::expected] is used.
 
 Here is an example:
 
-```C++
+```cpp
 #include <aas_core/aas_3_0/jsonization.hpp>
 #include <aas_core/aas_3_0/types.hpp>
 
@@ -825,7 +825,7 @@ int main() {
 
 Here is another example of how to report the errors:
 
-```C++
+```cpp
 #include <aas_core/aas_3_0/jsonization.hpp>
 #include <aas_core/aas_3_0/types.hpp>
 
@@ -886,7 +886,7 @@ The stream is assumed to be encoded in UTF-8, *i.e.,* we write the text encoded 
 
 Here is an example:
 
-```C++
+```cpp
 #include "aas_core/aas_3_0/types.hpp"
 #include "aas_core/aas_3_0/xmlization.hpp"
 
@@ -966,7 +966,7 @@ Please see [the previous note in JSON de-serialization](#note-expected) related 
 
 Here is an example how to de-serialize successfully a model instance from a text string:
 
-```C++
+```cpp
 #include "aas_core/aas_3_0/xmlization.hpp"
 
 namespace aas = aas_core::aas_3_0;
@@ -1139,7 +1139,7 @@ The following code snippets first constructs an environment for illustration.
 Then we specify the enhancement such that each instance is initialized with the parent set to `nullptr`.
 Finally, we modify the enhancements such that they reflect the actual parent-child relationships.
 
-```C++
+```cpp
 #include "aas_core/aas_3_0/enhancing.hpp"
 #include "aas_core/aas_3_0/types.hpp"
 
