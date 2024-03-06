@@ -146,19 +146,26 @@ void AssertDeserializationFailure(
         ),
         Stripped(
             f"""\
-const std::filesystem::path kXmlDir(
-{I}test::common::DetermineTestDataDir()
-{I}/ "Xml"
-);"""
+const std::filesystem::path& DetermineXmlDir() {{
+{I}static aas::common::optional<std::filesystem::path> result;
+{I}if (!result.has_value()) {{
+{II}result = test::common::DetermineTestDataDir() / "Xml";
+{I}}}
+
+{I}return *result;
+}}"""
         ),
         Stripped(
             f"""\
-const std::filesystem::path kErrorDir(
-{I}test::common::DetermineTestDataDir()
-{I}/ "XmlizationError"
-);"""
-        ),
+const std::filesystem::path& DetermineErrorDir() {{
+{I}static aas::common::optional<std::filesystem::path> result;
+{I}if (!result.has_value()) {{
+{II}result = test::common::DetermineTestDataDir() / "XmlizationError";
+{I}}}
 
+{I}return *result;
+}}"""
+        ),
     ]  # type: List[Stripped]
 
     environment_cls = symbol_table.must_find_concrete_class(Identifier("Environment"))
@@ -196,7 +203,7 @@ const std::filesystem::path kErrorDir(
 TEST_CASE("Test the round-trip of an expected {cls_name}") {{
 {I}const std::deque<std::filesystem::path> paths(
 {II}test::common::FindFilesBySuffixRecursively(
-{III}kXmlDir
+{III}DetermineXmlDir()
 {IIII}/ {cpp_common.string_literal(contained_in_dir_name)}
 {IIII}/ "Expected"
 {IIII}/ {cpp_common.string_literal(xml_class_name)},
@@ -221,7 +228,7 @@ TEST_CASE("Test the de-serialization failure on an unexpected {cls_name}") {{
 {I}) {{
 {II}const std::deque<std::filesystem::path> paths(
 {III}test::common::FindFilesBySuffixRecursively(
-{IIII}kXmlDir
+{IIII}DetermineXmlDir()
 {IIIII}/ {cpp_common.string_literal(contained_in_dir_name)}
 {IIIII}/ "Unexpected"
 {IIIII}/ cause
@@ -233,8 +240,8 @@ TEST_CASE("Test the de-serialization failure on an unexpected {cls_name}") {{
 {II}for (const std::filesystem::path &path : paths) {{
 {III}const std::filesystem::path parent(
 {IIII}(
-{IIIII}kErrorDir
-{IIIII}/ std::filesystem::relative(path, kXmlDir)
+{IIIII}DetermineErrorDir()
+{IIIII}/ std::filesystem::relative(path, DetermineXmlDir())
 {IIII}).parent_path()
 {III});
 
