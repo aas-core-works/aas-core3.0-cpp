@@ -30,7 +30,7 @@ setup(
     install_requires=[
         "icontract>=2.6.1,<3",
         "aas-core-meta@git+https://github.com/aas-core-works/aas-core-meta@79314c6#egg=aas-core-meta",
-        "aas-core-codegen@git+https://github.com/aas-core-works/aas-core-codegen@a206fe8#egg=aas-core-codegen",
+        "aas-core-codegen@git+https://github.com/aas-core-works/aas-core-codegen@e90f027#egg=aas-core-codegen",
     ],
     # fmt: off
     extras_require={
