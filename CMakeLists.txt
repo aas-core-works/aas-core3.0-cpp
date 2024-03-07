@@ -318,6 +318,23 @@ if (${BUILD_TESTS})
             COMMAND $<TARGET_FILE:test_xmlization_of_concrete_classes_outside_container>
     )
     # endregion
+
+    # region Verification
+    add_executable(
+            test_verification
+            test/test_verification.cpp
+    )
+    target_link_libraries(
+            test_verification
+            aas_core3_static
+            common_in_test
+            common_xmlization_in_test
+    )
+    add_test(
+            NAME test_verification
+            COMMAND $<TARGET_FILE:test_verification>
+    )
+    # endregion
 endif()
 
 # Set the version
