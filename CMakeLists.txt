@@ -335,6 +335,24 @@ if (${BUILD_TESTS})
             COMMAND $<TARGET_FILE:test_verification>
     )
     # endregion
+
+    # region Descent and DescentOnce
+    add_executable(
+            test_descent_and_descent_once
+            test/test_descent_and_descent_once.generated.cpp
+    )
+    target_link_libraries(
+            test_descent_and_descent_once
+            aas_core3_static
+            common_in_test
+            common_examples_in_test
+            common_xmlization_in_test
+    )
+    add_test(
+            NAME test_descent_and_descent_once
+            COMMAND $<TARGET_FILE:test_descent_and_descent_once>
+    )
+    # endregion
 endif()
 
 # Set the version

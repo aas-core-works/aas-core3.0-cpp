@@ -17,8 +17,6 @@ from aas_core_codegen.cpp.common import (
     INDENT2 as II,
     INDENT3 as III,
     INDENT4 as IIII,
-    INDENT5 as IIIII,
-    INDENT6 as IIIIII,
 )
 
 import test_codegen.common
@@ -103,7 +101,7 @@ const std::filesystem::path& DetermineXmlDir() {{
 }}"""
         ),
         Stripped(
-            f"""\
+            """\
 // NOTE (mristin):
 // We test later in the further tests many more values, but the following unit tests
 // make the debugging a bit easier."""
