@@ -592,6 +592,50 @@ std::string CanonicalizeXml(
   return result;
 }
 
+std::shared_ptr<
+  aas_core::aas_3_0::types::IClass
+> MustDeserializeFile(
+  const std::filesystem::path& path
+) {
+  std::ifstream ifs(path, std::ios::binary);
+
+  aas::common::expected<
+    std::shared_ptr<aas::types::IClass>,
+    aas::xmlization::DeserializationError
+  > deserialized = aas::xmlization::From(
+    ifs
+  );
+
+  if (ifs.bad()) {
+    throw std::runtime_error(
+      aas::common::Concat(
+        "The file stream is in the bad mode after "
+        "reading and parsing the file as XML: ",
+        path.string()
+      )
+    );
+  }
+
+  if (!deserialized.has_value()) {
+    throw std::runtime_error(
+      aas::common::Concat(
+        "Failed to de-serialize from ",
+        path.string(),
+        ": ",
+        aas::common::WstringToUtf8(
+          deserialized.error().path.ToWstring()
+        ),
+        ": ",
+        aas::common::WstringToUtf8(
+          deserialized.error().cause
+        )
+      )
+    );
+  }
+
+  return std::move(deserialized.value());
+}
+
 }  // namespace xmlization
 }  // namespace common
 }  // namespace test

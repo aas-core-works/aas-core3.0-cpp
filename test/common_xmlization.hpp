@@ -33,6 +33,12 @@ std::string CanonicalizeXml(
   const std::string& xml
 );
 
+std::shared_ptr<
+  aas_core::aas_3_0::types::IClass
+> MustDeserializeFile(
+  const std::filesystem::path& path
+);
+
 }  // namespace xmlization
 }  // namespace common
 }  // namespace test
