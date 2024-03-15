@@ -26,7 +26,7 @@ void AssertNoVerificationError(
   for (
     const aas::verification::Error &error
     : aas::verification::RecursiveVerification(instance)
-  ) {
+    ) {
     error_messages.emplace_back(
       aas::common::Concat(
         aas::common::WstringToUtf8(error.path.ToWstring()),
@@ -41,7 +41,7 @@ void AssertNoVerificationError(
     parts.emplace_back("Expected no error messages from ");
     parts.emplace_back(xml_path.string());
     parts.emplace_back(", but got:\n");
-    for (std::string& error_message : error_messages) {
+    for (std::string &error_message : error_messages) {
       parts.emplace_back(error_message);
     }
 
@@ -51,8 +51,8 @@ void AssertNoVerificationError(
 }
 
 void AssertOneOrMoreVerificationErrors(
-  const std::filesystem::path& xml_path,
-  const std::filesystem::path& error_path
+  const std::filesystem::path &xml_path,
+  const std::filesystem::path &error_path
 ) {
   std::shared_ptr<
     aas::types::IClass
@@ -64,7 +64,7 @@ void AssertOneOrMoreVerificationErrors(
   for (
     const aas::verification::Error &error
     :  aas::verification::RecursiveVerification(instance)
-  ) {
+    ) {
     error_messages.emplace_back(
       aas::common::Concat(
         aas::common::WstringToUtf8(error.path.ToWstring()),
@@ -90,7 +90,7 @@ void AssertOneOrMoreVerificationErrors(
   test::common::AssertContentEqualsExpectedOrRecord(got, error_path);
 }
 
-const std::filesystem::path& DetermineXmlDir() {
+const std::filesystem::path &DetermineXmlDir() {
   static aas::common::optional<std::filesystem::path> result;
   if (!result.has_value()) {
     result = test::common::DetermineTestDataDir() / "Xml";
@@ -99,7 +99,7 @@ const std::filesystem::path& DetermineXmlDir() {
   return *result;
 }
 
-const std::filesystem::path& DetermineErrorDir() {
+const std::filesystem::path &DetermineErrorDir() {
   static aas::common::optional<std::filesystem::path> result;
   if (!result.has_value()) {
     result = test::common::DetermineTestDataDir() / "VerificationError";
@@ -162,7 +162,7 @@ TEST_CASE("Test verification of a valid Extension") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -212,7 +212,7 @@ TEST_CASE("Test verification of a valid AdministrativeInformation") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -243,9 +243,12 @@ TEST_CASE("Test verification of an invalid AdministrativeInformation") {
           / (path.filename().string() + ".error")
       );
 
-      AssertOneOrMoreVerificationErrors(
-        path,
-        error_path
+      INFO(path.string())
+      REQUIRE_NOTHROW(
+        AssertOneOrMoreVerificationErrors(
+          path,
+          error_path
+        )
       );
     }
   }
@@ -262,7 +265,7 @@ TEST_CASE("Test verification of a valid Qualifier") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -312,7 +315,7 @@ TEST_CASE("Test verification of a valid AssetAdministrationShell") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -362,7 +365,7 @@ TEST_CASE("Test verification of a valid AssetInformation") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -412,7 +415,7 @@ TEST_CASE("Test verification of a valid Resource") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -462,7 +465,7 @@ TEST_CASE("Test verification of a valid SpecificAssetId") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -512,7 +515,7 @@ TEST_CASE("Test verification of a valid Submodel") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -562,7 +565,7 @@ TEST_CASE("Test verification of a valid RelationshipElement") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -612,7 +615,7 @@ TEST_CASE("Test verification of a valid SubmodelElementList") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -662,7 +665,7 @@ TEST_CASE("Test verification of a valid SubmodelElementCollection") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -712,7 +715,7 @@ TEST_CASE("Test verification of a valid Property") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -762,7 +765,7 @@ TEST_CASE("Test verification of a valid MultiLanguageProperty") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -812,7 +815,7 @@ TEST_CASE("Test verification of a valid Range") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -862,7 +865,7 @@ TEST_CASE("Test verification of a valid ReferenceElement") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -912,7 +915,7 @@ TEST_CASE("Test verification of a valid Blob") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -962,7 +965,7 @@ TEST_CASE("Test verification of a valid File") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1012,7 +1015,7 @@ TEST_CASE("Test verification of a valid AnnotatedRelationshipElement") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1062,7 +1065,7 @@ TEST_CASE("Test verification of a valid Entity") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1112,7 +1115,7 @@ TEST_CASE("Test verification of a valid EventPayload") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1162,7 +1165,7 @@ TEST_CASE("Test verification of a valid BasicEventElement") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1212,7 +1215,7 @@ TEST_CASE("Test verification of a valid Operation") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1262,7 +1265,7 @@ TEST_CASE("Test verification of a valid OperationVariable") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1312,7 +1315,7 @@ TEST_CASE("Test verification of a valid Capability") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1362,7 +1365,7 @@ TEST_CASE("Test verification of a valid ConceptDescription") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1412,7 +1415,7 @@ TEST_CASE("Test verification of a valid Reference") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1462,7 +1465,7 @@ TEST_CASE("Test verification of a valid Key") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1512,7 +1515,7 @@ TEST_CASE("Test verification of a valid LangStringNameType") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1562,7 +1565,7 @@ TEST_CASE("Test verification of a valid LangStringTextType") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1612,7 +1615,7 @@ TEST_CASE("Test verification of a valid Environment") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1662,7 +1665,7 @@ TEST_CASE("Test verification of a valid EmbeddedDataSpecification") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1712,7 +1715,7 @@ TEST_CASE("Test verification of a valid LevelType") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1762,7 +1765,7 @@ TEST_CASE("Test verification of a valid ValueReferencePair") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1812,7 +1815,7 @@ TEST_CASE("Test verification of a valid ValueList") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1862,7 +1865,7 @@ TEST_CASE("Test verification of a valid LangStringPreferredNameTypeIec61360") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1912,7 +1915,7 @@ TEST_CASE("Test verification of a valid LangStringShortNameTypeIec61360") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -1962,7 +1965,7 @@ TEST_CASE("Test verification of a valid LangStringDefinitionTypeIec61360") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }
@@ -2012,7 +2015,7 @@ TEST_CASE("Test verification of a valid DataSpecificationIec61360") {
     )
   );
 
-  for (const std::filesystem::path& path : paths) {
+  for (const std::filesystem::path &path : paths) {
     AssertNoVerificationError(path);
   }
 }

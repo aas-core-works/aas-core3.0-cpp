@@ -55,7 +55,7 @@ namespace aas = aas_core::aas_3_0;"""
         Stripped(
             f"""\
 void AssertNoVerificationError(
-{I}const std::filesystem::path &xml_path
+{I}const std::filesystem::path& xml_path
 ) {{
 {I}std::shared_ptr<
 {II}aas::types::IClass
@@ -272,7 +272,7 @@ TEST_CASE("Test verification of an invalid {cls_name}") {{
 {III})
 {II});
 
-{II}for (const std::filesystem::path &path : paths) {{
+{II}for (const std::filesystem::path& path : paths) {{
 {III}const std::filesystem::path parent(
 {IIII}(
 {IIIII}DetermineErrorDir()
