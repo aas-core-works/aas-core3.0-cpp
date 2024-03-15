@@ -13,47 +13,16 @@
 namespace aas = aas_core::aas_3_0;
 
 void AssertRoundTrip(
-  const std::filesystem::path &path
+  const std::filesystem::path& path
 ) {
-  std::ifstream ifs(path, std::ios::binary);
-
-  aas::common::expected<
-    std::shared_ptr<aas::types::IClass>,
-    aas::xmlization::DeserializationError
-  > deserialized = aas::xmlization::From(
-    ifs
+  std::shared_ptr<
+    aas::types::IClass
+  > deserialized(
+    test::common::xmlization::MustDeserializeFile(path)
   );
 
-  if (ifs.bad()) {
-    throw std::runtime_error(
-      aas::common::Concat(
-        "The file stream is in the bad mode after "
-        "reading and parsing the file as XML: ",
-        path.string()
-      )
-    );
-  }
-
-  if (!deserialized.has_value()) {
-    INFO(
-      aas::common::Concat(
-        "Failed to de-serialize from ",
-        path.string(),
-        ": ",
-        aas::common::WstringToUtf8(
-          deserialized.error().path.ToWstring()
-        ),
-        ": ",
-        aas::common::WstringToUtf8(
-          deserialized.error().cause
-        )
-      )
-    )
-    REQUIRE(deserialized.has_value());
-  }
-
   std::stringstream ss;
-  aas::xmlization::Serialize(*deserialized.value(), {}, ss);
+  aas::xmlization::Serialize(*deserialized, {}, ss);
 
   std::string expected_xml = test::common::MustReadString(path);
 
