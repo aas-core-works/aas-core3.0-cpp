@@ -2,7 +2,7 @@
 // dev_scripts/test_codegen/generate_common_examples.py
 // Do NOT edit or append.
 
-#include "./common_examples.hpp"
+#include "./common_examples.generated.hpp"
 #include "./common.hpp"
 #include "./common_xmlization.hpp"
 

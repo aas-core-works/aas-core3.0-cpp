@@ -279,7 +279,7 @@ def _generate_implementation(
         warning,
         Stripped(
             """\
-#include "./common_examples.hpp"
+#include "./common_examples.generated.hpp"
 #include "./common.hpp"
 #include "./common_xmlization.hpp"
 

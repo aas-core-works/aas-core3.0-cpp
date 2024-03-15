@@ -86,6 +86,36 @@ std::string JoinStrings(const T& container, const std::string& delimiter) {
   return result;
 }
 
+template<typename T>
+std::wstring JoinWstrings(const T& container, const std::wstring& delimiter) {
+  if (container.size() == 0) {
+    return L"";
+  }
+
+  static_assert(std::is_same<typename T::value_type, std::wstring>::value);
+
+  size_t size = 0;
+  for (const std::wstring& part : container
+    ) {
+    size += part.size();
+  }
+  size += delimiter.size() * (container.size() - 1);
+
+  std::wstring result;
+  result.reserve(size);
+
+  auto it = container.begin();
+  for (size_t i = 0; i < container.size() - 1; ++i) {
+    result.append(*it);
+    result.append(delimiter);
+    ++it;
+  }
+
+  result.append(*it);
+
+  return result;
+}
+
 std::string MustReadString(
   const std::filesystem::path& path
 );
