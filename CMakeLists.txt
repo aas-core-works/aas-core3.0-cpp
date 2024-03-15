@@ -353,6 +353,23 @@ if (${BUILD_TESTS})
             COMMAND $<TARGET_FILE:test_descent_and_descent_once>
     )
     # endregion
+
+    # region XxxOrDefault
+    add_executable(
+            test_x_or_default
+            test/test_x_or_default.generated.cpp
+    )
+    target_link_libraries(
+            test_x_or_default
+            aas_core3_static
+            common_in_test
+            common_examples_in_test
+    )
+    add_test(
+            NAME test_x_or_default
+            COMMAND $<TARGET_FILE:test_x_or_default>
+    )
+    # endregion
 endif()
 
 # Set the version
