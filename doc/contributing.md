@@ -74,7 +74,6 @@ When you want to update the version, please undertake the following steps:
 
 * Update the version in `CMakeLists.txt`,
 * Update the version in `vpckg.json`,
-* Update the version in 
 * Update the version in `Doxyfile`, and
 * Write an entry in `doc/changelog.md`.
 
