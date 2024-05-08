@@ -103,8 +103,9 @@ SET(SRC
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 add_library(aas_core3_static STATIC ${HEADER} ${SRC})
-set_target_properties(aas_core3_static PROPERTIES
-        PUBLIC_HEADER ${HEADER}
+set_target_properties(aas_core3_static
+        PROPERTIES
+        PUBLIC_HEADER "${HEADER}"
         )
 # NOTE (mristin):
 # We need to distinguish between BUILD and INSTALL interface,
@@ -133,8 +134,9 @@ target_include_directories(aas_core3
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
         )
-set_target_properties(aas_core3 PROPERTIES
-        PUBLIC_HEADER ${HEADER}
+set_target_properties(aas_core3
+        PROPERTIES
+        PUBLIC_HEADER "${HEADER}"
         )
 target_link_libraries(aas_core3
         PRIVATE
