@@ -100,42 +100,6 @@ const std::filesystem::path& DetermineXmlDir() {{
 {I}return *result;
 }}"""
         ),
-        Stripped(
-            """\
-// NOTE (mristin):
-// We test later in the further tests many more values, but the following unit tests
-// make the debugging a bit easier."""
-        ),
-        Stripped(
-            f"""\
-// region Manual tests
-
-// NOTE (mristin):
-// We test later in the further tests many more values, but the following unit tests
-// make the debugging a bit easier.
-
-TEST_CASE("Test IsXsDate on a common value") {{
-{I}CHECK(aas::verification::IsXsDate(L"2022-04-01-02:00"));
-}}
-
-TEST_CASE("Test IsXsDate on a large negative year") {{
-{I}CHECK(aas::verification::IsXsDate(L"-12345678901234567890123456789012345678901234567890-04-01"));
-}}
-
-TEST_CASE("Test IsXsDate on a BC 5 as a leap year") {{
-{I}CHECK(aas::verification::IsXsDate(L"-0005-02-29"));
-}}
-
-TEST_CASE("Test IsXsDateTime") {{
-{I}CHECK(aas::verification::IsXsDateTime(L"-0811-10-21T24:00:00.000000Z"));
-}}
-
-TEST_CASE("Test IsXsDouble") {{
-{I}CHECK(aas::verification::IsXsDouble(L"+76E-86"));
-}}
-
-// endregion Manual tests"""
-        ),
     ]  # type: List[Stripped]
 
     environment_cls = symbol_table.must_find_concrete_class(Identifier("Environment"))

@@ -26,9 +26,9 @@ if (${BUILD_TESTS})
     # NOTE (mristin):
     # We need to use C++17 for the <filesystem> in tests.
     set(CMAKE_CXX_STANDARD 17)
-else()
+else ()
     set(CMAKE_CXX_STANDARD 11)
-endif()
+endif ()
 
 # NOTE (mristin):
 # See: https://crascit.com/2015/03/28/enabling-cxx11-in-cmake/
@@ -75,6 +75,8 @@ SET(HEADER
         ${HEADER_PATH}/enhancing.hpp
         ${HEADER_PATH}/iteration.hpp
         ${HEADER_PATH}/jsonization.hpp
+        ${HEADER_PATH}/pattern.hpp
+        ${HEADER_PATH}/revm.hpp
         ${HEADER_PATH}/stringification.hpp
         ${HEADER_PATH}/types.hpp
         ${HEADER_PATH}/verification.hpp
@@ -89,6 +91,8 @@ SET(SRC
         ${SRC_PATH}/constants.cpp
         ${SRC_PATH}/iteration.cpp
         ${SRC_PATH}/jsonization.cpp
+        ${SRC_PATH}/pattern.cpp
+        ${SRC_PATH}/revm.cpp
         ${SRC_PATH}/stringification.cpp
         ${SRC_PATH}/types.cpp
         ${SRC_PATH}/verification.cpp
@@ -167,7 +171,7 @@ if (${BUILD_TESTS})
     add_library(common_jsonization_in_test
             test/common_jsonization.cpp
             test/common_jsonization.hpp
-    )
+            )
     target_link_libraries(common_jsonization_in_test aas_core3_static)
 
     add_library(common_xmlization_in_test
@@ -183,14 +187,21 @@ if (${BUILD_TESTS})
     target_link_libraries(common_examples_in_test
             common_in_test
             common_xmlization_in_test
-    )
+            )
     # endregion Common in test
 
     add_executable(test_examples test/test_examples.cpp)
     target_link_libraries(test_examples aas_core3_static)
     add_test(
-        NAME test_examples
-        COMMAND $<TARGET_FILE:test_examples>
+            NAME test_examples
+            COMMAND $<TARGET_FILE:test_examples>
+    )
+
+    add_executable(test_revm test/test_revm.cpp)
+    target_link_libraries(test_revm aas_core3_static)
+    add_test(
+            NAME test_revm
+            COMMAND $<TARGET_FILE:test_revm>
     )
 
     # region Stringification
@@ -273,7 +284,7 @@ if (${BUILD_TESTS})
             COMMAND $<TARGET_FILE:test_jsonization_of_concrete_classes_outside_container>
     )
     # endregion
-    
+
     # region Xmlization
     add_executable(
             test_xmlization_of_concrete_classes
@@ -324,17 +335,31 @@ if (${BUILD_TESTS})
     # region Verification
     add_executable(
             test_verification
-            test/test_verification.generated.cpp
+            test/test_verification.cpp
     )
     target_link_libraries(
             test_verification
             aas_core3_static
             common_in_test
-            common_xmlization_in_test
     )
     add_test(
             NAME test_verification
             COMMAND $<TARGET_FILE:test_verification>
+    )
+
+    add_executable(
+            test_verification_generated
+            test/test_verification.generated.cpp
+    )
+    target_link_libraries(
+            test_verification_generated
+            aas_core3_static
+            common_in_test
+            common_xmlization_in_test
+    )
+    add_test(
+            NAME test_verification_generated
+            COMMAND $<TARGET_FILE:test_verification_generated>
     )
     # endregion
 
@@ -372,7 +397,7 @@ if (${BUILD_TESTS})
             COMMAND $<TARGET_FILE:test_x_or_default>
     )
     # endregion
-endif()
+endif ()
 
 # Set the version
 
