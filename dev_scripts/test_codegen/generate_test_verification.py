@@ -17,6 +17,8 @@ from aas_core_codegen.cpp.common import (
     INDENT2 as II,
     INDENT3 as III,
     INDENT4 as IIII,
+    INDENT5 as IIIII,
+    INDENT6 as IIIIII,
 )
 
 import test_codegen.common
@@ -80,9 +82,7 @@ void AssertNoVerificationError(
 {II}parts.emplace_back("Expected no error messages from ");
 {II}parts.emplace_back(xml_path.string());
 {II}parts.emplace_back(", but got:\\n");
-{II}for (std::string& error_message : error_messages) {{
-{III}parts.emplace_back(error_message);
-{II}}}
+{II}parts.emplace_back(test::common::JoinStrings(error_messages, "\\n"));
 
 {II}INFO(test::common::JoinStrings(parts, ""))
 {II}CHECK(error_messages.empty());
@@ -98,6 +98,93 @@ const std::filesystem::path& DetermineXmlDir() {{
 {I}}}
 
 {I}return *result;
+}}"""
+        ),
+        Stripped(
+            f"""\
+const std::vector<std::string> kCausesForVerificationFailure = {{
+{I}"ConstraintViolation",
+{I}"InvalidMinMaxExample",
+{I}"InvalidValueExample",
+{I}"MaxLengthViolation",
+{I}"MinLengthViolation",
+{I}"PatternViolation",
+{I}"SetViolation"  
+}};"""
+        ),
+        Stripped(
+            f"""\
+const std::filesystem::path& DetermineErrorDir() {{
+{I}static aas::common::optional<std::filesystem::path> result;
+{I}if (!result.has_value()) {{
+{II}result = test::common::DetermineTestDataDir() / "VerificationError";
+{I}}}
+
+{I}return *result;
+}}"""
+        ),
+        Stripped(
+            f"""\
+void AssertVerificationFailure(
+{I}const std::filesystem::path& path,
+{I}const std::filesystem::path& error_path
+) {{
+{I}std::ifstream ifs(path, std::ios::binary);
+
+{I}aas::common::expected<
+{II}std::shared_ptr<aas::types::IClass>,
+{II}aas::xmlization::DeserializationError
+{I}> deserialized = aas::xmlization::From(
+{II}ifs
+{I});
+
+{I}if (!deserialized.has_value()) {{
+{II}INFO(
+{III}aas::common::Concat(
+{IIII}"Expected to de-serialize ",
+{IIII}path.string(),
+{IIII}", but the de-serialization failed: ",
+{IIII}aas::common::WstringToUtf8(deserialized.error().path.ToWstring()),
+{IIII}aas::common::WstringToUtf8(deserialized.error().cause)
+{III})
+{II})
+{II}REQUIRE(!deserialized.has_value());
+{I}}}
+
+{I}std::vector<std::string> error_messages;
+{I}for (
+{II}const aas::verification::Error& error
+{II}: aas::verification::RecursiveVerification(deserialized.value())
+{II}) {{
+{II}error_messages.emplace_back(
+{III}aas::common::Concat(
+{IIII}aas::common::WstringToUtf8(error.path.ToWstring()),
+{IIII}": ",
+{IIII}aas::common::WstringToUtf8(error.cause)
+{III})
+{II});
+{I}}}
+
+{I}if (error_messages.empty()) {{
+{II}INFO(
+{III}aas::common::Concat(
+{IIII}"Expected error messages from ",
+{IIII}path.string(),
+{IIII}", but got none"
+{III})
+{II})
+{II}REQUIRE(!error_messages.empty());
+{I}}}
+
+{I}const std::string joined_error_messages = test::common::JoinStrings(
+{II}error_messages,
+{II}"\\n"
+{I});
+
+{I}test::common::AssertContentEqualsExpectedOrRecord(
+{II}joined_error_messages,
+{II}error_path
+{I});
 }}"""
         ),
     ]  # type: List[Stripped]
@@ -147,6 +234,42 @@ TEST_CASE("Test verification of a valid {cls_name}") {{
 
 {I}for (const std::filesystem::path& path : paths) {{
 {II}AssertNoVerificationError(path);
+{I}}}
+}}"""
+            )
+        )
+
+        blocks.append(
+            Stripped(
+                f"""\
+TEST_CASE("Test verification of invalid cases for {cls_name}") {{
+{I}for (const std::string& cause : kCausesForVerificationFailure) {{
+{II}const std::deque<std::filesystem::path> paths(
+{III}test::common::FindFilesBySuffixRecursively(
+{IIII}DetermineXmlDir()
+{IIIII}/ {cpp_common.string_literal(contained_in_dir_name)}
+{IIIII}/ "Unexpected"
+{IIIII}/ cause
+{IIIII}/ {cpp_common.string_literal(xml_class_name)},
+{IIII}".xml"
+{III})
+{II});
+
+{II}for (const std::filesystem::path& path : paths) {{
+{III}const std::filesystem::path parent(
+{IIII}(
+{IIIII}DetermineErrorDir()
+{IIIIII}/ std::filesystem::relative(path, DetermineXmlDir())
+{IIII}).parent_path()
+{III});
+
+{III}const std::filesystem::path error_path(
+{IIII}parent
+{IIIII}/ (path.filename().string() + ".errors")
+{III});
+
+{III}AssertVerificationFailure(path, error_path);
+{II}}}
 {I}}}
 }}"""
             )
