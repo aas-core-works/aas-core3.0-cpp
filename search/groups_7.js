@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['library_0',['Common functionality used throughout the library',['../group__common.html',1,'']]]
+  ['json_0',['De/serialize instances from and to JSON.',['../group__jsonization.html',1,'']]]
 ];

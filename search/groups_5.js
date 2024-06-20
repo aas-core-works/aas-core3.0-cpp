@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['instances_0',['Define functions and structures to iterate over instances.',['../group__iteration.html',1,'']]],
-  ['instances_20conform_20to_20the_20meta_20model_20constraints_1',['Verify that instances conform to the meta-model constraints.',['../group__verification.html',1,'']]],
-  ['instances_20from_20and_20to_20json_2',['De/serialize instances from and to JSON.',['../group__jsonization.html',1,'']]],
-  ['instances_20from_20and_20to_20xml_3',['De/serialize instances from and to XML.',['../group__xmlization.html',1,'']]],
-  ['instances_20of_20the_20model_20with_20your_20custom_20enhancements_4',['Enhance instances of the model with your custom enhancements.',['../group__enhancing.html',1,'']]],
-  ['instances_20through_20visitors_5',['Iterate and modify instances through visitors.',['../group__visitation.html',1,'']]],
-  ['iterate_20and_20modify_20instances_20through_20visitors_6',['Iterate and modify instances through visitors.',['../group__visitation.html',1,'']]],
-  ['iterate_20over_20instances_7',['Define functions and structures to iterate over instances.',['../group__iteration.html',1,'']]]
+  ['from_20and_20to_20json_0',['De/serialize instances from and to JSON.',['../group__jsonization.html',1,'']]],
+  ['from_20and_20to_20xml_1',['De/serialize instances from and to XML.',['../group__xmlization.html',1,'']]],
+  ['from_20strings_2',['Translate to strings, and, where applicable, from strings.',['../group__stringification.html',1,'']]],
+  ['from_20wstrings_20where_20applicable_3',['De/wstringify to and from wstrings (where applicable).',['../group__wstringification.html',1,'']]],
+  ['functionality_20used_20throughout_20the_20library_4',['Common functionality used throughout the library',['../group__common.html',1,'']]],
+  ['functions_20and_20structures_20to_20iterate_20over_20instances_5',['Define functions and structures to iterate over instances.',['../group__iteration.html',1,'']]]
 ];
