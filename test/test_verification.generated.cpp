@@ -41,9 +41,7 @@ void AssertNoVerificationError(
     parts.emplace_back("Expected no error messages from ");
     parts.emplace_back(xml_path.string());
     parts.emplace_back(", but got:\n");
-    for (std::string& error_message : error_messages) {
-      parts.emplace_back(error_message);
-    }
+    parts.emplace_back(test::common::JoinStrings(error_messages, "\n"));
 
     INFO(test::common::JoinStrings(parts, ""))
     CHECK(error_messages.empty());
@@ -59,6 +57,87 @@ const std::filesystem::path& DetermineXmlDir() {
   return *result;
 }
 
+const std::vector<std::string> kCausesForVerificationFailure = {
+  "ConstraintViolation",
+  "InvalidMinMaxExample",
+  "InvalidValueExample",
+  "MaxLengthViolation",
+  "MinLengthViolation",
+  "PatternViolation",
+  "SetViolation"  
+};
+
+const std::filesystem::path& DetermineErrorDir() {
+  static aas::common::optional<std::filesystem::path> result;
+  if (!result.has_value()) {
+    result = test::common::DetermineTestDataDir() / "VerificationError";
+  }
+
+  return *result;
+}
+
+void AssertVerificationFailure(
+  const std::filesystem::path& path,
+  const std::filesystem::path& error_path
+) {
+  std::ifstream ifs(path, std::ios::binary);
+
+  aas::common::expected<
+    std::shared_ptr<aas::types::IClass>,
+    aas::xmlization::DeserializationError
+  > deserialized = aas::xmlization::From(
+    ifs
+  );
+
+  if (!deserialized.has_value()) {
+    INFO(
+      aas::common::Concat(
+        "Expected to de-serialize ",
+        path.string(),
+        ", but the de-serialization failed: ",
+        aas::common::WstringToUtf8(deserialized.error().path.ToWstring()),
+        aas::common::WstringToUtf8(deserialized.error().cause)
+      )
+    )
+    REQUIRE(!deserialized.has_value());
+  }
+
+  std::vector<std::string> error_messages;
+  for (
+    const aas::verification::Error& error
+    : aas::verification::RecursiveVerification(deserialized.value())
+    ) {
+    error_messages.emplace_back(
+      aas::common::Concat(
+        aas::common::WstringToUtf8(error.path.ToWstring()),
+        ": ",
+        aas::common::WstringToUtf8(error.cause)
+      )
+    );
+  }
+
+  if (error_messages.empty()) {
+    INFO(
+      aas::common::Concat(
+        "Expected error messages from ",
+        path.string(),
+        ", but got none"
+      )
+    )
+    REQUIRE(!error_messages.empty());
+  }
+
+  const std::string joined_error_messages = test::common::JoinStrings(
+    error_messages,
+    "\n"
+  );
+
+  test::common::AssertContentEqualsExpectedOrRecord(
+    joined_error_messages,
+    error_path
+  );
+}
+
 TEST_CASE("Test verification of a valid Extension") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -72,6 +151,37 @@ TEST_CASE("Test verification of a valid Extension") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for Extension") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "extension",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -91,6 +201,37 @@ TEST_CASE("Test verification of a valid AdministrativeInformation") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for AdministrativeInformation") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "administrativeInformation",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid Qualifier") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -104,6 +245,37 @@ TEST_CASE("Test verification of a valid Qualifier") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for Qualifier") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "qualifier",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -123,6 +295,37 @@ TEST_CASE("Test verification of a valid AssetAdministrationShell") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for AssetAdministrationShell") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "assetAdministrationShell",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid AssetInformation") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -136,6 +339,37 @@ TEST_CASE("Test verification of a valid AssetInformation") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for AssetInformation") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "assetInformation",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -155,6 +389,37 @@ TEST_CASE("Test verification of a valid Resource") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for Resource") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "resource",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid SpecificAssetId") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -168,6 +433,37 @@ TEST_CASE("Test verification of a valid SpecificAssetId") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for SpecificAssetId") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "specificAssetId",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -187,6 +483,37 @@ TEST_CASE("Test verification of a valid Submodel") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for Submodel") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "submodel",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid RelationshipElement") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -200,6 +527,37 @@ TEST_CASE("Test verification of a valid RelationshipElement") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for RelationshipElement") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "relationshipElement",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -219,6 +577,37 @@ TEST_CASE("Test verification of a valid SubmodelElementList") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for SubmodelElementList") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "submodelElementList",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid SubmodelElementCollection") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -232,6 +621,37 @@ TEST_CASE("Test verification of a valid SubmodelElementCollection") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for SubmodelElementCollection") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "submodelElementCollection",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -251,6 +671,37 @@ TEST_CASE("Test verification of a valid Property") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for Property") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "property",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid MultiLanguageProperty") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -264,6 +715,37 @@ TEST_CASE("Test verification of a valid MultiLanguageProperty") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for MultiLanguageProperty") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "multiLanguageProperty",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -283,6 +765,37 @@ TEST_CASE("Test verification of a valid Range") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for Range") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "range",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid ReferenceElement") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -296,6 +809,37 @@ TEST_CASE("Test verification of a valid ReferenceElement") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for ReferenceElement") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "referenceElement",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -315,6 +859,37 @@ TEST_CASE("Test verification of a valid Blob") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for Blob") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "blob",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid File") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -328,6 +903,37 @@ TEST_CASE("Test verification of a valid File") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for File") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "file",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -347,6 +953,37 @@ TEST_CASE("Test verification of a valid AnnotatedRelationshipElement") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for AnnotatedRelationshipElement") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "annotatedRelationshipElement",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid Entity") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -360,6 +997,37 @@ TEST_CASE("Test verification of a valid Entity") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for Entity") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "entity",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -379,6 +1047,37 @@ TEST_CASE("Test verification of a valid EventPayload") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for EventPayload") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "SelfContained"
+          / "Unexpected"
+          / cause
+          / "eventPayload",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid BasicEventElement") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -392,6 +1091,37 @@ TEST_CASE("Test verification of a valid BasicEventElement") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for BasicEventElement") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "basicEventElement",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -411,6 +1141,37 @@ TEST_CASE("Test verification of a valid Operation") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for Operation") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "operation",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid OperationVariable") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -424,6 +1185,37 @@ TEST_CASE("Test verification of a valid OperationVariable") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for OperationVariable") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "operationVariable",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -443,6 +1235,37 @@ TEST_CASE("Test verification of a valid Capability") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for Capability") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "capability",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid ConceptDescription") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -456,6 +1279,37 @@ TEST_CASE("Test verification of a valid ConceptDescription") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for ConceptDescription") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "conceptDescription",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -475,6 +1329,37 @@ TEST_CASE("Test verification of a valid Reference") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for Reference") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "reference",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid Key") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -488,6 +1373,37 @@ TEST_CASE("Test verification of a valid Key") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for Key") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "key",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -507,6 +1423,37 @@ TEST_CASE("Test verification of a valid LangStringNameType") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for LangStringNameType") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "langStringNameType",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid LangStringTextType") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -520,6 +1467,37 @@ TEST_CASE("Test verification of a valid LangStringTextType") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for LangStringTextType") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "langStringTextType",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -539,6 +1517,37 @@ TEST_CASE("Test verification of a valid Environment") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for Environment") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "SelfContained"
+          / "Unexpected"
+          / cause
+          / "environment",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid EmbeddedDataSpecification") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -552,6 +1561,37 @@ TEST_CASE("Test verification of a valid EmbeddedDataSpecification") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for EmbeddedDataSpecification") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "embeddedDataSpecification",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -571,6 +1611,37 @@ TEST_CASE("Test verification of a valid LevelType") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for LevelType") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "levelType",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid ValueReferencePair") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -584,6 +1655,37 @@ TEST_CASE("Test verification of a valid ValueReferencePair") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for ValueReferencePair") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "valueReferencePair",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -603,6 +1705,37 @@ TEST_CASE("Test verification of a valid ValueList") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for ValueList") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "valueList",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid LangStringPreferredNameTypeIec61360") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -616,6 +1749,37 @@ TEST_CASE("Test verification of a valid LangStringPreferredNameTypeIec61360") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for LangStringPreferredNameTypeIec61360") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "langStringPreferredNameTypeIec61360",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
@@ -635,6 +1799,37 @@ TEST_CASE("Test verification of a valid LangStringShortNameTypeIec61360") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for LangStringShortNameTypeIec61360") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "langStringShortNameTypeIec61360",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid LangStringDefinitionTypeIec61360") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -651,6 +1846,37 @@ TEST_CASE("Test verification of a valid LangStringDefinitionTypeIec61360") {
   }
 }
 
+TEST_CASE("Test verification of invalid cases for LangStringDefinitionTypeIec61360") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "langStringDefinitionTypeIec61360",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
+  }
+}
+
 TEST_CASE("Test verification of a valid DataSpecificationIec61360") {
   const std::deque<std::filesystem::path> paths(
     test::common::FindFilesBySuffixRecursively(
@@ -664,6 +1890,37 @@ TEST_CASE("Test verification of a valid DataSpecificationIec61360") {
 
   for (const std::filesystem::path& path : paths) {
     AssertNoVerificationError(path);
+  }
+}
+
+TEST_CASE("Test verification of invalid cases for DataSpecificationIec61360") {
+  for (const std::string& cause : kCausesForVerificationFailure) {
+    const std::deque<std::filesystem::path> paths(
+      test::common::FindFilesBySuffixRecursively(
+        DetermineXmlDir()
+          / "ContainedInEnvironment"
+          / "Unexpected"
+          / cause
+          / "dataSpecificationIec61360",
+        ".xml"
+      )
+    );
+
+    for (const std::filesystem::path& path : paths) {
+      const std::filesystem::path parent(
+        (
+          DetermineErrorDir()
+            / std::filesystem::relative(path, DetermineXmlDir())
+        ).parent_path()
+      );
+
+      const std::filesystem::path error_path(
+        parent
+          / (path.filename().string() + ".errors")
+      );
+
+      AssertVerificationFailure(path, error_path);
+    }
   }
 }
 
