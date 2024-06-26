@@ -373,6 +373,44 @@ std::deque<std::filesystem::path> FindFilesBySuffixRecursively(
   return result;
 }
 
+std::deque<std::filesystem::path> ListSubdirectories(
+  const std::filesystem::path& root
+) {
+  if (!fs::exists(root)) {
+    throw std::runtime_error(
+      aas::common::Concat(
+        "The root directory which you wanted to list for subdirectories "
+        "does not exist: ",
+        root.string()
+      )
+    );
+  }
+
+  if (!fs::is_directory(root)) {
+    throw std::runtime_error(
+      aas::common::Concat(
+        "The path that you specified as a root directory which you wanted to "
+        "list for subdirectories is not a directory: ",
+        root.string()
+      )
+    );
+  }
+
+  std::deque<fs::path> result;
+
+  for (
+    const fs::directory_entry& entry
+    : fs::directory_iterator(root)
+    ) {
+    if (fs::is_directory(entry.path())) {
+      result.push_back(entry.path());
+    }
+  }
+
+  std::sort(result.begin(), result.end());
+  return result;
+}
+
 void AssertContentEqualsExpectedOrRecord(
   const std::string& content,
   const std::filesystem::path& path
@@ -405,8 +443,6 @@ void AssertContentEqualsExpectedOrRecord(
     REQUIRE(content == expected);
   }
 }
-
-
 
 }  // namespace common
 }  // namespace test

@@ -53,6 +53,16 @@ std::deque<std::filesystem::path> FindFilesBySuffixRecursively(
 );
 
 /**
+ * List non-recursively the subdirectories contained in the \p root.
+ *
+ * @param root directory that you want to list
+ * @return subdirectories beneath \p root, sorted
+ */
+std::deque<std::filesystem::path> ListSubdirectories(
+  const std::filesystem::path& root
+);
+
+/**
  * Check that the content coincides with the file or re-record if in record mode.
  */
 void AssertContentEqualsExpectedOrRecord(

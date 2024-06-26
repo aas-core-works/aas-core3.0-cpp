@@ -192,21 +192,21 @@ TEST_CASE("Test the round-trip of an expected {cls_name}") {{
                 f"""\
 TEST_CASE("Test the de-serialization failure on an unexpected {cls_name}") {{
 {I}for (
-{II}const std::string &cause
-{II}: test::common::xmlization::kCausesForDeserializationFailure
+{II}const std::filesystem::path& causeDir
+{II}: test::common::ListSubdirectories(
+{III}DetermineXmlDir()
+{IIII}/ {cpp_common.string_literal(contained_in_dir_name)}
+{IIII}/ "Unexpected"
+{IIII}/ "Unserializable"
+{II})
 {I}) {{
-{II}const std::deque<std::filesystem::path> paths(
-{III}test::common::FindFilesBySuffixRecursively(
-{IIII}DetermineXmlDir()
-{IIIII}/ {cpp_common.string_literal(contained_in_dir_name)}
-{IIIII}/ "Unexpected"
-{IIIII}/ cause
-{IIIII}/ {cpp_common.string_literal(xml_class_name)},
+{II}for (
+{III}const std::filesystem::path& path
+{III}: test::common::FindFilesBySuffixRecursively(
+{IIII}causeDir / {cpp_common.string_literal(xml_class_name)},
 {IIII}".xml"
 {III})
-{II});
-
-{II}for (const std::filesystem::path &path : paths) {{
+{II}) {{
 {III}const std::filesystem::path parent(
 {IIII}(
 {IIIII}DetermineErrorDir()

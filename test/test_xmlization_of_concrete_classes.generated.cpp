@@ -107,21 +107,21 @@ TEST_CASE("Test the round-trip of an expected Extension") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Extension") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "extension",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "extension",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -160,21 +160,21 @@ TEST_CASE("Test the round-trip of an expected AdministrativeInformation") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected AdministrativeInformation") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "administrativeInformation",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "administrativeInformation",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -213,21 +213,21 @@ TEST_CASE("Test the round-trip of an expected Qualifier") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Qualifier") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "qualifier",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "qualifier",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -266,21 +266,21 @@ TEST_CASE("Test the round-trip of an expected AssetAdministrationShell") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected AssetAdministrationShell") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "assetAdministrationShell",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "assetAdministrationShell",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -319,21 +319,21 @@ TEST_CASE("Test the round-trip of an expected AssetInformation") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected AssetInformation") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "assetInformation",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "assetInformation",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -372,21 +372,21 @@ TEST_CASE("Test the round-trip of an expected Resource") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Resource") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "resource",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "resource",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -425,21 +425,21 @@ TEST_CASE("Test the round-trip of an expected SpecificAssetId") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected SpecificAssetId") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "specificAssetId",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "specificAssetId",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -478,21 +478,21 @@ TEST_CASE("Test the round-trip of an expected Submodel") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Submodel") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "submodel",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "submodel",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -531,21 +531,21 @@ TEST_CASE("Test the round-trip of an expected RelationshipElement") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected RelationshipElement") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "relationshipElement",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "relationshipElement",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -584,21 +584,21 @@ TEST_CASE("Test the round-trip of an expected SubmodelElementList") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected SubmodelElementList") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "submodelElementList",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "submodelElementList",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -637,21 +637,21 @@ TEST_CASE("Test the round-trip of an expected SubmodelElementCollection") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected SubmodelElementCollection") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "submodelElementCollection",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "submodelElementCollection",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -690,21 +690,21 @@ TEST_CASE("Test the round-trip of an expected Property") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Property") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "property",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "property",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -743,21 +743,21 @@ TEST_CASE("Test the round-trip of an expected MultiLanguageProperty") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected MultiLanguageProperty") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "multiLanguageProperty",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "multiLanguageProperty",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -796,21 +796,21 @@ TEST_CASE("Test the round-trip of an expected Range") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Range") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "range",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "range",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -849,21 +849,21 @@ TEST_CASE("Test the round-trip of an expected ReferenceElement") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected ReferenceElement") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "referenceElement",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "referenceElement",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -902,21 +902,21 @@ TEST_CASE("Test the round-trip of an expected Blob") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Blob") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "blob",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "blob",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -955,21 +955,21 @@ TEST_CASE("Test the round-trip of an expected File") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected File") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "file",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "file",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1008,21 +1008,21 @@ TEST_CASE("Test the round-trip of an expected AnnotatedRelationshipElement") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected AnnotatedRelationshipElement") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "annotatedRelationshipElement",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "annotatedRelationshipElement",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1061,21 +1061,21 @@ TEST_CASE("Test the round-trip of an expected Entity") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Entity") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "entity",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "entity",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1114,21 +1114,21 @@ TEST_CASE("Test the round-trip of an expected EventPayload") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected EventPayload") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "SelfContained"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "SelfContained"
-          / "Unexpected"
-          / cause
-          / "eventPayload",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "eventPayload",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1167,21 +1167,21 @@ TEST_CASE("Test the round-trip of an expected BasicEventElement") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected BasicEventElement") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "basicEventElement",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "basicEventElement",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1220,21 +1220,21 @@ TEST_CASE("Test the round-trip of an expected Operation") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Operation") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "operation",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "operation",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1273,21 +1273,21 @@ TEST_CASE("Test the round-trip of an expected OperationVariable") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected OperationVariable") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "operationVariable",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "operationVariable",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1326,21 +1326,21 @@ TEST_CASE("Test the round-trip of an expected Capability") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Capability") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "capability",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "capability",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1379,21 +1379,21 @@ TEST_CASE("Test the round-trip of an expected ConceptDescription") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected ConceptDescription") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "conceptDescription",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "conceptDescription",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1432,21 +1432,21 @@ TEST_CASE("Test the round-trip of an expected Reference") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Reference") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "reference",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "reference",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1485,21 +1485,21 @@ TEST_CASE("Test the round-trip of an expected Key") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Key") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "key",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "key",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1538,21 +1538,21 @@ TEST_CASE("Test the round-trip of an expected LangStringNameType") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected LangStringNameType") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "langStringNameType",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "langStringNameType",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1591,21 +1591,21 @@ TEST_CASE("Test the round-trip of an expected LangStringTextType") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected LangStringTextType") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "langStringTextType",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "langStringTextType",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1644,21 +1644,21 @@ TEST_CASE("Test the round-trip of an expected Environment") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Environment") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "SelfContained"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "SelfContained"
-          / "Unexpected"
-          / cause
-          / "environment",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "environment",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1697,21 +1697,21 @@ TEST_CASE("Test the round-trip of an expected EmbeddedDataSpecification") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected EmbeddedDataSpecification") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "embeddedDataSpecification",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "embeddedDataSpecification",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1750,21 +1750,21 @@ TEST_CASE("Test the round-trip of an expected LevelType") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected LevelType") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "levelType",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "levelType",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1803,21 +1803,21 @@ TEST_CASE("Test the round-trip of an expected ValueReferencePair") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected ValueReferencePair") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "valueReferencePair",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "valueReferencePair",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1856,21 +1856,21 @@ TEST_CASE("Test the round-trip of an expected ValueList") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected ValueList") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "valueList",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "valueList",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1909,21 +1909,21 @@ TEST_CASE("Test the round-trip of an expected LangStringPreferredNameTypeIec6136
 
 TEST_CASE("Test the de-serialization failure on an unexpected LangStringPreferredNameTypeIec61360") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "langStringPreferredNameTypeIec61360",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "langStringPreferredNameTypeIec61360",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1962,21 +1962,21 @@ TEST_CASE("Test the round-trip of an expected LangStringShortNameTypeIec61360") 
 
 TEST_CASE("Test the de-serialization failure on an unexpected LangStringShortNameTypeIec61360") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "langStringShortNameTypeIec61360",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "langStringShortNameTypeIec61360",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -2015,21 +2015,21 @@ TEST_CASE("Test the round-trip of an expected LangStringDefinitionTypeIec61360")
 
 TEST_CASE("Test the de-serialization failure on an unexpected LangStringDefinitionTypeIec61360") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "langStringDefinitionTypeIec61360",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "langStringDefinitionTypeIec61360",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -2068,21 +2068,21 @@ TEST_CASE("Test the round-trip of an expected DataSpecificationIec61360") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected DataSpecificationIec61360") {
   for (
-    const std::string &cause
-    : test::common::xmlization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineXmlDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineXmlDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "dataSpecificationIec61360",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "dataSpecificationIec61360",
         ".xml"
       )
-    );
-
-    for (const std::filesystem::path &path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
