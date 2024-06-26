@@ -150,21 +150,21 @@ TEST_CASE("Test the round-trip of an expected Extension") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Extension") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "Extension",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Extension",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -208,21 +208,21 @@ TEST_CASE("Test the round-trip of an expected AdministrativeInformation") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected AdministrativeInformation") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "AdministrativeInformation",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "AdministrativeInformation",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -266,21 +266,21 @@ TEST_CASE("Test the round-trip of an expected Qualifier") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Qualifier") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "Qualifier",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Qualifier",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -324,21 +324,21 @@ TEST_CASE("Test the round-trip of an expected AssetAdministrationShell") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected AssetAdministrationShell") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "AssetAdministrationShell",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "AssetAdministrationShell",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -382,21 +382,21 @@ TEST_CASE("Test the round-trip of an expected AssetInformation") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected AssetInformation") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "AssetInformation",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "AssetInformation",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -440,21 +440,21 @@ TEST_CASE("Test the round-trip of an expected Resource") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Resource") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "Resource",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Resource",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -498,21 +498,21 @@ TEST_CASE("Test the round-trip of an expected SpecificAssetId") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected SpecificAssetId") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "SpecificAssetId",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "SpecificAssetId",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -556,21 +556,21 @@ TEST_CASE("Test the round-trip of an expected Submodel") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Submodel") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "Submodel",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Submodel",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -614,21 +614,21 @@ TEST_CASE("Test the round-trip of an expected RelationshipElement") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected RelationshipElement") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "RelationshipElement",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "RelationshipElement",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -672,21 +672,21 @@ TEST_CASE("Test the round-trip of an expected SubmodelElementList") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected SubmodelElementList") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "SubmodelElementList",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "SubmodelElementList",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -730,21 +730,21 @@ TEST_CASE("Test the round-trip of an expected SubmodelElementCollection") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected SubmodelElementCollection") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "SubmodelElementCollection",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "SubmodelElementCollection",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -788,21 +788,21 @@ TEST_CASE("Test the round-trip of an expected Property") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Property") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "Property",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Property",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -846,21 +846,21 @@ TEST_CASE("Test the round-trip of an expected MultiLanguageProperty") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected MultiLanguageProperty") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "MultiLanguageProperty",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "MultiLanguageProperty",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -904,21 +904,21 @@ TEST_CASE("Test the round-trip of an expected Range") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Range") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "Range",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Range",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -962,21 +962,21 @@ TEST_CASE("Test the round-trip of an expected ReferenceElement") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected ReferenceElement") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "ReferenceElement",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "ReferenceElement",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1020,21 +1020,21 @@ TEST_CASE("Test the round-trip of an expected Blob") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Blob") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "Blob",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Blob",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1078,21 +1078,21 @@ TEST_CASE("Test the round-trip of an expected File") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected File") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "File",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "File",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1136,21 +1136,21 @@ TEST_CASE("Test the round-trip of an expected AnnotatedRelationshipElement") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected AnnotatedRelationshipElement") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "AnnotatedRelationshipElement",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "AnnotatedRelationshipElement",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1194,21 +1194,21 @@ TEST_CASE("Test the round-trip of an expected Entity") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Entity") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "Entity",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Entity",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1252,21 +1252,21 @@ TEST_CASE("Test the round-trip of an expected EventPayload") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected EventPayload") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "SelfContained"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "SelfContained"
-          / "Unexpected"
-          / cause
-          / "EventPayload",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "EventPayload",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1310,21 +1310,21 @@ TEST_CASE("Test the round-trip of an expected BasicEventElement") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected BasicEventElement") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "BasicEventElement",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "BasicEventElement",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1368,21 +1368,21 @@ TEST_CASE("Test the round-trip of an expected Operation") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Operation") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "Operation",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Operation",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1426,21 +1426,21 @@ TEST_CASE("Test the round-trip of an expected OperationVariable") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected OperationVariable") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "OperationVariable",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "OperationVariable",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1484,21 +1484,21 @@ TEST_CASE("Test the round-trip of an expected Capability") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Capability") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "Capability",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Capability",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1542,21 +1542,21 @@ TEST_CASE("Test the round-trip of an expected ConceptDescription") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected ConceptDescription") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "ConceptDescription",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "ConceptDescription",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1600,21 +1600,21 @@ TEST_CASE("Test the round-trip of an expected Reference") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Reference") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "Reference",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Reference",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1658,21 +1658,21 @@ TEST_CASE("Test the round-trip of an expected Key") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Key") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "Key",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Key",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1716,21 +1716,21 @@ TEST_CASE("Test the round-trip of an expected LangStringNameType") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected LangStringNameType") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "LangStringNameType",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "LangStringNameType",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1774,21 +1774,21 @@ TEST_CASE("Test the round-trip of an expected LangStringTextType") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected LangStringTextType") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "LangStringTextType",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "LangStringTextType",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1832,21 +1832,21 @@ TEST_CASE("Test the round-trip of an expected Environment") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected Environment") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "SelfContained"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "SelfContained"
-          / "Unexpected"
-          / cause
-          / "Environment",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "Environment",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1890,21 +1890,21 @@ TEST_CASE("Test the round-trip of an expected EmbeddedDataSpecification") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected EmbeddedDataSpecification") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "EmbeddedDataSpecification",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "EmbeddedDataSpecification",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -1948,21 +1948,21 @@ TEST_CASE("Test the round-trip of an expected LevelType") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected LevelType") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "LevelType",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "LevelType",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -2006,21 +2006,21 @@ TEST_CASE("Test the round-trip of an expected ValueReferencePair") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected ValueReferencePair") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "ValueReferencePair",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "ValueReferencePair",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -2064,21 +2064,21 @@ TEST_CASE("Test the round-trip of an expected ValueList") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected ValueList") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "ValueList",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "ValueList",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -2122,21 +2122,21 @@ TEST_CASE("Test the round-trip of an expected LangStringPreferredNameTypeIec6136
 
 TEST_CASE("Test the de-serialization failure on an unexpected LangStringPreferredNameTypeIec61360") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "LangStringPreferredNameTypeIec61360",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "LangStringPreferredNameTypeIec61360",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -2180,21 +2180,21 @@ TEST_CASE("Test the round-trip of an expected LangStringShortNameTypeIec61360") 
 
 TEST_CASE("Test the de-serialization failure on an unexpected LangStringShortNameTypeIec61360") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "LangStringShortNameTypeIec61360",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "LangStringShortNameTypeIec61360",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -2238,21 +2238,21 @@ TEST_CASE("Test the round-trip of an expected LangStringDefinitionTypeIec61360")
 
 TEST_CASE("Test the de-serialization failure on an unexpected LangStringDefinitionTypeIec61360") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "LangStringDefinitionTypeIec61360",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "LangStringDefinitionTypeIec61360",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()
@@ -2296,21 +2296,21 @@ TEST_CASE("Test the round-trip of an expected DataSpecificationIec61360") {
 
 TEST_CASE("Test the de-serialization failure on an unexpected DataSpecificationIec61360") {
   for (
-    const std::string& cause
-    : test::common::jsonization::kCausesForDeserializationFailure
+    const std::filesystem::path& causeDir
+    : test::common::ListSubdirectories(
+      DetermineJsonDir()
+        / "ContainedInEnvironment"
+        / "Unexpected"
+        / "Unserializable"
+    )
   ) {
-    const std::deque<std::filesystem::path> paths(
-      test::common::FindFilesBySuffixRecursively(
-        DetermineJsonDir()
-          / "ContainedInEnvironment"
-          / "Unexpected"
-          / cause
-          / "DataSpecificationIec61360",
+    for (
+      const std::filesystem::path& path
+      : test::common::FindFilesBySuffixRecursively(
+        causeDir / "DataSpecificationIec61360",
         ".json"
       )
-    );
-
-    for (const std::filesystem::path& path : paths) {
+    ) {
       const std::filesystem::path parent(
         (
           DetermineErrorDir()

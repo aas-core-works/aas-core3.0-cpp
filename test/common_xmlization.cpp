@@ -15,14 +15,6 @@ namespace test {
 namespace common {
 namespace xmlization {
 
-const std::vector<std::string> kCausesForDeserializationFailure = {
-  "TypeViolation",
-  "RequiredViolation",
-  "EnumViolation",
-  "NullViolation",
-  "UnexpectedAdditionalProperty"
-};
-
 std::shared_ptr<
   aas_core::aas_3_0::types::IClass
 > MustReadInstance(

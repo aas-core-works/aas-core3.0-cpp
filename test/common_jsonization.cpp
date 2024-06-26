@@ -10,14 +10,6 @@ namespace test {
 namespace common {
 namespace jsonization {
 
-const std::vector<std::string> kCausesForDeserializationFailure = {
-  "TypeViolation",
-  "RequiredViolation",
-  "EnumViolation",
-  "NullViolation",
-  "UnexpectedAdditionalProperty"
-};
-
 nlohmann::json MustReadJson(const std::filesystem::path& path) {
   std::ifstream ifs(path);
 

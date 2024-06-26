@@ -14,8 +14,6 @@ namespace test {
 namespace common {
 namespace jsonization {
 
-extern const std::vector<std::string> kCausesForDeserializationFailure;
-
 /**
  * Read the content of the `path` and parse it as JSON.
  */

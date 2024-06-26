@@ -14,8 +14,6 @@ namespace test {
 namespace common {
 namespace xmlization {
 
-extern const std::vector<std::string> kCausesForDeserializationFailure;
-
 /**
  * Read the content of the `path` and parse it as XML representation of an instance.
  */
