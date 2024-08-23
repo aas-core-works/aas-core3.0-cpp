@@ -1,7 +1,7 @@
 var searchData=
 [
   ['data_20structures_20corresponding_20to_20the_20meta_20model_0',['Define data structures corresponding to the meta-model.',['../group__types.html',1,'']]],
-  ['data_5fspecification_1',['data_specification',['../classaas__core_1_1aas__3__0_1_1types_1_1IEmbeddedDataSpecification.html#a12fdd36216cb243b83d11ba29add0755',1,'aas_core::aas_3_0::types::IEmbeddedDataSpecification']]],
+  ['data_5fspecification_1',['data_specification',['../classaas__core_1_1aas__3__0_1_1types_1_1IEmbeddedDataSpecification.html#a984cda1799c1d4d47e1527f1bddf8b7b',1,'aas_core::aas_3_0::types::IEmbeddedDataSpecification']]],
   ['data_5fspecification_5fcontent_2',['data_specification_content',['../classaas__core_1_1aas__3__0_1_1types_1_1IEmbeddedDataSpecification.html#ad5cf4c36dcb023344b4d92f012b89a41',1,'aas_core::aas_3_0::types::IEmbeddedDataSpecification']]],
   ['dataelementfrom_3',['DataElementFrom',['../namespaceaas__core_1_1aas__3__0_1_1jsonization.html#a6f1c14f06cff8375c6af92e98e6d5a6f',1,'aas_core::aas_3_0::jsonization::DataElementFrom()'],['../namespaceaas__core_1_1aas__3__0_1_1xmlization.html#a77f14ead0157b61de13ec05c14860ea6',1,'aas_core::aas_3_0::xmlization::DataElementFrom()']]],
   ['dataspecificationcontentfrom_4',['DataSpecificationContentFrom',['../namespaceaas__core_1_1aas__3__0_1_1jsonization.html#a68318f159de73376fc9991ca4a4b9361',1,'aas_core::aas_3_0::jsonization::DataSpecificationContentFrom()'],['../namespaceaas__core_1_1aas__3__0_1_1xmlization.html#a14fa3a7aa482ef6d67f0bf44f41d111a',1,'aas_core::aas_3_0::xmlization::DataSpecificationContentFrom()']]],

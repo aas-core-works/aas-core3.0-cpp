@@ -4727,7 +4727,10 @@ identifier" (IRDI). </p>
 <p>common::optional&lt; std::vector&lt; std::shared_ptr&lt;IConceptDescription&gt; &gt; </p><blockquote class="doxtable">
 <p>&zwj;concept_descriptions_; }; </p>
 </blockquote>
-<p>class EmbeddedDataSpecification : public <a class="el" href="classaas__core_1_1aas__3__0_1_1types_1_1IEmbeddedDataSpecification.html" title="Embed the content of a data specification.">IEmbeddedDataSpecification</a> { public: explicit EmbeddedDataSpecification( std::shared_ptr&lt;IDataSpecificationContent&gt; data_specification_content, common::optional&lt; std::shared_ptr&lt;IReference&gt; &gt; data_specification = common::nullopt );</p>
+<p>class EmbeddedDataSpecification : public <a class="el" href="classaas__core_1_1aas__3__0_1_1types_1_1IEmbeddedDataSpecification.html" title="Embed the content of a data specification.">IEmbeddedDataSpecification</a> { public: EmbeddedDataSpecification(
+    std::shared_ptr&lt;IDataSpecificationContent&gt; data_specification_content,
+    std::shared_ptr&lt;IReference&gt; data_specification
+  );</p>
 <p>ModelType model_type() const override;</p>
 <p>region Get and set data_specification_content_</p>
 <p>const std::shared_ptr&lt;IDataSpecificationContent&gt;&amp; data_specification_content() const override;</p>
@@ -4737,19 +4740,15 @@ identifier" (IRDI). </p>
   ) override;</p>
 <p>endregion</p>
 <p>region Get and set data_specification_</p>
-<p>const common::optional&lt; std::shared_ptr&lt;IReference&gt; &gt;&amp; data_specification() const override;</p>
-<p>common::optional&lt; std::shared_ptr&lt;IReference&gt; &gt;&amp; mutable_data_specification() override;</p>
+<p>const std::shared_ptr&lt;IReference&gt;&amp; data_specification() const override;</p>
+<p>std::shared_ptr&lt;IReference&gt;&amp; mutable_data_specification() override;</p>
 <p>void set_data_specification(
-    common::optional&lt;
-      std::shared_ptr&lt;IReference&gt;
-    &gt; value
+    std::shared_ptr&lt;IReference&gt; value
   ) override;</p>
 <p>endregion</p>
 <p>~EmbeddedDataSpecification() override = default;</p>
 <p>private: std::shared_ptr&lt;IDataSpecificationContent&gt; data_specification_content_;</p>
-<p>common::optional&lt; std::shared_ptr&lt;IReference&gt; </p><blockquote class="doxtable">
-<p>&zwj;data_specification_; }; </p>
-</blockquote>
+<p>std::shared_ptr&lt;IReference&gt; data_specification_; };</p>
 <p>class LevelType : public <a class="el" href="classaas__core_1_1aas__3__0_1_1types_1_1ILevelType.html" title="Value represented by up to four variants of a numeric value in a specific role: MIN,...">ILevelType</a> { public: LevelType(
     bool min,
     bool nom,
