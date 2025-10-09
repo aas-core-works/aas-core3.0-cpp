@@ -189,7 +189,7 @@ std::wstring MustReadWstringAsUtf8(
 
   try {
     return aas::common::Utf8ToWstring(buffer);
-  } catch (std::exception exception) {
+  } catch (const std::exception& exception) {
     throw std::runtime_error(
       aas::common::Concat(
         "Failed to de-code ",
