@@ -73,7 +73,6 @@ struct INode {
 
 struct StartNode : INode {
   std::string name;
-  std::string text;
 
   StartNode(
     std::string a_name,
@@ -107,7 +106,6 @@ struct TextNode : INode {
 
 struct StopNode : INode {
   std::string name;
-  std::string text;
 
   StopNode(
     std::string a_name,
