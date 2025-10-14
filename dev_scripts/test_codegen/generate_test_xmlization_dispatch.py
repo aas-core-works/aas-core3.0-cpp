@@ -123,7 +123,7 @@ TEST_CASE("Test the round-trip of an expected {interface_name}") {{
 {I}INFO(
 {II}"Original XML and the XML at the end of "
 {II}"the chain Serialize-Deserialize-Serialize for "
-{II}"a minimal instance of {concrete_interface_name} " 
+{II}"a minimal instance of {concrete_interface_name} "
 {II}"serialized as {interface_name} "
 {II}"must coincide"
 {I})
