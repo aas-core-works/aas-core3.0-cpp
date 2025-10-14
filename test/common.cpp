@@ -21,9 +21,12 @@ namespace fs = std::filesystem;
 namespace test {
 namespace common {
 
-bool DetermineRecordMode() {
-  const char* variable_name = "AAS_CORE_3_0_CPP_RECORD_MODE";
-
+static std::optional<std::string> GetEnv(const char *variable_name) {
+  // NOTE (empwilli): MSVC complains about getenv being unsafe.
+  // This should not be an issue as we don't run our tests in parallel, though,
+  // so we use getenv_s in Windows. However, this function is a Microsoft
+  // extension.
+#ifdef _WIN32
   char buffer[256];
   size_t len;
   errno_t error = getenv_s(
@@ -41,7 +44,7 @@ bool DetermineRecordMode() {
   }
 
   if (len == 0) {
-    return false;
+    return std::nullopt;
   }
 
   if (buffer[len - 1] != 0) {
@@ -55,9 +58,27 @@ bool DetermineRecordMode() {
     );
   }
 
-  // NOTE (mristin):
-  // We need to exclude the last zero byte.
-  std::string value(buffer, len - 1);
+  return std::optional { std::string(buffer, len - 1) };
+#else
+  auto value = getenv(variable_name);
+
+  if (value == nullptr) {
+    return std::nullopt;
+  }
+
+  return std::optional { std::string(value) };
+#endif
+}
+
+bool DetermineRecordMode() {
+  const char* variable_name = "AAS_CORE_3_0_CPP_RECORD_MODE";
+
+  auto result = GetEnv(variable_name);
+
+  if (!result.has_value())
+  {
+    return false;
+  }
 
   static const std::set<std::string> hot_value_set{
     "on", "ON", "On",
@@ -65,29 +86,16 @@ bool DetermineRecordMode() {
     "1",
     "yes", "Yes", "YES"
   };
-  return hot_value_set.find(value) != hot_value_set.end();
+  return hot_value_set.find(result.value()) != hot_value_set.end();
 }
 
 std::filesystem::path DetermineTestDataDir() {
   const char* variable_name = "AAS_CORE_3_0_CPP_TEST_DATA_DIR";
 
-  char buffer[1024];
-  size_t len;
-  errno_t error = getenv_s(
-    &len, buffer, sizeof(buffer), variable_name
-  );
-  if (error != 0) {
-    throw std::runtime_error(
-      aas::common::Concat(
-        "The getenv_s returned an error code ",
-        std::to_string(error),
-        " when asking for the variable ",
-        variable_name
-      )
-    );
-  }
+  auto result = GetEnv(variable_name);
 
-  if (len == 0) {
+  if (!result.has_value())
+  {
     throw std::runtime_error(
       aas::common::Concat(
         "The environment variable ",
@@ -97,17 +105,7 @@ std::filesystem::path DetermineTestDataDir() {
     );
   }
 
-  // NOTE (mristin):
-  // We need to discard the last byte which is a terminating zero.
-  if (buffer[len - 1] != 0) {
-    throw std::logic_error(
-      aas::common::Concat(
-        "Expected the buffer to end with a zero byte, but got: ",
-        std::to_string(static_cast<std::uint8_t>(buffer[len - 1]))
-      )
-    );
-  }
-  return fs::path(std::string_view(buffer, len - 1));
+  return fs::path(result.value());
 }
 
 /**
