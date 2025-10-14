@@ -73,14 +73,13 @@ struct INode {
 
 struct StartNode : INode {
   std::string name;
-  std::string text;
 
   StartNode(
     std::string a_name,
     std::string a_text
   ) :
-    name(std::move(a_name)),
-    INode(std::move(a_text)) {
+    INode(std::move(a_text)),
+    name(std::move(a_name)) {
     // Intentionally empty.
   }
 
@@ -107,14 +106,13 @@ struct TextNode : INode {
 
 struct StopNode : INode {
   std::string name;
-  std::string text;
 
   StopNode(
     std::string a_name,
     std::string a_text
   ) :
-    name(std::move(a_name)),
-    INode(std::move(a_text)) {
+    INode(std::move(a_text)),
+    name(std::move(a_name)) {
     // Intentionally empty.
   }
 
