@@ -5,6 +5,7 @@ See:
 https://packaging.python.org/en/latest/distributing.html
 https://github.com/pypa/sampleproject
 """
+
 import os
 
 from setuptools import setup, find_packages
@@ -27,8 +28,8 @@ setup(
     keywords="asset administration shell code generation industry 4.0 industrie i4.0",
     install_requires=[
         "icontract>=2.6.1,<3",
-        "aas-core-meta@git+https://github.com/aas-core-works/aas-core-meta@f9cbdb3#egg=aas-core-meta",
-        "aas-core-codegen@git+https://github.com/aas-core-works/aas-core-codegen@b14237b2#egg=aas-core-codegen",
+        "aas-core-meta@git+https://github.com/aas-core-works/aas-core-meta@899add1#egg=aas-core-meta",
+        "aas-core-codegen@git+https://github.com/aas-core-works/aas-core-codegen@4c01ed64#egg=aas-core-codegen",
     ],
     # fmt: off
     extras_require={
