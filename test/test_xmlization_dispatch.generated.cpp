@@ -69,7 +69,7 @@ TEST_CASE("Test the round-trip of an expected IHasSemantics") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of IRelationshipElement " 
+    "a minimal instance of IRelationshipElement "
     "serialized as IHasSemantics "
     "must coincide"
   )
@@ -137,7 +137,7 @@ TEST_CASE("Test the round-trip of an expected IHasExtensions") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of IRelationshipElement " 
+    "a minimal instance of IRelationshipElement "
     "serialized as IHasExtensions "
     "must coincide"
   )
@@ -205,7 +205,7 @@ TEST_CASE("Test the round-trip of an expected IReferable") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of IRelationshipElement " 
+    "a minimal instance of IRelationshipElement "
     "serialized as IReferable "
     "must coincide"
   )
@@ -273,7 +273,7 @@ TEST_CASE("Test the round-trip of an expected IIdentifiable") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of IAssetAdministrationShell " 
+    "a minimal instance of IAssetAdministrationShell "
     "serialized as IIdentifiable "
     "must coincide"
   )
@@ -341,7 +341,7 @@ TEST_CASE("Test the round-trip of an expected IHasKind") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of ISubmodel " 
+    "a minimal instance of ISubmodel "
     "serialized as IHasKind "
     "must coincide"
   )
@@ -409,7 +409,7 @@ TEST_CASE("Test the round-trip of an expected IHasDataSpecification") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of IAdministrativeInformation " 
+    "a minimal instance of IAdministrativeInformation "
     "serialized as IHasDataSpecification "
     "must coincide"
   )
@@ -477,7 +477,7 @@ TEST_CASE("Test the round-trip of an expected IQualifiable") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of IRelationshipElement " 
+    "a minimal instance of IRelationshipElement "
     "serialized as IQualifiable "
     "must coincide"
   )
@@ -545,7 +545,7 @@ TEST_CASE("Test the round-trip of an expected ISubmodelElement") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of IRelationshipElement " 
+    "a minimal instance of IRelationshipElement "
     "serialized as ISubmodelElement "
     "must coincide"
   )
@@ -613,7 +613,7 @@ TEST_CASE("Test the round-trip of an expected IRelationshipElement") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of IAnnotatedRelationshipElement " 
+    "a minimal instance of IAnnotatedRelationshipElement "
     "serialized as IRelationshipElement "
     "must coincide"
   )
@@ -681,7 +681,7 @@ TEST_CASE("Test the round-trip of an expected IDataElement") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of IBlob " 
+    "a minimal instance of IBlob "
     "serialized as IDataElement "
     "must coincide"
   )
@@ -749,7 +749,7 @@ TEST_CASE("Test the round-trip of an expected IEventElement") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of IBasicEventElement " 
+    "a minimal instance of IBasicEventElement "
     "serialized as IEventElement "
     "must coincide"
   )
@@ -817,7 +817,7 @@ TEST_CASE("Test the round-trip of an expected IAbstractLangString") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of ILangStringDefinitionTypeIec61360 " 
+    "a minimal instance of ILangStringDefinitionTypeIec61360 "
     "serialized as IAbstractLangString "
     "must coincide"
   )
@@ -885,7 +885,7 @@ TEST_CASE("Test the round-trip of an expected IDataSpecificationContent") {
   INFO(
     "Original XML and the XML at the end of "
     "the chain Serialize-Deserialize-Serialize for "
-    "a minimal instance of IDataSpecificationIec61360 " 
+    "a minimal instance of IDataSpecificationIec61360 "
     "serialized as IDataSpecificationContent "
     "must coincide"
   )

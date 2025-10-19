@@ -1,5 +1,7 @@
 AssetAdministrationShell with ID something_142922d6
 EmbeddedDataSpecification
+Reference
+Key
 DataSpecificationIec61360
 LangStringPreferredNameTypeIec61360
 LangStringPreferredNameTypeIec61360
@@ -8,6 +10,4 @@ Reference
 Key
 LangStringDefinitionTypeIec61360
 LevelType
-Reference
-Key
 AssetInformation
