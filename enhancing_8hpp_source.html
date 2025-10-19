@@ -7194,32 +7194,32 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l07104" name="l07104"></a><span class="lineno"> 7104</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="namespaceaas__core_1_1aas__3__0_1_1types.html#a11931ee032dc440db21a7b63ff7a4a0ba4bbf58463049e457c0d424ae215af404">types::ModelType::kEmbeddedDataSpecification</a>;</div>
 <div class="line"><a id="l07105" name="l07105"></a><span class="lineno"> 7105</span>  }</div>
 <div class="line"><a id="l07106" name="l07106"></a><span class="lineno"> 7106</span> </div>
-<div class="line"><a id="l07107" name="l07107"></a><span class="lineno"> 7107</span>  <span class="keyword">const</span> std::shared_ptr&lt;types::IDataSpecificationContent&gt;&amp; data_specification_content()<span class="keyword"> const override </span>{</div>
-<div class="line"><a id="l07108" name="l07108"></a><span class="lineno"> 7108</span>    <span class="keywordflow">return</span> instance_-&gt;data_specification_content();</div>
+<div class="line"><a id="l07107" name="l07107"></a><span class="lineno"> 7107</span>  <span class="keyword">const</span> std::shared_ptr&lt;types::IReference&gt;&amp; data_specification()<span class="keyword"> const override </span>{</div>
+<div class="line"><a id="l07108" name="l07108"></a><span class="lineno"> 7108</span>    <span class="keywordflow">return</span> instance_-&gt;data_specification();</div>
 <div class="line"><a id="l07109" name="l07109"></a><span class="lineno"> 7109</span>  }</div>
 <div class="line"><a id="l07110" name="l07110"></a><span class="lineno"> 7110</span> </div>
-<div class="line"><a id="l07111" name="l07111"></a><span class="lineno"> 7111</span>  std::shared_ptr&lt;types::IDataSpecificationContent&gt;&amp; mutable_data_specification_content()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l07112" name="l07112"></a><span class="lineno"> 7112</span>    <span class="keywordflow">return</span> instance_-&gt;mutable_data_specification_content();</div>
+<div class="line"><a id="l07111" name="l07111"></a><span class="lineno"> 7111</span>  std::shared_ptr&lt;types::IReference&gt;&amp; mutable_data_specification()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l07112" name="l07112"></a><span class="lineno"> 7112</span>    <span class="keywordflow">return</span> instance_-&gt;mutable_data_specification();</div>
 <div class="line"><a id="l07113" name="l07113"></a><span class="lineno"> 7113</span>  }</div>
 <div class="line"><a id="l07114" name="l07114"></a><span class="lineno"> 7114</span> </div>
-<div class="line"><a id="l07115" name="l07115"></a><span class="lineno"> 7115</span>  <span class="keywordtype">void</span> set_data_specification_content(</div>
-<div class="line"><a id="l07116" name="l07116"></a><span class="lineno"> 7116</span>    std::shared_ptr&lt;types::IDataSpecificationContent&gt; value</div>
+<div class="line"><a id="l07115" name="l07115"></a><span class="lineno"> 7115</span>  <span class="keywordtype">void</span> set_data_specification(</div>
+<div class="line"><a id="l07116" name="l07116"></a><span class="lineno"> 7116</span>    std::shared_ptr&lt;types::IReference&gt; value</div>
 <div class="line"><a id="l07117" name="l07117"></a><span class="lineno"> 7117</span>  )<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l07118" name="l07118"></a><span class="lineno"> 7118</span>    instance_-&gt;set_data_specification_content(value);</div>
+<div class="line"><a id="l07118" name="l07118"></a><span class="lineno"> 7118</span>    instance_-&gt;set_data_specification(value);</div>
 <div class="line"><a id="l07119" name="l07119"></a><span class="lineno"> 7119</span>  }</div>
 <div class="line"><a id="l07120" name="l07120"></a><span class="lineno"> 7120</span> </div>
-<div class="line"><a id="l07121" name="l07121"></a><span class="lineno"> 7121</span>  <span class="keyword">const</span> std::shared_ptr&lt;types::IReference&gt;&amp; data_specification()<span class="keyword"> const override </span>{</div>
-<div class="line"><a id="l07122" name="l07122"></a><span class="lineno"> 7122</span>    <span class="keywordflow">return</span> instance_-&gt;data_specification();</div>
+<div class="line"><a id="l07121" name="l07121"></a><span class="lineno"> 7121</span>  <span class="keyword">const</span> std::shared_ptr&lt;types::IDataSpecificationContent&gt;&amp; data_specification_content()<span class="keyword"> const override </span>{</div>
+<div class="line"><a id="l07122" name="l07122"></a><span class="lineno"> 7122</span>    <span class="keywordflow">return</span> instance_-&gt;data_specification_content();</div>
 <div class="line"><a id="l07123" name="l07123"></a><span class="lineno"> 7123</span>  }</div>
 <div class="line"><a id="l07124" name="l07124"></a><span class="lineno"> 7124</span> </div>
-<div class="line"><a id="l07125" name="l07125"></a><span class="lineno"> 7125</span>  std::shared_ptr&lt;types::IReference&gt;&amp; mutable_data_specification()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l07126" name="l07126"></a><span class="lineno"> 7126</span>    <span class="keywordflow">return</span> instance_-&gt;mutable_data_specification();</div>
+<div class="line"><a id="l07125" name="l07125"></a><span class="lineno"> 7125</span>  std::shared_ptr&lt;types::IDataSpecificationContent&gt;&amp; mutable_data_specification_content()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l07126" name="l07126"></a><span class="lineno"> 7126</span>    <span class="keywordflow">return</span> instance_-&gt;mutable_data_specification_content();</div>
 <div class="line"><a id="l07127" name="l07127"></a><span class="lineno"> 7127</span>  }</div>
 <div class="line"><a id="l07128" name="l07128"></a><span class="lineno"> 7128</span> </div>
-<div class="line"><a id="l07129" name="l07129"></a><span class="lineno"> 7129</span>  <span class="keywordtype">void</span> set_data_specification(</div>
-<div class="line"><a id="l07130" name="l07130"></a><span class="lineno"> 7130</span>    std::shared_ptr&lt;types::IReference&gt; value</div>
+<div class="line"><a id="l07129" name="l07129"></a><span class="lineno"> 7129</span>  <span class="keywordtype">void</span> set_data_specification_content(</div>
+<div class="line"><a id="l07130" name="l07130"></a><span class="lineno"> 7130</span>    std::shared_ptr&lt;types::IDataSpecificationContent&gt; value</div>
 <div class="line"><a id="l07131" name="l07131"></a><span class="lineno"> 7131</span>  )<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l07132" name="l07132"></a><span class="lineno"> 7132</span>    instance_-&gt;set_data_specification(value);</div>
+<div class="line"><a id="l07132" name="l07132"></a><span class="lineno"> 7132</span>    instance_-&gt;set_data_specification_content(value);</div>
 <div class="line"><a id="l07133" name="l07133"></a><span class="lineno"> 7133</span>  }</div>
 <div class="line"><a id="l07134" name="l07134"></a><span class="lineno"> 7134</span> </div>
 <div class="line"><a id="l07135" name="l07135"></a><span class="lineno"> 7135</span>  <span class="keyword">const</span> std::shared_ptr&lt;E&gt;&amp; enhancement()<span class="keyword"> const </span>{</div>
@@ -13335,16 +13335,16 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l13524" name="l13524"></a><span class="lineno">13524</span>  <span class="comment">// We assume that we already checked whether `that` has been enhanced</span></div>
 <div class="line"><a id="l13525" name="l13525"></a><span class="lineno">13525</span>  <span class="comment">// in the caller.</span></div>
 <div class="line"><a id="l13526" name="l13526"></a><span class="lineno">13526</span> </div>
-<div class="line"><a id="l13527" name="l13527"></a><span class="lineno">13527</span>  that-&gt;set_data_specification_content(</div>
+<div class="line"><a id="l13527" name="l13527"></a><span class="lineno">13527</span>  that-&gt;set_data_specification(</div>
 <div class="line"><a id="l13528" name="l13528"></a><span class="lineno">13528</span>    <a class="code hl_function" href="namespaceaas__core_1_1aas__3__0_1_1enhancing.html#ad011b75bc35cc7f19ca6b77c0c786a37">Wrap&lt;E&gt;</a>(</div>
-<div class="line"><a id="l13529" name="l13529"></a><span class="lineno">13529</span>      that-&gt;data_specification_content(),</div>
+<div class="line"><a id="l13529" name="l13529"></a><span class="lineno">13529</span>      that-&gt;data_specification(),</div>
 <div class="line"><a id="l13530" name="l13530"></a><span class="lineno">13530</span>      factory</div>
 <div class="line"><a id="l13531" name="l13531"></a><span class="lineno">13531</span>    )</div>
 <div class="line"><a id="l13532" name="l13532"></a><span class="lineno">13532</span>  );</div>
 <div class="line"><a id="l13533" name="l13533"></a><span class="lineno">13533</span> </div>
-<div class="line"><a id="l13534" name="l13534"></a><span class="lineno">13534</span>  that-&gt;set_data_specification(</div>
+<div class="line"><a id="l13534" name="l13534"></a><span class="lineno">13534</span>  that-&gt;set_data_specification_content(</div>
 <div class="line"><a id="l13535" name="l13535"></a><span class="lineno">13535</span>    <a class="code hl_function" href="namespaceaas__core_1_1aas__3__0_1_1enhancing.html#ad011b75bc35cc7f19ca6b77c0c786a37">Wrap&lt;E&gt;</a>(</div>
-<div class="line"><a id="l13536" name="l13536"></a><span class="lineno">13536</span>      that-&gt;data_specification(),</div>
+<div class="line"><a id="l13536" name="l13536"></a><span class="lineno">13536</span>      that-&gt;data_specification_content(),</div>
 <div class="line"><a id="l13537" name="l13537"></a><span class="lineno">13537</span>      factory</div>
 <div class="line"><a id="l13538" name="l13538"></a><span class="lineno">13538</span>    )</div>
 <div class="line"><a id="l13539" name="l13539"></a><span class="lineno">13539</span>  );</div>

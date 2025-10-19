@@ -339,6 +339,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac0659c86c152cc299e5e1ff4fc752a83" id="r_ac0659c86c152cc299e5e1ff4fc752a83"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0659c86c152cc299e5e1ff4fc752a83">IsBcp47ForEnglish</a> (const std::wstring &amp;text)</td></tr>
 <tr class="memdesc:ac0659c86c152cc299e5e1ff4fc752a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that the <code class="param">text</code> corresponds to a BCP47 code for english.  <br /></td></tr>
 <tr class="separator:ac0659c86c152cc299e5e1ff4fc752a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bfb95a181c31ad483facfe5d31a0671" id="r_a7bfb95a181c31ad483facfe5d31a0671"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classaas__core_1_1aas__3__0_1_1verification_1_1IVerification.html">IVerification</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bfb95a181c31ad483facfe5d31a0671">VerifyXmlSerializableString</a> (const std::wstring &amp;that)</td></tr>
+<tr class="memdesc:a7bfb95a181c31ad483facfe5d31a0671"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that the invariants hold for <code class="param">that</code> value.  <br /></td></tr>
+<tr class="separator:a7bfb95a181c31ad483facfe5d31a0671"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8854bef4694e94ffadcee6b0acfeaa10" id="r_a8854bef4694e94ffadcee6b0acfeaa10"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classaas__core_1_1aas__3__0_1_1verification_1_1IVerification.html">IVerification</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8854bef4694e94ffadcee6b0acfeaa10">VerifyNonEmptyXmlSerializableString</a> (const std::wstring &amp;that)</td></tr>
 <tr class="memdesc:a8854bef4694e94ffadcee6b0acfeaa10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that the invariants hold for <code class="param">that</code> value.  <br /></td></tr>
 <tr class="separator:a8854bef4694e94ffadcee6b0acfeaa10"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2381,6 +2384,33 @@ template&lt;typename LangStringT, typename std::enable_if&lt; std::is_base_of&lt
       <table class="memname">
         <tr>
           <td class="memname">std::unique_ptr&lt; <a class="el" href="classaas__core_1_1aas__3__0_1_1verification_1_1IVerification.html">IVerification</a> &gt; aas_core::aas_3_0::verification::VerifyVersionType </td>
+          <td>(</td>
+          <td class="paramtype">const std::wstring &amp;</td>          <td class="paramname"><span class="paramname"><em>that</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verify that the invariants hold for <code class="param">that</code> value. </p>
+<p>The <code class="param">that</code> value should outlive the verification.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">that</td><td>value to be verified </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Iterable over constraint violations </dd></dl>
+
+</div>
+</div>
+<a id="a7bfb95a181c31ad483facfe5d31a0671" name="a7bfb95a181c31ad483facfe5d31a0671"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bfb95a181c31ad483facfe5d31a0671">&#9670;&#160;</a></span>VerifyXmlSerializableString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="classaas__core_1_1aas__3__0_1_1verification_1_1IVerification.html">IVerification</a> &gt; aas_core::aas_3_0::verification::VerifyXmlSerializableString </td>
           <td>(</td>
           <td class="paramtype">const std::wstring &amp;</td>          <td class="paramname"><span class="paramname"><em>that</em></span></td><td>)</td>
           <td></td>
