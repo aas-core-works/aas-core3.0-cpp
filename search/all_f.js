@@ -11,5 +11,5 @@ var searchData=
   ['last_5fupdate_8',['last_update',['../classaas__core_1_1aas__3__0_1_1types_1_1IBasicEventElement.html#a315d64d95494c8869d29a6e80a7ee9a2',1,'aas_core::aas_3_0::types::IBasicEventElement']]],
   ['leveltypefrom_9',['LevelTypeFrom',['../namespaceaas__core_1_1aas__3__0_1_1jsonization.html#ab2914a6dd088f71eb51777e7e9caabb8',1,'aas_core::aas_3_0::jsonization::LevelTypeFrom()'],['../namespaceaas__core_1_1aas__3__0_1_1xmlization.html#a8d7c505ef81c1172e19ee7129bb1118f',1,'aas_core::aas_3_0::xmlization::LevelTypeFrom()']]],
   ['library_10',['Common functionality used throughout the library',['../group__common.html',1,'']]],
-  ['lists_20instead_20of_20maps_11',['Aggregations as Lists instead of Maps',['../md_doc_2design-decisions.html#autotoc_md13',1,'']]]
+  ['lists_20instead_20of_20maps_11',['Aggregations as Lists instead of Maps',['../md_doc_2design-decisions.html#autotoc_md14',1,'']]]
 ];

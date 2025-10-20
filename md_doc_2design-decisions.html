@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">aas-core3<span id="projectnumber">&#160;0.0.1-alpha.2</span>
+   <div id="projectname">aas-core3<span id="projectnumber">&#160;1.0.0</span>
    </div>
    <div id="projectbrief">Manipulate, verify and de/serialize asset administration shells in C++.</div>
   </td>
@@ -88,10 +88,10 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">Design Decisions</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md12"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md13"></a></p>
 <p>We explain a couple of design decisions and trade-offs we deliberately made during the development of the SDK. These are our opinions — you may or may not agree, which is totally OK as there are always more than one way to do things and do them well.</p>
 <p>However, the decisions elaborated here are not meant to convince you. We want to give you insight about why we did certain things, and why we didn't implement them in some other way.</p>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md14"></a>
 Aggregations as Lists instead of Maps</h1>
 <p>We decided to implement all the aggregations in the meta-model as <a href="https://en.cppreference.com/w/cpp/container/vector">std::vector</a> instead of <a href="https://en.cppreference.com/w/cpp/container/map">std::map</a>.</p>
 <p>Some structures just "scream" for a dictionary, such as submodel elements property in a <a class="el" href="classaas__core_1_1aas__3__0_1_1types_1_1ISubmodel.html">aas_core::aas_3_0::types::ISubmodel</a>. The submodel elements need to be unique w.r.t. their ID-shorts. So why didn't we model them as dictionaries, where keys are ID-shorts?</p>
@@ -104,22 +104,22 @@ Aggregations as Lists instead of Maps</h1>
 <li>Generating code based on dictionaries would have incurred additional complexity in <a href="https://github.com/aas-core-works/aas-core-meta/">aas-core-meta</a> and <a href="https://github.com/aas-core-works/aas-core-codegen/">aas-core-codegen</a> as we would need to capture indexing in our machine-readable meta-models.</li>
 </ul>
 <p>We therefore leave indexing (and syncing of the indices) to the user instead of pre-maturely providing a basic index on one of the features.</p>
-<h1><a class="anchor" id="autotoc_md14"></a>
+<h1><a class="anchor" id="autotoc_md15"></a>
 References as <code>std::shared_ptr</code></h1>
 <p>We model all the references in the model as <a href="https://en.cppreference.com/w/cpp/memory/shared_ptr">std::shared_ptr</a>.</p>
 <p>We are aware that shared pointers are not optimal in terms of efficiency. Unique pointers, for example, might have been better in that regard. However, we still opted for shared pointers for their simplicity.</p>
 <p>They make one use case particularly easy to implement. Namely, filtering of different lists across many different environments. Without shared pointers, you would always have to keep track <em>which</em> environments you need to keep, and which you may discard.</p>
 <p>An added benefit of <a href="https://en.cppreference.com/w/cpp/memory/shared_ptr">std::shared_ptr</a> is that the SDK can be directly integrated in <a href="https://www.mathworks.com/help/matlab/matlab_external/limitations-to-cpp-support-in-matlab-cpp-library-interface.html">Matlab</a>, a platform widely used for industry simulations and computations.</p>
-<h1><a class="anchor" id="autotoc_md15"></a>
+<h1><a class="anchor" id="autotoc_md16"></a>
 Avoid Templates</h1>
 <p>We tried to avoid usage of C++ templates as much as possible. They make the error messages completely unreadable for less experienced programmers, and often so even for the experienced ones. We tried to generate as much code as possible, so that the compile error messages remain clear.</p>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="autotoc_md17"></a>
 Code Style</h1>
 <p>We were guided by Google style guide, but did not adhere to it religiously. For example, mutable instances are often passed as references instead of pointers.</p>
 <p>However, we tried to make the public interfaces as consistent as possible.</p>
 <p>The structure of the project tries to follow <a href="https://github.com/vector-of-bool/pitchfork">the pitchfork layout</a>.</p>
 <p>We use include guards instead of <code>#pragma</code> since <a href="https://stackoverflow.com/a/34884735/1600678">pragmas seem unreliable</a>.</p>
-<h1><a class="anchor" id="autotoc_md17"></a>
+<h1><a class="anchor" id="autotoc_md18"></a>
 No Parent ⟷ Child Associations</h1>
 <p>We did not model the parent ⟷ child relations between the model elements for similar reasons why we did not implement dictionaries. Namely, keeping the associations in sync is hard. While you might have clear parent ⟷ child relationship when you deserialize an environment, this relationship becomes less clear when you start re-using objects between environments.</p>
 <p>Moreover, you need to sync the parent when an instance associated as its child is deleted. The complexity of this sync becomes hard (and computationally costly) as your object tree grows. What if you re-assign the instance to multiple parents?</p>
@@ -127,28 +127,28 @@ No Parent ⟷ Child Associations</h1>
 <p>Multiple solutions are possible, and they depend on the application domain. In some cases, where you deal with static data, a simple dictionary parent 🠒 child is sufficient. In other cases, more involved data structures and updating strategies are needed.</p>
 <p>As we did not want to prejudice the SDK for a particular application domain, we left out parent ⟷ child associations.</p>
 <p>We indeed discussed a couple of concrete solutions, but failed to find a unifying approach which would satisfy multiple scenarios.</p>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md19"></a>
 Values as Strings</h1>
 <p>As you can see, say, in <a class="el" href="classaas__core_1_1aas__3__0_1_1types_1_1IProperty.html">aas_core::aas_3_0::types::IProperty</a> class, the <code>value</code> property holds strings. This is indeed intentional though it might seem a bit outlandish.</p>
 <p>You have to bear in mind that the lexical space of <a href="https://www.w3.org/TR/xmlschema-2/">XML basic data types</a>, which we use to encode values in such properties, is large, and larger than C++ primitive types.</p>
 <p>For example, <code>xs:double</code>'s can have an arbitrary prefix of zeros (<code>001234</code> is a valid <code>xs:double</code>).</p>
 <p>For another example, <code>xs:decimal</code> allows for an arbitrary size and precision. In C++, double is probably our best bet, but it has a fixed precision. It might well be that our application domain requires more precision than 64-bit!</p>
 <p>Writing code for a setting where various systems interoperate with mixed application domains is difficult. We wanted to stick to the specification, which mandates <a href="https://www.w3.org/TR/xmlschema-2/">XML basic data types</a>, and thus leave the parsing of values up to the users. Thus, we do not restrict the domain where our SDK can be used. The users will know the best what precision and form they need.</p>
-<h1><a class="anchor" id="autotoc_md19"></a>
+<h1><a class="anchor" id="autotoc_md20"></a>
 No AAS Registry</h1>
 <p>An AAS Registry is considered an external dependency, since it requires network requests. We left it out-of-scope on purpose as this SDK focuses on the data exchange. Further aas-core projects will work on an AAS registry.</p>
 <p>One important consequence of leaving out the registry is that some constraints in the meta-model can not be enforced, as we do not know how to resolve the references.</p>
 <p>The full list of omitted constraints is available in <a href="https://github.com/aas-core-works/aas-core-meta/blob/931b355682c4a7b84a2fb94932cf09bcf7ce9a1f/aas_core_meta/v3rc2.py#L4">the code of aas-core-meta</a>.</p>
-<h1><a class="anchor" id="autotoc_md20"></a>
+<h1><a class="anchor" id="autotoc_md21"></a>
 Build Your Own Abstraction on Top</h1>
 <p>We intentionally kept the API surface of the SDK minimal. The idea was to give you basic building blocks which you can use to construct more complex structures.</p>
-<h1><a class="anchor" id="autotoc_md21"></a>
+<h1><a class="anchor" id="autotoc_md22"></a>
 Maintainability <em>versus</em> Performance</h1>
 <p>We chose to sacrifice the performance for maintainability of the code. In particular, we decided to generate the code automatically using <a href="https://github.com/aas-core-works/aas-core-codegen/">aas-core-codegen</a>.</p>
 <p>This imposed certain suboptimal spots in the code. For example, the constraints are automatically transpiled. A lot of constraints could have been optimized, but we are stuck with their representation in Python and the way they are translated into C++.</p>
 <p>We believe that this is a valid trade-off at the moment. At the moment, the meta-model changes too frequently to manually come up with the changes in an SDK without sacrificing the correctness.</p>
 <p>As more critical applications and domains in the AAS space arise, and the meta-model becomes more stable, hand optimization of certain parts of our SDK will probably make more sense.</p>
-<h1><a class="anchor" id="autotoc_md22"></a>
+<h1><a class="anchor" id="autotoc_md23"></a>
 Why C++11?</h1>
 <p>The code relies only on C++11 features. This allows us to accommodate the very variate compilation settings in industrial informatics. Such is the case, for example, of compilation for embedded hardware. </p>
 </div></div><!-- contents -->
