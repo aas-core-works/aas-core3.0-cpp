@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 """Run pre-commit checks on the repository."""
+
 import argparse
 import enum
 import os
@@ -103,9 +104,8 @@ def main() -> int:
     if Step.REFORMAT in selects and Step.REFORMAT not in skips:
         print("Re-formatting...")
         reformat_targets = [
-            "test_codegen",
             "continuous_integration_of_dev_scripts",
-            "update_to_aas_core_meta_codegen_and_testgen.py",
+            "update_to_aas_core_meta_codegen.py",
         ]
         if overwrite:
             exit_code = call_and_report(
@@ -129,9 +129,8 @@ def main() -> int:
     if Step.MYPY in selects and Step.MYPY not in skips:
         print("Mypy'ing...")
         mypy_targets = [
-            "test_codegen",
             "continuous_integration_of_dev_scripts",
-            "update_to_aas_core_meta_codegen_and_testgen.py",
+            "update_to_aas_core_meta_codegen.py",
         ]
         config_file = pathlib.Path("continuous_integration_of_dev_scripts") / "mypy.ini"
 
@@ -148,9 +147,8 @@ def main() -> int:
     if Step.PYLINT in selects and Step.PYLINT not in skips:
         print("Pylint'ing...")
         pylint_targets = [
-            "test_codegen",
             "continuous_integration_of_dev_scripts",
-            "update_to_aas_core_meta_codegen_and_testgen.py",
+            "update_to_aas_core_meta_codegen.py",
         ]
         rcfile = pathlib.Path("continuous_integration_of_dev_scripts") / "pylint.rc"
 
@@ -168,7 +166,6 @@ def main() -> int:
         print("Doctest'ing...")
 
         for module_name in [
-            "test_codegen",
             "continuous_integration_of_dev_scripts",
         ]:
             for pth in (src_root / module_name).glob("**/*.py"):
