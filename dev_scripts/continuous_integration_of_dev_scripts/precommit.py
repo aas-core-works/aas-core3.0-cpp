@@ -105,7 +105,6 @@ def main() -> int:
         reformat_targets = [
             "test_codegen",
             "continuous_integration_of_dev_scripts",
-            "setup.py",
             "update_to_aas_core_meta_codegen_and_testgen.py",
         ]
         if overwrite:
