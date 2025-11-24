@@ -27,6 +27,7 @@ dev = [
     "black==25.9.0",
     "mypy==1.18.2",
     "pylint==3.3.8",
+    "types-requests>=2.32.4",
 ]
 
 [tool.setuptools.packages.find]
