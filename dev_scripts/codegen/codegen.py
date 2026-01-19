@@ -10,7 +10,7 @@ import sys
 def _generate_sdk(
     meta_model_path: pathlib.Path,
     snippet_path: pathlib.Path,
-    sdk_path: pathlib.Path,
+    target_path: pathlib.Path,
 ) -> None:
     subprocess.run(
         [
@@ -20,7 +20,7 @@ def _generate_sdk(
             "--snippets_dir",
             str(snippet_path),
             "--output_dir",
-            str(sdk_path / "src"),
+            target_path,
             "--target",
             "cpp",
         ],
@@ -39,7 +39,7 @@ def main() -> int:
 
     snippet_dir = this_dir / "snippets"
 
-    _generate_sdk(args.meta_model, snippet_dir, this_dir.parent.parent)
+    _generate_sdk(args.meta_model, snippet_dir, args.target)
 
     return 0
 
