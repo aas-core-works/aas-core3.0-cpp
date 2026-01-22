@@ -57,29 +57,45 @@ def _regenerate_code(our_repo: pathlib.Path) -> Optional[int]:
 
     meta_model_path = our_repo / "dev_scripts/codegen/meta_model.py"
 
-    target_dir = our_repo
-
     print("Starting to run codegen script")
-    start = time.perf_counter()
 
-    proc = subprocess.run(
-        [
-            sys.executable,
-            "codegen.py",
-            "--meta_model",
-            str(meta_model_path),
-            "--target",
-            str(target_dir),
-        ],
-        check=True,
-        cwd=str(codegen_dir),
-    )
+    with tempfile.TemporaryDirectory() as generate_dir_path:
+        start = time.perf_counter()
 
-    if proc.returncode != 0:
-        return proc.returncode
+        generate_dir = pathlib.Path(generate_dir_path)
 
-    duration = time.perf_counter() - start
-    print(f"Generating the code took: {duration:.2f} seconds.")
+        proc = subprocess.run(
+            [
+                sys.executable,
+                "codegen.py",
+                "--meta_model",
+                str(meta_model_path),
+                "--target",
+                str(generate_dir),
+            ],
+            check=True,
+            cwd=str(codegen_dir),
+        )
+
+        if proc.returncode != 0:
+            return proc.returncode
+
+        duration = time.perf_counter() - start
+        print(f"Generating the code took: {duration:.2f} seconds.")
+
+        for pth in generate_dir.glob("**/*.cpp"):
+            target_dir = our_repo / "src"
+            tgt_pth = target_dir / pth.relative_to(generate_dir)
+
+            print(f"Copying the code: from {pth} to {tgt_pth} ...")
+            shutil.copy(pth, tgt_pth)
+
+        for pth in generate_dir.glob("**/*.hpp"):
+            target_dir = our_repo / "include/aas_core/aas_3_0"
+            tgt_pth = target_dir / pth.relative_to(generate_dir)
+
+            print(f"Copying the code: from {pth} to {tgt_pth} ...")
+            shutil.copy(pth, tgt_pth)
 
     return None
 
