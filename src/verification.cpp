@@ -652,11 +652,11 @@ bool MatchesMimeType(
   );
 }
 
-bool MatchesRfc8089Path(
+bool MatchesRfc2396(
   const std::wstring& text
 ) {
   return revm::Match(
-    pattern::kMatchesRfc8089PathProgram,
+    pattern::kMatchesRfc2396Program,
     text
   );
 }
@@ -5628,12 +5628,33 @@ void OfPathType::Execute() {
       }
 
       case 3: {
+        if (
+          MatchesRfc2396(
+            (*value_)
+          )
+        ) {
+          state_ = 4;
+          continue;
+        }
+
+        error_ = common::make_unique<Error>(
+          L"String with max 2048 and min 1 characters conformant to "
+          L"a URI as per RFC 2396."
+        );
+        // No path is prepended as the error refers to the value itself.
+        ++index_;
+
+        state_ = 4;
+        return;
+      }
+
+      case 4: {
         done_ = true;
         error_ = nullptr;
         index_ = -1;
 
         // We invalidate the state since we reached the end of the routine.
-        state_ = 4;
+        state_ = 5;
         return;
       }
 
@@ -19514,7 +19535,8 @@ void OfOperation::Execute() {
 
         error_ = common::make_unique<Error>(
           L"Constraint AASd-134: For an Operation the ID-short of all "
-          L"values of input, output and in/output variables."
+          L"values of input, output and in/output variables shall be "
+          L"unique."
         );
         // No path is prepended as the error refers to the instance itself.
         ++index_;

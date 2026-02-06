@@ -264,11 +264,15 @@ bool MatchesMimeType(
   const std::wstring& text
 );
 
-/// \brief Check that \p text is a path conforming to the pattern of RFC 8089.
+/// \brief Check that \p text matches to the URI pattern defined in RFC 2396
 ///
 /// The definition has been taken from:
-/// https://datatracker.ietf.org/doc/html/rfc8089
-bool MatchesRfc8089Path(
+/// https://datatracker.ietf.org/doc/html/rfc2396
+///
+/// Note that RFX 2396 alone is not enough for specifying `xs:anyURI` for
+/// XSD version 1.0, as that specifies URI together with the amendment of
+/// RFC 2732.
+bool MatchesRfc2396(
   const std::wstring& text
 );
 
