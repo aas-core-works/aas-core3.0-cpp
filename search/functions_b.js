@@ -6,7 +6,7 @@ var searchData=
   ['matchesidshort_3',['MatchesIdShort',['../namespaceaas__core_1_1aas__3__0_1_1verification.html#a4f5c2a0d76869982c0cc27de63f4ce4d',1,'aas_core::aas_3_0::verification']]],
   ['matchesmimetype_4',['MatchesMimeType',['../namespaceaas__core_1_1aas__3__0_1_1verification.html#aa7747867b5c9024195ee494d4f15498b',1,'aas_core::aas_3_0::verification']]],
   ['matchesrevisiontype_5',['MatchesRevisionType',['../namespaceaas__core_1_1aas__3__0_1_1verification.html#a2b4f19a12acee2e3f2c87c862fc4e9b9',1,'aas_core::aas_3_0::verification']]],
-  ['matchesrfc8089path_6',['MatchesRfc8089Path',['../namespaceaas__core_1_1aas__3__0_1_1verification.html#a9aec9aa8879b9bb5f5b68c05291fea58',1,'aas_core::aas_3_0::verification']]],
+  ['matchesrfc2396_6',['MatchesRfc2396',['../namespaceaas__core_1_1aas__3__0_1_1verification.html#aa8e9d5250a4328dccf45b181b73e0e85',1,'aas_core::aas_3_0::verification']]],
   ['matchesversiontype_7',['MatchesVersionType',['../namespaceaas__core_1_1aas__3__0_1_1verification.html#a76b1f695fd45d1ea8941ac00840889f5',1,'aas_core::aas_3_0::verification']]],
   ['matchesxmlserializablestring_8',['MatchesXmlSerializableString',['../namespaceaas__core_1_1aas__3__0_1_1verification.html#ac7c36aa26471441719cd98d432b23300',1,'aas_core::aas_3_0::verification']]],
   ['matchesxsanyuri_9',['MatchesXsAnyUri',['../namespaceaas__core_1_1aas__3__0_1_1verification.html#a8b95fc97da17cbb8bfdace7dcadb3c04',1,'aas_core::aas_3_0::verification']]],

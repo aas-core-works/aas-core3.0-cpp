@@ -114,7 +114,7 @@ var searchData=
   ['kmatchesidshortprogram_111',['kMatchesIdShortProgram',['../namespaceaas__core_1_1aas__3__0_1_1pattern.html#a464f78d60c1ade7fd3c6340cb2f29256',1,'aas_core::aas_3_0::pattern']]],
   ['kmatchesmimetypeprogram_112',['kMatchesMimeTypeProgram',['../namespaceaas__core_1_1aas__3__0_1_1pattern.html#a7c2c7932ee8fe487fc5d87145f43d109',1,'aas_core::aas_3_0::pattern']]],
   ['kmatchesrevisiontypeprogram_113',['kMatchesRevisionTypeProgram',['../namespaceaas__core_1_1aas__3__0_1_1pattern.html#abaef8f2f3350ab70a24b014cefb1042d',1,'aas_core::aas_3_0::pattern']]],
-  ['kmatchesrfc8089pathprogram_114',['kMatchesRfc8089PathProgram',['../namespaceaas__core_1_1aas__3__0_1_1pattern.html#a873f7a7358be76daceefa6be602f14b2',1,'aas_core::aas_3_0::pattern']]],
+  ['kmatchesrfc2396program_114',['kMatchesRfc2396Program',['../namespaceaas__core_1_1aas__3__0_1_1pattern.html#a25b41be8aaf8657a7fdf83e6a7762a91',1,'aas_core::aas_3_0::pattern']]],
   ['kmatchesversiontypeprogram_115',['kMatchesVersionTypeProgram',['../namespaceaas__core_1_1aas__3__0_1_1pattern.html#a49ab5b87aa33b2bcf9729c7d81f6f63b',1,'aas_core::aas_3_0::pattern']]],
   ['kmatchesxmlserializablestringprogram_116',['kMatchesXmlSerializableStringProgram',['../namespaceaas__core_1_1aas__3__0_1_1pattern.html#af481c46cbaa9c1269edafb9c62927b85',1,'aas_core::aas_3_0::pattern']]],
   ['kmatchesxsanyuriprogram_117',['kMatchesXsAnyUriProgram',['../namespaceaas__core_1_1aas__3__0_1_1pattern.html#a43254539b046e6b3f378f471a35422d7',1,'aas_core::aas_3_0::pattern']]],

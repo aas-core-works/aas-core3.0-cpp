@@ -142,9 +142,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aa7747867b5c9024195ee494d4f15498b" id="r_aa7747867b5c9024195ee494d4f15498b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7747867b5c9024195ee494d4f15498b">MatchesMimeType</a> (const std::wstring &amp;text)</td></tr>
 <tr class="memdesc:aa7747867b5c9024195ee494d4f15498b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that <code class="param">text</code> conforms to the pattern of MIME type.  <br /></td></tr>
 <tr class="separator:aa7747867b5c9024195ee494d4f15498b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aec9aa8879b9bb5f5b68c05291fea58" id="r_a9aec9aa8879b9bb5f5b68c05291fea58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9aec9aa8879b9bb5f5b68c05291fea58">MatchesRfc8089Path</a> (const std::wstring &amp;text)</td></tr>
-<tr class="memdesc:a9aec9aa8879b9bb5f5b68c05291fea58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that <code class="param">text</code> is a path conforming to the pattern of RFC 8089.  <br /></td></tr>
-<tr class="separator:a9aec9aa8879b9bb5f5b68c05291fea58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8e9d5250a4328dccf45b181b73e0e85" id="r_aa8e9d5250a4328dccf45b181b73e0e85"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8e9d5250a4328dccf45b181b73e0e85">MatchesRfc2396</a> (const std::wstring &amp;text)</td></tr>
+<tr class="memdesc:aa8e9d5250a4328dccf45b181b73e0e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that <code class="param">text</code> matches to the URI pattern defined in RFC 2396.  <br /></td></tr>
+<tr class="separator:aa8e9d5250a4328dccf45b181b73e0e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0d9bac4fc03ab448a808851fe026778" id="r_ae0d9bac4fc03ab448a808851fe026778"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0d9bac4fc03ab448a808851fe026778">MatchesBcp47</a> (const std::wstring &amp;text)</td></tr>
 <tr class="memdesc:ae0d9bac4fc03ab448a808851fe026778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check that <code class="param">text</code> is a valid BCP 47 language tag.  <br /></td></tr>
 <tr class="separator:ae0d9bac4fc03ab448a808851fe026778"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1092,14 +1092,14 @@ template&lt;typename LangStringT, typename std::enable_if&lt; std::is_base_of&lt
 
 </div>
 </div>
-<a id="a9aec9aa8879b9bb5f5b68c05291fea58" name="a9aec9aa8879b9bb5f5b68c05291fea58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9aec9aa8879b9bb5f5b68c05291fea58">&#9670;&#160;</a></span>MatchesRfc8089Path()</h2>
+<a id="aa8e9d5250a4328dccf45b181b73e0e85" name="aa8e9d5250a4328dccf45b181b73e0e85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8e9d5250a4328dccf45b181b73e0e85">&#9670;&#160;</a></span>MatchesRfc2396()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool aas_core::aas_3_0::verification::MatchesRfc8089Path </td>
+          <td class="memname">bool aas_core::aas_3_0::verification::MatchesRfc2396 </td>
           <td>(</td>
           <td class="paramtype">const std::wstring &amp;</td>          <td class="paramname"><span class="paramname"><em>text</em></span></td><td>)</td>
           <td></td>
@@ -1107,8 +1107,9 @@ template&lt;typename LangStringT, typename std::enable_if&lt; std::is_base_of&lt
       </table>
 </div><div class="memdoc">
 
-<p>Check that <code class="param">text</code> is a path conforming to the pattern of RFC 8089. </p>
-<p>The definition has been taken from: <a href="https://datatracker.ietf.org/doc/html/rfc8089">https://datatracker.ietf.org/doc/html/rfc8089</a> </p>
+<p>Check that <code class="param">text</code> matches to the URI pattern defined in RFC 2396. </p>
+<p>The definition has been taken from: <a href="https://datatracker.ietf.org/doc/html/rfc2396">https://datatracker.ietf.org/doc/html/rfc2396</a></p>
+<p>Note that RFX 2396 alone is not enough for specifying <code>xs:anyURI</code> for XSD version 1.0, as that specifies URI together with the amendment of RFC 2732. </p>
 
 </div>
 </div>
