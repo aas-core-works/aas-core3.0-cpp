@@ -1,6 +1,6 @@
 {
   "name": "aas-core3-0-cpp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/aas-core-works/aas-core3.0-cpp",
   "description": "Manipulate, verify and de/serialize asset administration shells in C++.",
   "license": "MIT",
