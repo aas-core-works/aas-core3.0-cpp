@@ -46,7 +46,7 @@ extern const std::vector<
 
 extern const std::vector<
   std::unique_ptr<revm::Instruction>
-> kMatchesRfc8089PathProgram;
+> kMatchesRfc2396Program;
 
 extern const std::vector<
   std::unique_ptr<revm::Instruction>
